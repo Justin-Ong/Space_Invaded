@@ -5,7 +5,7 @@ using UnityEngine;
 public class DefencePointBehaviour : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         References.defencePointObject = gameObject;
     }

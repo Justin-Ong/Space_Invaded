@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnerBehaviour : MonoBehaviour
 {
-    public GameObject waypointObject;
+    public GameObject defencePoint;
     public float spawnTimer;
 
     private float currTimer;
@@ -13,10 +13,13 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        waypoints = gameObject.GetComponent<Pathfinding>().FindPath(transform.position, defencePoint.transform.position);
+        /*
         foreach (Transform child in waypointObject.transform)
         {
             waypoints.Add(child.position);
         }
+        */
     }
 
     // Update is called once per frame
@@ -25,9 +28,6 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         currTimer += Time.deltaTime;
         if (currTimer > spawnTimer)
         {
-            Debug.Log(References.enemyTypes);
-            Debug.Log(References.numEnemyTypes);
-            Debug.Log(Random.Range(0, References.numEnemyTypes));
             GameObject newEnemy = Instantiate(References.enemyTypes[Random.Range(0, References.numEnemyTypes)], transform.position, transform.rotation);
             EnemyBehaviour newEnemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
             HealthSystem newEnemyHealthSystem = newEnemy.GetComponent<HealthSystem>();

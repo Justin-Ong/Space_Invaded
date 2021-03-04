@@ -13,6 +13,8 @@ public class Grid
     private float cellSize;
     private Vector3 originPosition;
     private int[,,] gridArray;
+    private Vector3[,,] parentArray;
+    private Vector3Int[,,] costArray;
     private TextMesh[,,] debugTextArray;
 
     public Grid(int length, int width, int height, float cellSize, Vector3 originPosition)
@@ -25,17 +27,21 @@ public class Grid
 
         gridArray = new int[length, width, height];
         debugTextArray = new TextMesh[length, width, height];
+        parentArray = new Vector3[length, width, height];
+        costArray = new Vector3Int[length, width, height];
 
         for (int x = 0; x < gridArray.GetLength(0); x++)
         {
             for (int y = 0; y < gridArray.GetLength(1); y++)
             {
-                for(int z = 0; z < gridArray.GetLength(2); z++)
+                for (int z = 0; z < gridArray.GetLength(2); z++)
                 {
                     debugTextArray[x, y, z] = CreateWorldText(null, gridArray[x, y, z].ToString(), GetWorldPosition(x, y, z) + new Vector3(cellSize, cellSize, cellSize) * .5f, 20, Color.white, TextAnchor.MiddleCenter, TextAlignment.Center);
                     Debug.DrawLine(GetWorldPosition(x, y, z), GetWorldPosition(x, y + 1, z), Color.white, 100f);
                     Debug.DrawLine(GetWorldPosition(x, y, z), GetWorldPosition(x + 1, y, z), Color.white, 100f);
                     Debug.DrawLine(GetWorldPosition(x, y, z), GetWorldPosition(x, y, z + 1), Color.white, 100f);
+                    parentArray[x, y, z] = new Vector3(0, 0, 0);
+                    costArray[x, y, z] = new Vector3Int(0, 0, 0);
                 }
             }
         }
@@ -81,7 +87,7 @@ public class Grid
 
     public int GetValue(int x, int y, int z)
     {
-        if (x >= 0 && y >= 0 && z >=0 && x < length && y < width && z < height)
+        if (x >= 0 && y >= 0 && z >= 0 && x < length && y < width && z < height)
         {
             return gridArray[x, y, z];
         }
@@ -117,5 +123,56 @@ public class Grid
         textMesh.fontSize = fontSize;
         textMesh.color = color;
         return textMesh;
+    }
+
+    public void SetParent(Vector3 cell, Vector3 parent)
+    {
+        parentArray[(int)cell.x, (int)cell.y, (int)cell.z] = parent;
+    }
+
+    public Vector3 GetParent(Vector3 cell)
+    {
+        return parentArray[(int)cell.x, (int)cell.y, (int)cell.z];
+    }
+
+    public int GetLength() {
+        return length;
+    }
+    
+    public int GetHeight() {
+        return height;
+    }
+    
+    public int GetWidth() {
+        return width;
+    }
+
+    public float GetCellSize()
+    {
+        return cellSize;
+    }
+
+    public int GetFCost(Vector3 cell)
+    {
+        return GetGCost(cell) + GetHCost(cell);
+    }
+    
+    public int GetGCost(Vector3 cell)
+    {
+        return costArray[(int)cell.x, (int)cell.y, (int)cell.z].y;
+    }
+    
+    public int GetHCost(Vector3 cell)
+    {
+        return costArray[(int)cell.x, (int)cell.y, (int)cell.z].z;
+    }
+
+    public void SetGCost(Vector3 cell, int value)
+    {
+        costArray[(int)cell.x, (int)cell.y, (int)cell.z].y = value;
+    }
+    public void SetHCost(Vector3 cell, int value)
+    {
+        costArray[(int)cell.x, (int)cell.y, (int)cell.z].z = value;
     }
 }
