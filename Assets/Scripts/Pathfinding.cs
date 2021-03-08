@@ -113,6 +113,9 @@ public class Pathfinding : MonoBehaviour
                         {
                             continue;
                         }
+                        if (closedSet.Contains(neighbour)) {
+                            continue;
+                        }
 
                         int newMovementCostToNeighbour = grid.GetGCost(currentNode) + GetDistance(currentNode, neighbour);
                         if (newMovementCostToNeighbour < grid.GetGCost(neighbour) || !openSet.Contains(neighbour))
