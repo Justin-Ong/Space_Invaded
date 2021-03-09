@@ -11,6 +11,9 @@ public class References : MonoBehaviour
     // Defence Point stuff
     public static GameObject defencePointObject;
 
+    // Pathfinding Stuff
+    public static Grid grid;
+
     // Turret stuff
     public static string[] turretTypes = new string[] { "basic", "fast", "slow" };
     public static int numTurrets = turretTypes.Length - 1;

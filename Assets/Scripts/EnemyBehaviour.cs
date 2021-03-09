@@ -45,6 +45,9 @@ public class EnemyBehaviour : MonoBehaviour
         else
         {
             moveToNextWaypoint();
+            if (currWaypointIndex < waypoints.Count - 1 && (waypoints[currWaypointIndex] - transform.position).magnitude < 5) {
+                currWaypointIndex++;
+            }
         }
     }
 
@@ -71,7 +74,7 @@ public class EnemyBehaviour : MonoBehaviour
                 nearestTowerIndex = i;
             }
         }
-        transform.LookAt(2 * transform.position - nearbyTowers[nearestTowerIndex].transform.position, Vector3.up);
+        transform.LookAt(nearbyTowers[nearestTowerIndex].transform.position, Vector3.up);
         Shoot();
     }
 
