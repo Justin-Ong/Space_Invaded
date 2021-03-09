@@ -6,18 +6,30 @@ using EpPathFinding3D.cs;
 public class NewTesting : MonoBehaviour
 {
     public List<GridPos> resultPathList;
+    public int width;
+    public int length;
+    public int height;
+    public GameObject enemySpawner;
+    public GameObject defencePoint;
+    public GameObject node;
 
-    GridPos startPos = new GridPos(0, 0, 0);
-    GridPos endPos = new GridPos(32, 48, 63);
     JumpPointParam jpParam;
     BaseGrid searchGrid;
+    GridPos startPos;
+    GridPos endPos;
 
-    void Start()
+    void Awake()
     {
-        int width = 64;
-        int length = 64;
-        int height = 64;
+        startPos = new GridPos((int)enemySpawner.transform.position.x, (int)enemySpawner.transform.position.y, (int)enemySpawner.transform.position.z);
+        endPos = new GridPos((int)defencePoint.transform.position.x, (int)defencePoint.transform.position.y, (int)defencePoint.transform.position.z);
 
+        CreateGrid();
+        CreateNodes();
+        resultPathList = JumpPointFinder.FindPath(jpParam);
+    }
+
+    void CreateGrid()
+    {
         bool[][][] movableMatrix = new bool[width][][];
         for (int widthTrav = 0; widthTrav < width; widthTrav++)
         {
@@ -30,12 +42,25 @@ public class NewTesting : MonoBehaviour
                     movableMatrix[widthTrav][lengthTrav][heightTrav] = true;
                 }
             }
-
         }
 
         searchGrid = new StaticGrid(width, length, height, movableMatrix);
         jpParam = new JumpPointParam(searchGrid, startPos, endPos, EndNodeUnWalkableTreatment.ALLOW, DiagonalMovement.Always, HeuristicMode.EUCLIDEAN);
-        resultPathList = JumpPointFinder.FindPath(jpParam);
+    }
+
+    void CreateNodes()
+    {
+        for (int widthTrav = 0; widthTrav < width; widthTrav++)
+        {
+            for (int lengthTrav = 0; lengthTrav < length; lengthTrav++)
+            {
+                for (int heightTrav = 0; heightTrav < height; heightTrav++)
+                {
+                    Instantiate(node, new Vector3(widthTrav, lengthTrav, heightTrav), new Quaternion());
+                }
+            }
+        }
+        StaticBatchingUtility.Combine(node);
     }
 
     public List<Vector3> GetPath()
