@@ -50,17 +50,20 @@ public class NewTesting : MonoBehaviour
 
     void CreateNodes()
     {
+        GameObject[] objCreated = new GameObject[width * length * height];
+        int count = 0;
         for (int widthTrav = 0; widthTrav < width; widthTrav++)
         {
             for (int lengthTrav = 0; lengthTrav < length; lengthTrav++)
             {
                 for (int heightTrav = 0; heightTrav < height; heightTrav++)
                 {
-                    Instantiate(node, new Vector3(widthTrav, lengthTrav, heightTrav), new Quaternion());
+                    objCreated[count] = Instantiate(node, new Vector3(widthTrav, lengthTrav, heightTrav), new Quaternion());
+                    count++;
                 }
             }
         }
-        StaticBatchingUtility.Combine(node);
+        StaticBatchingUtility.Combine(objCreated, gameObject);
     }
 
     public List<Vector3> GetPath()
