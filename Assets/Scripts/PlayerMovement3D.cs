@@ -2,24 +2,43 @@ using UnityEngine;
 
 public class PlayerMovement3D : MonoBehaviour {
     public float speed = 5;
-    private Vector3 motion;
-    private Rigidbody rb;
+    public static PlayerMovement3D instance;
+    public LayerMask grabMask;
 
-    void Start() {
-        rb = GetComponent<Rigidbody>();
+    private Node currNode;
 
+    void Start()
+    {
+        instance = this;
     }
+
     void Update() {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            transform.Translate(Vector3.up * 1);
+            transform.Translate(Vector3.up);
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            transform.Translate(Vector3.down * 1);
+            transform.Translate(Vector3.down);
         }
 
-        motion = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        rb.velocity = motion * speed;
+        transform.Translate(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxisRaw("Vertical") * speed * Time.deltaTime);
+
+        RaycastHit[] hits;
+        hits = Physics.SphereCastAll(transform.position, 0.5f, transform.forward, 0f, grabMask);
+        if (hits.Length == 0)
+        {
+            currNode = null;
+        }
+
+        if (Input.GetMouseButtonDown(0) && currNode)
+        {
+            currNode.BuildTurret();
+        }
+    }
+
+    public void SetCurrNode(Node newNode)
+    {
+        currNode = newNode;
     }
 }

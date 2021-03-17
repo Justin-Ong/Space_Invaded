@@ -20,8 +20,8 @@ public class NewTesting : MonoBehaviour
 
     void Awake()
     {
-        startPos = new GridPos((int)enemySpawner.transform.position.x, (int)enemySpawner.transform.position.y, (int)enemySpawner.transform.position.z);
-        endPos = new GridPos((int)defencePoint.transform.position.x, (int)defencePoint.transform.position.y, (int)defencePoint.transform.position.z);
+        startPos = new GridPos((int)Mathf.Floor(enemySpawner.transform.position.x), (int)Mathf.Floor(enemySpawner.transform.position.y), (int)Mathf.Floor(enemySpawner.transform.position.z));
+        endPos = new GridPos((int)Mathf.Floor(defencePoint.transform.position.x), (int)Mathf.Floor(defencePoint.transform.position.y), (int)Mathf.Floor(defencePoint.transform.position.z));
 
         CreateGrid();
         CreateNodes();
