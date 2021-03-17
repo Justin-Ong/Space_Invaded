@@ -12,7 +12,7 @@ public class References : MonoBehaviour
     public static GameObject defencePointObject;
 
     // Pathfinding Stuff
-    public static Grid grid;
+    public static LevelGenerator levelGrid;
 
     // Turret stuff
     public static string[] turretTypes = new string[] { "basic", "fast", "slow" };

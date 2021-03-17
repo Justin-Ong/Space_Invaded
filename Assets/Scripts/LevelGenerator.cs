@@ -9,7 +9,6 @@ public class LevelGenerator : MonoBehaviour
     public int width;
     public int length;
     public int height;
-    public GameObject enemySpawner;
     public GameObject defencePoint;
     public GameObject node;
 
@@ -20,12 +19,11 @@ public class LevelGenerator : MonoBehaviour
 
     void Awake()
     {
-        startPos = new GridPos((int)Mathf.Floor(enemySpawner.transform.position.x), (int)Mathf.Floor(enemySpawner.transform.position.y), (int)Mathf.Floor(enemySpawner.transform.position.z));
         endPos = new GridPos((int)Mathf.Floor(defencePoint.transform.position.x), (int)Mathf.Floor(defencePoint.transform.position.y), (int)Mathf.Floor(defencePoint.transform.position.z));
 
         CreateGrid();
         CreateNodes();
-        resultPathList = JumpPointFinder.FindPath(jpParam);
+        References.levelGrid = this;
     }
 
     void CreateGrid()
@@ -45,7 +43,6 @@ public class LevelGenerator : MonoBehaviour
         }
 
         searchGrid = new StaticGrid(width, length, height, movableMatrix);
-        jpParam = new JumpPointParam(searchGrid, startPos, endPos, EndNodeUnWalkableTreatment.ALLOW, DiagonalMovement.Always, HeuristicMode.EUCLIDEAN);
     }
 
     void CreateNodes()
@@ -66,10 +63,20 @@ public class LevelGenerator : MonoBehaviour
         StaticBatchingUtility.Combine(objCreated, gameObject);
     }
 
-    public List<Vector3> GetPath()
+    public List<Vector3> GetPath(Vector3 startLocation)
     {
-        List<Vector3> posList = new List<Vector3>();
+        startPos = new GridPos((int)Mathf.Floor(startLocation.x), (int)Mathf.Floor(startLocation.y), (int)Mathf.Floor(startLocation.z));
+        if (jpParam != null)
+        {
+            jpParam.Reset(startPos, endPos);
+        }
+        else
+        {
+            jpParam = new JumpPointParam(searchGrid, startPos, endPos, EndNodeUnWalkableTreatment.ALLOW, DiagonalMovement.Always, HeuristicMode.EUCLIDEAN);
+        }
+        resultPathList = JumpPointFinder.FindPath(jpParam);
 
+        List<Vector3> posList = new List<Vector3>();
         foreach (GridPos pos in resultPathList)
         {
             posList.Add(new Vector3(pos.x, pos.y, pos.z));

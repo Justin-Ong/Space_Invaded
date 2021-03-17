@@ -13,13 +13,8 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waypoints = gameObject.GetComponent<LevelGenerator>().GetPath();
-        /*
-        foreach (Transform child in waypointObject.transform)
-        {
-            waypoints.Add(child.position);
-        }
-        */
+        Debug.Log(gameObject.name);
+        waypoints = References.levelGrid.GetPath(transform.position);
     }
 
     // Update is called once per frame

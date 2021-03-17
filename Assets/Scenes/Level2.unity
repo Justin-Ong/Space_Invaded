@@ -245,11 +245,6 @@ PrefabInstance:
       objectReference: {fileID: 1611435152}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
---- !u!1 &14146085 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3255291772845511134, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
-  m_PrefabInstance: {fileID: 14146084}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &30845679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3008,6 +3003,7 @@ GameObject:
   - component: {fileID: 1047876200}
   - component: {fileID: 1047876202}
   - component: {fileID: 1047876203}
+  - component: {fileID: 1047876204}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -3073,9 +3069,20 @@ MonoBehaviour:
   width: 50
   length: 50
   height: 50
-  enemySpawner: {fileID: 14146085}
   defencePoint: {fileID: 1611435152}
   node: {fileID: 8526407563680793632, guid: cb9a58a535eb4f84896d9066159da741, type: 3}
+--- !u!114 &1047876204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047876199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4338bd240bd575c43bc0c001c803eac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1051163666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3379,7 +3386,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090330653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1.5, z: 1}
+  m_LocalPosition: {x: 10, y: 10.5, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
