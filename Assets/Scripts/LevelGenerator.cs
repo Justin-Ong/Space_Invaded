@@ -43,6 +43,24 @@ public class LevelGenerator : MonoBehaviour
         }
 
         searchGrid = new StaticGrid(width, length, height, movableMatrix);
+
+        for (int i = 0; i < Obstacles.numObstacles; i++)
+        {
+            Debug.Log(i.ToString() + " " + Obstacles.obstacleList[i, 0].ToString() + " " + Obstacles.obstacleList[i, 1].ToString() + " " + Obstacles.obstacleList[i, 2].ToString());
+            if (CheckWithinBounds(Obstacles.obstacleList[i, 0], Obstacles.obstacleList[i, 1], Obstacles.obstacleList[i, 2])) {
+                searchGrid.SetWalkableAt(Obstacles.obstacleList[i, 0], Obstacles.obstacleList[i, 1], Obstacles.obstacleList[i, 2], false);
+                Debug.Log(searchGrid.IsWalkableAt(Obstacles.obstacleList[i, 0], Obstacles.obstacleList[i, 1], Obstacles.obstacleList[i, 2]));
+            }
+        }
+    }
+
+    bool CheckWithinBounds(int x, int y, int z)
+    {
+        if (x >= 0 && x < width && y >= 0 && y < length && z >= 0 && z < height)
+        {
+            return true;
+        }
+        return false;
     }
 
     void CreateNodes()
@@ -80,7 +98,6 @@ public class LevelGenerator : MonoBehaviour
         foreach (GridPos pos in resultPathList)
         {
             posList.Add(new Vector3(pos.x, pos.y, pos.z));
-            Debug.Log(pos.ToString());
         }
 
         return posList;
