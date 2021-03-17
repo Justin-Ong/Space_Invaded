@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BigEnemyBehaviour : EnemyBehaviour
+public class SpawnedEnemyBehaviour : EnemyBehaviour
 {
-    private void Awake()
-    {
 
-    }
 }

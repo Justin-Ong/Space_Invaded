@@ -361,10 +361,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bff1671a5da5244a6a67fa23d27388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy1: {fileID: 8940107529138373848, guid: e49e2df2b8414e54dacc4017a34aae13, type: 3}
-  enemy2: {fileID: 4466078001863963714, guid: 8d5f24a6078603c4083961efd31868e2, type: 3}
-  enemy3: {fileID: 8392329003910333986, guid: bdc7d214d247a6d4eaa92abcded339d3, type: 3}
-  enemy4: {fileID: 7233194831933583294, guid: b2ca918735657d3469887829cdc42135, type: 3}
+  enemy1: {fileID: 1720898423756095767, guid: ca1f2ebb4afb28a42b971cc6c670e22a, type: 3}
+  enemy2: {fileID: 5874696886559616638, guid: bdc7d214d247a6d4eaa92abcded339d3, type: 3}
+  enemy3: {fileID: 4810500184070200233, guid: 8d5f24a6078603c4083961efd31868e2, type: 3}
+  enemy4: {fileID: 1405294080525131713, guid: b2ca918735657d3469887829cdc42135, type: 3}
 --- !u!1 &1080571096
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float maxHealth;
     public float speed;
     public List<Vector3> waypoints;
+    public int currWaypointIndex = 0;
     public GameObject bulletPrefab;
     public float attackTimer;
     public float range;
@@ -14,7 +15,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     private Rigidbody ourBody;
     private HealthSystem ourHealth;
-    private int currWaypointIndex;
     private float currAttackTimer;
 
     // Start is called before the first frame update
@@ -22,8 +22,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         ourBody = GetComponent<Rigidbody>();
         ourHealth = GetComponent<HealthSystem>();
-        currWaypointIndex = 0;
-        
     }
 
     // Update is called once per frame
@@ -109,5 +107,10 @@ public class EnemyBehaviour : MonoBehaviour
         {
             ourHealth.TakeDamage(maxHealth);
         }
+    }
+
+    public virtual void Die()
+    {
+        Destroy(gameObject);
     }
 }

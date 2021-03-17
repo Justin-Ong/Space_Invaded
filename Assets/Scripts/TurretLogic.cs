@@ -13,7 +13,6 @@ public class TurretLogic : MonoBehaviour
     private float fireCountdown = 0f;
 
     [Header("Unity Setup Fields")]
-
     public string enemyTag = "Enemy";
 
     public Transform partToRotate;
@@ -21,7 +20,6 @@ public class TurretLogic : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
-
 
     // Start is called before the first frame update
     void Start()
