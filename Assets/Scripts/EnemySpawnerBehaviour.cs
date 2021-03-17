@@ -13,7 +13,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waypoints = gameObject.GetComponent<NewTesting>().GetPath();
+        waypoints = gameObject.GetComponent<LevelGenerator>().GetPath();
         /*
         foreach (Transform child in waypointObject.transform)
         {

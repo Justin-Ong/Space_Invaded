@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EpPathFinding3D.cs;
 
-public class NewTesting : MonoBehaviour
+public class LevelGenerator : MonoBehaviour
 {
     public List<GridPos> resultPathList;
     public int width;
@@ -70,7 +70,8 @@ public class NewTesting : MonoBehaviour
     {
         List<Vector3> posList = new List<Vector3>();
 
-        foreach (GridPos pos in resultPathList) {
+        foreach (GridPos pos in resultPathList)
+        {
             posList.Add(new Vector3(pos.x, pos.y, pos.z));
             Debug.Log(pos.ToString());
         }
