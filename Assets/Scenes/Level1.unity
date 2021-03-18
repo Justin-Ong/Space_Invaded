@@ -265,7 +265,6 @@ MonoBehaviour:
   width: 32
   length: 32
   height: 32
-  enemySpawner: {fileID: 14146085}
   defencePoint: {fileID: 1611435152}
   node: {fileID: 8526407563680793632, guid: cb9a58a535eb4f84896d9066159da741, type: 3}
 --- !u!1001 &30845679
@@ -2876,7 +2875,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5de01a965036f6419c0a88d39064cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefab: {fileID: 4431505989055727922, guid: 0658f628fe7320f4d97fa16657324e2b, type: 3}
+  standardTurretPrefab1: {fileID: 4431505989055727922, guid: 0658f628fe7320f4d97fa16657324e2b, type: 3}
+  standardTurretPrefab2: {fileID: 4431505989055727922, guid: 7622888fbe23642ac9e38c61b4e3a6d1, type: 3}
+  standardTurretPrefab3: {fileID: 4431505989055727922, guid: f7ac36fd8a8f24c208b25c0bbec90fea, type: 3}
 --- !u!4 &1047876201
 Transform:
   m_ObjectHideFlags: 0
