@@ -4,12 +4,13 @@ public class Node : MonoBehaviour
 {
 	public Color hoverColor;
 	public Vector3 positionOffset;
+	public LayerMask obstacleMask;
 
 	private GameObject turret;
-
 	private Renderer rend;
 	private MeshRenderer meshRend;
 	private Color startColor;
+	private bool isBlocked;
 
 	void Start()
 	{
@@ -17,6 +18,7 @@ public class Node : MonoBehaviour
 		startColor = rend.material.color;
 		meshRend = gameObject.GetComponent<MeshRenderer>();
 		meshRend.enabled = false;
+		isBlocked = CheckIfBlocked();
 	}
 
 	void OnMouseEnter()
@@ -31,7 +33,7 @@ public class Node : MonoBehaviour
 
 	public void BuildTurret()
 	{
-		if (turret != null || !meshRend.enabled)
+		if (turret != null || !meshRend.enabled || isBlocked)
 		{
 			Debug.Log("Can't build there! - TODO: Display on screen.");
 			return;
@@ -39,6 +41,13 @@ public class Node : MonoBehaviour
 
 		GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
 		turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+	}
+
+	private bool CheckIfBlocked()
+	{
+		RaycastHit[] hit;
+		hit = Physics.BoxCastAll(transform.position - transform.forward.normalized, Vector3.one * 0.5f, transform.forward, transform.rotation, 1f, obstacleMask);
+		return (hit.Length > 0);
 	}
 
     private void OnTriggerEnter(Collider other)

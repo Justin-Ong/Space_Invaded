@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5874696886559616577}
   - component: {fileID: 5874696886559616578}
   - component: {fileID: 5874696886559616579}
-  - component: {fileID: 5874696886559616636}
   - component: {fileID: 5874696886559616637}
-  m_Layer: 0
+  - component: {fileID: 5667529503383761658}
+  m_Layer: 8
   m_Name: BigEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -64,25 +64,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5874696886559616636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5874696886559616638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb85a11a8fac8d4595cabfa6ee5733d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 20
-  speed: 6
-  waypoints: []
-  bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
-  attackTimer: 1
-  range: 15
-  damage: 5
 --- !u!114 &5874696886559616637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +78,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   healthBarPrefab: {fileID: 5007358763614234541, guid: 9b22de120c8154749b36a87289a37a11, type: 3}
+--- !u!114 &5667529503383761658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5874696886559616638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a597fb630d32c64a8bc1e27f6d62950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  speed: 6
+  bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
+  attackTimer: 1
+  range: 15
+  damage: 5
+  turretMask:
+    serializedVersion: 2
+    m_Bits: 128
+  waypoints: []
+  currWaypointIndex: 0
+  raycastOffset: 1
+  obstaclesMask:
+    serializedVersion: 2
+    m_Bits: 8
+  rayDistance: 6
+  rotationSpeed: 1
 --- !u!1001 &5874696886887979544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,6 +173,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ed2dcbb6885a5df46a8adbb7a06e68b8, type: 3}
       propertyPath: m_Name
       value: 06BattleShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed2dcbb6885a5df46a8adbb7a06e68b8, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2dcbb6885a5df46a8adbb7a06e68b8, type: 3}

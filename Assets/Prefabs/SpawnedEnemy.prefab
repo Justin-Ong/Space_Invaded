@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3489526371472742969}
   - component: {fileID: 3465920879318495639}
   - component: {fileID: 5446250793318463347}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnedEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -78,12 +78,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   speed: 12
-  waypoints: []
-  currWaypointIndex: 0
   bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
   attackTimer: 1
   range: 3
   damage: 1
+  turretMask:
+    serializedVersion: 2
+    m_Bits: 128
+  waypoints: []
+  currWaypointIndex: 0
+  raycastOffset: 1
+  obstaclesMask:
+    serializedVersion: 2
+    m_Bits: 8
+  rayDistance: 8
+  rotationSpeed: 3
 --- !u!114 &5446250793318463347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,9 +170,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7061595241558197161, guid: d27a1048f16c17f4b82947dfbd50d751, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d27a1048f16c17f4b82947dfbd50d751, type: 3}
       propertyPath: m_Name
       value: 07Attacker
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d27a1048f16c17f4b82947dfbd50d751, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d27a1048f16c17f4b82947dfbd50d751, type: 3}

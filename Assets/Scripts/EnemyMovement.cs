@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
 
     public float speed = 10f;
+
     private Vector3 endpointPosition;
 
     void Start()

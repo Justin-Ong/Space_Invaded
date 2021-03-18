@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4526716329794490293}
   - component: {fileID: 6042694695027528851}
   - component: {fileID: 954023273958806684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FastEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -78,12 +78,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   speed: 15
-  waypoints: []
-  currWaypointIndex: 0
   bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
   attackTimer: 0.5
   range: 5
   damage: 1
+  turretMask:
+    serializedVersion: 2
+    m_Bits: 128
+  waypoints: []
+  currWaypointIndex: 0
+  raycastOffset: 1
+  obstaclesMask:
+    serializedVersion: 2
+    m_Bits: 8
+  rayDistance: 8
+  rotationSpeed: 2
 --- !u!114 &954023273958806684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +173,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e59f21799097a3344bad16dff6bfdca8, type: 3}
       propertyPath: m_Name
       value: 05BattleShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e59f21799097a3344bad16dff6bfdca8, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e59f21799097a3344bad16dff6bfdca8, type: 3}

@@ -46,10 +46,8 @@ public class LevelGenerator : MonoBehaviour
 
         for (int i = 0; i < Obstacles.numObstacles; i++)
         {
-            Debug.Log(i.ToString() + " " + Obstacles.obstacleList[i, 0].ToString() + " " + Obstacles.obstacleList[i, 1].ToString() + " " + Obstacles.obstacleList[i, 2].ToString());
             if (CheckWithinBounds(Obstacles.obstacleList[i, 0], Obstacles.obstacleList[i, 1], Obstacles.obstacleList[i, 2])) {
                 searchGrid.SetWalkableAt(Obstacles.obstacleList[i, 0], Obstacles.obstacleList[i, 1], Obstacles.obstacleList[i, 2], false);
-                Debug.Log(searchGrid.IsWalkableAt(Obstacles.obstacleList[i, 0], Obstacles.obstacleList[i, 1], Obstacles.obstacleList[i, 2]));
             }
         }
     }
