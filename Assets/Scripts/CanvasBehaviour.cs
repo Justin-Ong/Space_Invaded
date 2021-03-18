@@ -1,20 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasBehaviour : MonoBehaviour
 {
     public GameObject healthBar;
 
-    // Start is called before the first frame update
+    private Text baseHealthDisplay;
+    private Text gameOverDisplay;
+
     void Awake()
     {
         References.canvas = gameObject;
+        baseHealthDisplay = gameObject.transform.Find("BaseHealthDisplay").GetComponent<Text>();
+        gameOverDisplay = gameObject.transform.Find("GameOverDisplay").GetComponent<Text>();
+        gameOverDisplay.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        baseHealthDisplay.text = References.defencePointObject.currBaseHealth + "/" + References.defencePointObject.maxBaseHealth;
+        if (References.defencePointObject.currBaseHealth <= 0)
+        {
+            gameOverDisplay.enabled = true;
+        }
     }
 }

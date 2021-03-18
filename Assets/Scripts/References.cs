@@ -9,7 +9,7 @@ public class References : MonoBehaviour
     public static GameObject player;
 
     // Defence Point stuff
-    public static GameObject defencePointObject;
+    public static DefencePointBehaviour defencePointObject;
 
     // Pathfinding Stuff
     public static LevelGenerator levelGrid;

@@ -109,12 +109,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void LookAtNextWaypoint()
     {
-        //Vector3 vectorToPlayer = waypoints[currWaypointIndex] - transform.position;
-        //Vector3 distanceToTravel = vectorToPlayer.normalized * speed;
-        //ourBody.velocity = distanceToTravel
         Quaternion rotation = Quaternion.LookRotation(waypoints[currWaypointIndex] - transform.position, transform.up);
         Turn(rotation);
-        //transform.LookAt(waypoints[currWaypointIndex], transform.up);
     }
 
     private void Move()
@@ -215,6 +211,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<DefencePointBehaviour>() != null)
         {
+            References.defencePointObject.currBaseHealth -= 1;
             ourHealth.TakeDamage(maxHealth);
         }
     }

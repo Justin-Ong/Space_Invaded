@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4431505989055727923}
   m_Layer: 7
-  m_Name: TurretParent
+  m_Name: TurretShortSlowStrong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
