@@ -36,8 +36,7 @@ public class EnemyBehaviour : MonoBehaviour
         ourHealth = GetComponent<HealthSystem>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         currAttackTimer += Time.deltaTime;
 
@@ -131,37 +130,35 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 upRayPos = transform.position + transform.up * raycastOffset;
         Vector3 downRayPos = transform.position - transform.up * raycastOffset;
 
-        /*
-        Debug.DrawRay(forwardRayPos, transform.forward * rayDistance, Color.red);
+        Debug.DrawRay(forwardRayPos, transform.forward * rayDistance * 0.8f, Color.red);
         Debug.DrawRay(leftRayPos, transform.forward * rayDistance, Color.red);
         Debug.DrawRay(rightRayPos, transform.forward * rayDistance, Color.red);
         Debug.DrawRay(upRayPos, transform.forward * rayDistance, Color.red);
         Debug.DrawRay(downRayPos, transform.forward * rayDistance, Color.red);
-        */
 
         RaycastHit hit;
         bool obstacleDetected = false;
         newDirection = Vector3.zero;
-        if (Physics.Raycast(forwardRayPos, transform.forward, out hit, rayDistance, obstaclesMask))
+        if (Physics.Raycast(forwardRayPos, transform.forward, out hit, rayDistance, obstaclesMask, QueryTriggerInteraction.Collide))
         {
             obstacleDetected = true;
         }
-        if (Physics.Raycast(leftRayPos, transform.forward, out hit, rayDistance, obstaclesMask))
+        if (Physics.Raycast(leftRayPos, transform.forward, out hit, rayDistance, obstaclesMask, QueryTriggerInteraction.Collide))
         {
             obstacleDetected = true;
             newDirection += Vector3.right;
         }
-        if (Physics.Raycast(rightRayPos, transform.forward, out hit, rayDistance, obstaclesMask))
+        if (Physics.Raycast(rightRayPos, transform.forward, out hit, rayDistance, obstaclesMask, QueryTriggerInteraction.Collide))
         {
             obstacleDetected = true;
             newDirection += Vector3.left;
         }
-        if (Physics.Raycast(upRayPos, transform.forward, out hit, rayDistance, obstaclesMask))
+        if (Physics.Raycast(upRayPos, transform.forward, out hit, rayDistance, obstaclesMask, QueryTriggerInteraction.Collide))
         {
             obstacleDetected = true;
             newDirection += Vector3.down;
         }
-        if (Physics.Raycast(downRayPos, transform.forward, out hit, rayDistance, obstaclesMask))
+        if (Physics.Raycast(downRayPos, transform.forward, out hit, rayDistance, obstaclesMask, QueryTriggerInteraction.Collide))
         {
             obstacleDetected = true;
             newDirection += Vector3.up;
@@ -178,22 +175,8 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else
         {
-            float rand = Random.Range(0f, 1f);
-            if (rand < 0.25)
             {
                 rotation = Quaternion.LookRotation(Vector3.left, transform.up);
-            }
-            else if (rand < 0.5)
-            {
-                rotation = Quaternion.LookRotation(Vector3.right, transform.up);
-            }
-            else if (rand < 0.75)
-            {
-                rotation = Quaternion.LookRotation(Vector3.up, transform.up);
-            }
-            else
-            {
-                rotation = Quaternion.LookRotation(Vector3.down, transform.up);
             }
         }
         Turn(rotation);

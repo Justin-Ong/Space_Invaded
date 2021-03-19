@@ -5,6 +5,7 @@ public class Node : MonoBehaviour
 	public Color hoverColor;
 	public Vector3 positionOffset;
 	public LayerMask obstacleMask;
+	public string enemyTag = "EnemySpawner";
 
 	private GameObject turret;
 	private Renderer rend;
@@ -47,7 +48,20 @@ public class Node : MonoBehaviour
 	{
 		RaycastHit[] hit;
 		hit = Physics.BoxCastAll(transform.position - transform.forward.normalized, Vector3.one * 0.5f, transform.forward, transform.rotation, 1f, obstacleMask);
-		return (hit.Length > 0);
+		if (hit.Length > 0)
+		{
+			return true;
+		}
+		else {
+			GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag(enemyTag);
+			foreach (GameObject enemySpawner in enemySpawners)
+			{
+				if ((transform.position - enemySpawner.transform.position).magnitude < 10) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
     private void OnTriggerEnter(Collider other)

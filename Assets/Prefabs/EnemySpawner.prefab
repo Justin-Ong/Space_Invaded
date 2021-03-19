@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8211679949221781369}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,9 +123,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6998888067459783369, guid: 3f382e7bd7037c04e837aee370d8768c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5624543535580069947, guid: 3f382e7bd7037c04e837aee370d8768c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3f382e7bd7037c04e837aee370d8768c, type: 3}
       propertyPath: m_Name
       value: Stargate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f382e7bd7037c04e837aee370d8768c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396913584297481876, guid: 3f382e7bd7037c04e837aee370d8768c, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f382e7bd7037c04e837aee370d8768c, type: 3}
