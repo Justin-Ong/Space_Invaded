@@ -5,7 +5,7 @@ public class Node : MonoBehaviour
 	public Color hoverColor;
 	public Vector3 positionOffset;
 	public LayerMask obstacleMask;
-	public string enemyTag = "EnemySpawner";
+	public string enemySpawnerTag = "EnemySpawner";
 
 	private GameObject turret;
 	private Renderer rend;
@@ -22,7 +22,7 @@ public class Node : MonoBehaviour
 		isBlocked = CheckIfBlocked();
 	}
 
-	void OnMouseEnter()
+    void OnMouseEnter()
 	{
 		rend.material.color = hoverColor;
 	}
@@ -46,14 +46,14 @@ public class Node : MonoBehaviour
 
 	private bool CheckIfBlocked()
 	{
-		RaycastHit[] hit;
-		hit = Physics.BoxCastAll(transform.position - transform.forward.normalized, Vector3.one * 0.5f, transform.forward, transform.rotation, 1f, obstacleMask);
+		Collider[] hit;
+		hit = Physics.OverlapBox(transform.position, Vector3.one * 0.5f, Quaternion.identity, obstacleMask, QueryTriggerInteraction.Ignore);
 		if (hit.Length > 0)
 		{
 			return true;
 		}
 		else {
-			GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag(enemyTag);
+			GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag(enemySpawnerTag);
 			foreach (GameObject enemySpawner in enemySpawners)
 			{
 				if ((transform.position - enemySpawner.transform.position).magnitude < 10) {
@@ -64,7 +64,7 @@ public class Node : MonoBehaviour
 		return false;
 	}
 
-    private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider other)
     {
 		if (other.gameObject.CompareTag("Player"))
 		{
