@@ -6,6 +6,8 @@ public class PlayerMovement3D : MonoBehaviour {
     public LayerMask grabMask;
 
     private Node currNode;
+    private Vector3 left = new Vector3(0, 90, 0);
+    private Vector3 right = new Vector3(0, -90, 0);
 
     void Start()
     {
@@ -20,6 +22,14 @@ public class PlayerMovement3D : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F))
         {
             transform.Translate(Vector3.down);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            transform.Rotate(left);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            transform.Rotate(right);
         }
 
         transform.Translate(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxisRaw("Vertical") * speed * Time.deltaTime);
