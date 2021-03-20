@@ -14,10 +14,6 @@ public class References : MonoBehaviour
     // Pathfinding Stuff
     public static LevelGenerator levelGrid;
 
-    // Turret stuff
-    public static string[] turretTypes = new string[] { "basic", "fast", "slow" };
-    public static int numTurrets = turretTypes.Length - 1;
-
     // Enemy stuff
     public static List<GameObject> enemyTypes = new List<GameObject>();
     public static int numEnemyTypes;
