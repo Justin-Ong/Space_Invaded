@@ -28,12 +28,14 @@ public class EnemyBehaviour : MonoBehaviour
     private Rigidbody ourBody;
     private HealthSystem ourHealth;
     private float currAttackTimer;
+    private float rotationMod;
 
     // Start is called before the first frame update
     void Start()
     {
         ourBody = GetComponent<Rigidbody>();
         ourHealth = GetComponent<HealthSystem>();
+        rotationMod = 0;
     }
 
     void FixedUpdate()
@@ -63,9 +65,11 @@ public class EnemyBehaviour : MonoBehaviour
                 LookAtNextWaypoint();
             }
             Move();
+            rotationMod += 0.01f;
             if (currWaypointIndex < waypoints.Count - 1 && (waypoints[currWaypointIndex] - transform.position).magnitude < 5)
             {
                 currWaypointIndex++;
+                rotationMod = 0;
             }
         }
     }
@@ -119,7 +123,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Turn(Quaternion rotation)
     {
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, (rotationSpeed + rotationMod) * Time.deltaTime);
     }
 
     private bool DetectObstacles(out Vector3 newDirection)
