@@ -15,13 +15,13 @@ public class PlayerMovement3D : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKey(KeyCode.R))
         {
-            transform.Translate(Vector3.up);
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKey(KeyCode.F))
         {
-            transform.Translate(Vector3.down);
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
