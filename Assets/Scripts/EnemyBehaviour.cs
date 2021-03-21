@@ -107,7 +107,6 @@ public class EnemyBehaviour : MonoBehaviour
         newBullet.speed = 10;
         newBullet.damage = damage;
         newBullet.timeToLive = 5;
-        newBullet.isFriendly = false;
     }
 
     private void LookAtNextWaypoint()

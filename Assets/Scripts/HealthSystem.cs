@@ -38,6 +38,14 @@ public class HealthSystem : MonoBehaviour
     private void Die()
     {
         Destroy(healthBar);
-        gameObject.GetComponent<EnemyBehaviour>().Die();
+        EnemyBehaviour temp = gameObject.GetComponent<EnemyBehaviour>();
+        if (temp)
+        {
+            temp.Die();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

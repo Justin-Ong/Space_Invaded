@@ -23,7 +23,10 @@ public class EnemySpawnerBehaviour : MonoBehaviour
 {
     public GameObject defencePoint;
     public List<WaveObject> waves;
+    public float timeToFirstSpawn;
 
+    private float firstSpawnTimer;
+    private float randomSpawnTimer;
     private float spawnTimer;
     private int numWaves;
     private int currWave;
@@ -40,6 +43,8 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         miniWaveIndex = 0;
         numWaves = waves.Count;
         numMiniWaves = 0;
+        randomSpawnTimer = 2;
+        firstSpawnTimer = 0;
         if (numWaves > 0)
         {
             numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
@@ -48,50 +53,56 @@ public class EnemySpawnerBehaviour : MonoBehaviour
 
     void Update()
     {
-        spawnTimer += Time.deltaTime;
-        if (numWaves > 0)
+        firstSpawnTimer += Time.deltaTime;
+        if (firstSpawnTimer > timeToFirstSpawn)
         {
-            if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
+            spawnTimer += Time.deltaTime;
+            if (numWaves > 0)
             {
-                Debug.Log("Normal spawn");
-                SpawnEnemy();
-                currEnemyInWave++;
-                spawnTimer = 0;
-            }
-            if (currWave < numWaves && currEnemyInWave > waves[currWave].numEnemiesToSpawn[miniWaveIndex])
-            {
-                Debug.Log("Increment miniWaveIndex");
-                miniWaveIndex++;
-                currEnemyInWave = 1;
-            }
-            if (currWave < numWaves && miniWaveIndex >= numMiniWaves) {
-                Debug.Log("New wave");
-                currWave++;
-                miniWaveIndex = 0;
-                if (currWave < numWaves)
+                if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
                 {
-                    numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
-                    Debug.Log("Meow");
-                    if (waves[currWave].immediateStart)
+                    Debug.Log("Normal spawn");
+                    SpawnEnemy();
+                    currEnemyInWave++;
+                    spawnTimer = 0;
+                }
+                if (currWave < numWaves && currEnemyInWave > waves[currWave].numEnemiesToSpawn[miniWaveIndex])
+                {
+                    Debug.Log("Increment miniWaveIndex");
+                    miniWaveIndex++;
+                    currEnemyInWave = 1;
+                }
+                if (currWave < numWaves && miniWaveIndex >= numMiniWaves)
+                {
+                    Debug.Log("New wave");
+                    currWave++;
+                    miniWaveIndex = 0;
+                    if (currWave < numWaves)
                     {
-                        Debug.Log("Immediate start");
-                        spawnTimer = waves[currWave].timeBetweenSpawns[miniWaveIndex] + 1;
-                        Debug.Log("A");
+                        numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
+                        Debug.Log("Meow");
+                        if (waves[currWave].immediateStart)
+                        {
+                            Debug.Log("Immediate start");
+                            spawnTimer = waves[currWave].timeBetweenSpawns[miniWaveIndex] + 1;
+                            Debug.Log("A");
+                        }
                     }
                 }
+                if (currWave >= numWaves && spawnTimer > 1)
+                {
+                    Debug.Log("No more waves");
+                    SpawnRandomEnemy();
+                    spawnTimer = 0;
+                }
             }
-            if (currWave >= numWaves && spawnTimer > 1)
+            else if (spawnTimer > randomSpawnTimer)
             {
-                Debug.Log("No more waves");
+                Debug.Log("No wave set");
                 SpawnRandomEnemy();
                 spawnTimer = 0;
+                randomSpawnTimer -= 0.01f;
             }
-        }
-        else if (spawnTimer > 1)
-        {
-            Debug.Log("No wave set");
-            SpawnRandomEnemy();
-            spawnTimer = 0;
         }
     }
 

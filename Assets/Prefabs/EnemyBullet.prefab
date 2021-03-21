@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 220547967940598522}
   - component: {fileID: 2455259135225298669}
   - component: {fileID: -4290963642109112182}
-  m_Layer: 6
-  m_Name: Bullet
+  m_Layer: 0
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,9 @@ MonoBehaviour:
   damage: 0
   speed: 0
   timeToLive: 0
-  isFriendly: 0
+  turretLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!54 &-4290963642109112182
 Rigidbody:
   m_ObjectHideFlags: 0
