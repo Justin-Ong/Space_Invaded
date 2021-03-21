@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
 --- !u!1001 &14146084
@@ -300,6 +308,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1989 WD Model 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
 --- !u!1001 &41687924
@@ -356,6 +372,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
       propertyPath: m_Name
       value: 1132 T-3 Durech (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
@@ -414,6 +438,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 SU Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
 --- !u!4 &127004525 stripped
@@ -421,6 +453,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6759324552264691573, guid: aa04cde3fcfc0b64c96f035dec954a41, type: 3}
   m_PrefabInstance: {fileID: 444899404}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &128193598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 2126446900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &128193599
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128193598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0.004709899, y: -0.0058150594, z: 0.07034556}
 --- !u!1001 &143110407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -475,6 +525,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
       propertyPath: m_Name
       value: 1132 T-3 Durech (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
@@ -533,6 +591,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1132 T-3 Durech (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
 --- !u!1001 &152951887
@@ -589,6 +655,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
@@ -647,8 +721,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1132 T-3 Durech (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+--- !u!1 &158751812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+  m_PrefabInstance: {fileID: 1940775797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &158751813
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158751812}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &166403158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -703,6 +807,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
       propertyPath: m_Name
       value: 1991 SU Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
@@ -761,8 +877,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1132 T-3 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+--- !u!1 &229240086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+  m_PrefabInstance: {fileID: 287427565}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &229240087
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229240086}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &247223036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -830,6 +976,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 LW Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
 --- !u!1001 &250527137
@@ -887,8 +1045,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1989 WD Model 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+--- !u!1 &267162793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 2016362296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &267162794
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267162793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &287427565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -943,6 +1131,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
       propertyPath: m_Name
       value: 1991 SU Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
@@ -1001,6 +1201,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 TF1 Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
 --- !u!1001 &352340613
@@ -1058,6 +1266,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1132 T-3 Durech (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
 --- !u!1001 &355299718
@@ -1114,6 +1334,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
       propertyPath: m_Name
       value: 1989 WD Model 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
@@ -1265,6 +1497,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 TF1 Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
 --- !u!1001 &384519071
@@ -1321,6 +1565,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
       propertyPath: m_Name
       value: 1991 SU Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
@@ -1379,8 +1631,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroids
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+--- !u!1 &398198903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 700254320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &398198904
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398198903}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &402667912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1435,6 +1721,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
       propertyPath: m_Name
       value: 1991 LW Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
@@ -1493,6 +1791,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
 --- !u!1001 &426453175
@@ -1550,8 +1860,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+--- !u!1 &430223191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+  m_PrefabInstance: {fileID: 355299718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &430223192
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430223191}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &444899404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1609,6 +1949,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa04cde3fcfc0b64c96f035dec954a41, type: 3}
+--- !u!1 &446100389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 1249739075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &446100390
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446100389}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &477336430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1664,8 +2022,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 LW Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+--- !u!1 &478215207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+  m_PrefabInstance: {fileID: 1432418633}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &478215208
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478215207}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &484105323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1720,6 +2104,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
       propertyPath: m_Name
       value: 1991 TF1 Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
@@ -1778,8 +2174,70 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1989 WD Model 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+--- !u!1 &582405575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+  m_PrefabInstance: {fileID: 1508281461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &582405576
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582405575}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &585433863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+  m_PrefabInstance: {fileID: 1585131525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &585433864
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585433863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &595598439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+  m_PrefabInstance: {fileID: 1857108985}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &595598440
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595598439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &604619031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1835,8 +2293,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 TF1 Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+--- !u!1 &635137185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 687210414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &635137186
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635137185}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &653897572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1891,6 +2375,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
       propertyPath: m_Name
       value: 1986 EP5 Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
@@ -2046,6 +2542,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1132 T-3 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
 --- !u!1001 &694981648
@@ -2102,6 +2610,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
@@ -2160,6 +2676,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
 --- !u!1001 &715573939
@@ -2217,8 +2745,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+--- !u!1 &732094935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 393134001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &732094936
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732094935}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0.004707992, y: -0.0058160126, z: 0.07034552}
 --- !u!1001 &758893735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2274,6 +2832,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroids (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
 --- !u!4 &758893736 stripped
@@ -2281,6 +2851,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
   m_PrefabInstance: {fileID: 758893735}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &762323104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 2126446900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &762323105
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762323104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &775302734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2336,8 +2924,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 LW Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+--- !u!1 &782377351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+  m_PrefabInstance: {fileID: 1051163666}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &782377352
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782377351}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &803526102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2392,6 +3006,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
@@ -2450,6 +3076,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1132 T-3 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
 --- !u!1001 &844267024
@@ -2506,6 +3144,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
       propertyPath: m_Name
       value: 1989 WD Model 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
@@ -2564,6 +3214,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroids Group2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -2576,6 +3234,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
 --- !u!4 &865312920 stripped
@@ -2583,6 +3249,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
   m_PrefabInstance: {fileID: 865312919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &866166127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 426453175}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &866166128
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866166127}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &894345538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+  m_PrefabInstance: {fileID: 1712599836}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &894345539
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894345538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &894606889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+  m_PrefabInstance: {fileID: 484105323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &894606890
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894606889}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &899032471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2638,8 +3358,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+--- !u!1 &932066742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 352340613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &932066743
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932066742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &942836725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2694,6 +3444,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
       propertyPath: m_Name
       value: 1991 SU Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
@@ -2752,6 +3514,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
 --- !u!1001 &958987403
@@ -2808,6 +3582,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
@@ -2866,8 +3652,70 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1989 WD Model 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+--- !u!1 &983759665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+  m_PrefabInstance: {fileID: 1309005990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &983759666
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983759665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &998328544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+  m_PrefabInstance: {fileID: 166403158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &998328545
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998328544}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1005657567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 1241818863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1005657568
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005657567}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1019163593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2922,6 +3770,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
       propertyPath: m_Name
       value: 1991 TF1 Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
@@ -2980,8 +3840,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+--- !u!1 &1036092498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+  m_PrefabInstance: {fileID: 942836725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1036092499
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036092498}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1047876199
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,8 +4005,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 SU Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+--- !u!1 &1056721853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 803526102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1056721854
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056721853}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1064087556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3175,6 +4091,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
       propertyPath: m_Name
       value: 1132 T-3 Durech (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
@@ -3244,6 +4172,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1113563236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+  m_PrefabInstance: {fileID: 384305642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1113563237
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113563236}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1121245050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3299,8 +4245,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+--- !u!1 &1133957115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 956276013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1133957116
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133957115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1153558807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3356,8 +4328,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 SU Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+--- !u!1 &1157107272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+  m_PrefabInstance: {fileID: 2094215620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1157107273
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157107272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1241818863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3412,6 +4414,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
       propertyPath: m_Name
       value: Asteroids (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
@@ -3475,6 +4489,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroids Group3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -3487,6 +4509,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
 --- !u!4 &1249739076 stripped
@@ -3494,6 +4524,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
   m_PrefabInstance: {fileID: 1249739075}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1250656446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+  m_PrefabInstance: {fileID: 1412995159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1250656447
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250656446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1272127896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 865312919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1272127897
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272127896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0.004707992, y: -0.0058160126, z: 0.07034552}
+--- !u!1 &1289445135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 653897572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1289445136
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289445135}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1301512099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 899032471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1301512100
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301512099}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1309005990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3549,8 +4651,110 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 SU Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+--- !u!1 &1315057515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+  m_PrefabInstance: {fileID: 1854729928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1315057516
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315057515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1340259825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+  m_PrefabInstance: {fileID: 1019163593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1340259826
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340259825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1367698293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 958987403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1367698294
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367698293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1371851204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 1445818050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1371851205
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371851204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1380610046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 416051217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1380610047
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380610046}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1402526875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3605,6 +4809,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
       propertyPath: m_Name
       value: 1991 SU Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
@@ -3662,6 +4874,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
       propertyPath: m_Name
       value: 1991 LW Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
@@ -3767,6 +4991,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+--- !u!1 &1432124586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 1810631538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1432124587
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432124586}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1432418633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3822,8 +5064,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1989 WD Model 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+--- !u!1 &1436938522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 1064087556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1436938523
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436938522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1445818050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3878,6 +5150,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
@@ -3936,8 +5220,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 LW Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+--- !u!1 &1544372200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+  m_PrefabInstance: {fileID: 250527137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1544372201
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544372200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1554491319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3992,6 +5306,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
       propertyPath: m_Name
       value: 1986 EP5 Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
@@ -4050,6 +5372,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1989 WD Model 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
 --- !u!1001 &1585131525
@@ -4107,6 +5437,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1989 WD Model 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
 --- !u!1001 &1586444561
@@ -4163,6 +5505,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
       propertyPath: m_Name
       value: 1989 WD Model 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
@@ -4232,11 +5586,65 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2214212788431258649, guid: 2a29b22826733dd48a7ce3b1209e2fb7, type: 3}
   m_PrefabInstance: {fileID: 1611435151}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1642769489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+  m_PrefabInstance: {fileID: 844267024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1642769490
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642769489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1648805070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 224828780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1648805071
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648805070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1690996742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
   m_PrefabInstance: {fileID: 393134001}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1698902670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 758893735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1698902671
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698902670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1712599836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4292,8 +5700,74 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1989 WD Model 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+--- !u!1 &1713071172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 155108824}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1713071173
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713071172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1775351041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+  m_PrefabInstance: {fileID: 715573939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1775351042
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775351041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1794201502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 1926292703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1794201503
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794201502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1810631538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4348,6 +5822,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
       propertyPath: m_Name
       value: 1986 EP5 Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
@@ -4418,8 +5904,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1132 T-3 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+--- !u!1 &1825299295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 818770431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1825299296
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825299295}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1854729928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4487,6 +6003,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1989 WD Model 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
 --- !u!1001 &1857108985
@@ -4544,8 +6072,74 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 SU Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+--- !u!1 &1867879865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+  m_PrefabInstance: {fileID: 402667912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1867879866
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867879865}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1873869734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 1819360497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1873869735
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873869734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1922068752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+  m_PrefabInstance: {fileID: 1153558807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1922068753
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922068752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1926292703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4600,6 +6194,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
       propertyPath: m_Name
       value: 1132 T-3 Durech (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
@@ -4658,8 +6264,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 SU Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+--- !u!1 &1960820732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1f753c46ab330704cbe5d6a071531e3e, type: 3}
+  m_PrefabInstance: {fileID: 247223036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1960820733
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960820732}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1972577819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4714,6 +6350,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
       propertyPath: m_Name
       value: 1991 SU Durech
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5689dcd59d83c442acc971fc1b8918b, type: 3}
@@ -4772,6 +6416,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1986 EP5 Durech (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
 --- !u!1001 &2060625149
@@ -4828,6 +6484,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
       propertyPath: m_Name
       value: 1132 T-3 Durech (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
@@ -4886,6 +6550,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1991 TF1 Durech
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -4898,8 +6570,30 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4a8f372de9c4d429dfff9e8bc5d098, type: 3}
+--- !u!1 &2110718348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 1249739075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &2110718349
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110718348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0.004707993, y: -0.005816014, z: 0.07034552}
 --- !u!1001 &2126446900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4955,6 +6649,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroids Group1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
 --- !u!4 &2126446901 stripped
@@ -4962,3 +6672,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
   m_PrefabInstance: {fileID: 2126446900}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2140917669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b7a274d7e715f44bae739ea027bbff, type: 3}
+  m_PrefabInstance: {fileID: 1586444561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &2140917670
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140917669}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2144160073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
+  m_PrefabInstance: {fileID: 865312919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &2144160074
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144160073}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}

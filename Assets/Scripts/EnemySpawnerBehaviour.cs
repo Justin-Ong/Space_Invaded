@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class WaveObject
 {
-    public int enemyType;
-    public int numEnemiesToSpawn;
-    public float timeBetweenSpawns;
+    public List<int> enemyType;
+    public List<int> numEnemiesToSpawn;
+    public List<float> timeBetweenSpawns;
     public bool immediateStart;
 
-    public WaveObject(int enemy, int numEnemies, float spawntime, bool start)
+    public WaveObject(List<int> enemy, List<int> numEnemies, List<float> spawntime, bool start)
     {
         enemyType = enemy;
         numEnemiesToSpawn = numEnemies;
@@ -27,6 +27,8 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     private float spawnTimer;
     private int numWaves;
     private int currWave;
+    private int numMiniWaves;
+    private int miniWaveIndex;
     private int currEnemyInWave;
     private List<Vector3> waypoints = new List<Vector3>();
 
@@ -35,26 +37,61 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         GetWaypoints();
         currWave = 0;
         currEnemyInWave = 1;
+        miniWaveIndex = 0;
         numWaves = waves.Count;
+        numMiniWaves = 0;
+        if (numWaves > 0)
+        {
+            numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
+        }
     }
 
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns)
+        if (numWaves > 0)
         {
-            SpawnEnemy();
-            currEnemyInWave++;
-            spawnTimer = 0;
-        }
-        if (currWave < numWaves && currEnemyInWave > waves[currWave].numEnemiesToSpawn)
-        {
-            currWave++;
-            currEnemyInWave = 1;
-            if (currWave < numWaves && waves[currWave].immediateStart)
+            if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
             {
-                spawnTimer = 999;
+                Debug.Log("Normal spawn");
+                SpawnEnemy();
+                currEnemyInWave++;
+                spawnTimer = 0;
             }
+            if (currWave < numWaves && currEnemyInWave > waves[currWave].numEnemiesToSpawn[miniWaveIndex])
+            {
+                Debug.Log("Increment miniWaveIndex");
+                miniWaveIndex++;
+                currEnemyInWave = 1;
+            }
+            if (currWave < numWaves && miniWaveIndex >= numMiniWaves) {
+                Debug.Log("New wave");
+                currWave++;
+                miniWaveIndex = 0;
+                if (currWave < numWaves)
+                {
+                    numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
+                    Debug.Log("Meow");
+                    if (waves[currWave].immediateStart)
+                    {
+                        Debug.Log("Immediate start");
+                        spawnTimer = waves[currWave].timeBetweenSpawns[miniWaveIndex] + 1;
+                        Debug.Log("A");
+                    }
+                }
+            }
+            if (currWave >= numWaves && spawnTimer > 1)
+            {
+                Debug.Log("No more waves");
+                SpawnRandomEnemy();
+                spawnTimer = 0;
+            }
+        }
+        else if (spawnTimer > 1)
+        {
+            Debug.Log("No wave set");
+            SpawnRandomEnemy();
+            spawnTimer = 0;
         }
     }
 
@@ -65,7 +102,14 @@ public class EnemySpawnerBehaviour : MonoBehaviour
 
     void SpawnEnemy()
     {
-        GameObject newEnemy = Instantiate(References.enemyTypes[waves[currWave].enemyType], transform.position, transform.rotation);
+        GameObject newEnemy = Instantiate(References.enemyTypes[waves[currWave].enemyType[miniWaveIndex]], transform.position, transform.rotation);
+        EnemyBehaviour newEnemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
+        newEnemyBehaviour.waypoints = waypoints;
+    }
+    
+    void SpawnRandomEnemy()
+    {
+        GameObject newEnemy = Instantiate(References.enemyTypes[Random.Range(0, References.numEnemyTypes)], transform.position, transform.rotation);
         EnemyBehaviour newEnemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
         newEnemyBehaviour.waypoints = waypoints;
     }
