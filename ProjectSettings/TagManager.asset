@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Endpoint
   - Enemy
   - Obstacle
   - EnemySpawner
+  - DefencePoint
   layers:
   - Default
   - TransparentFX
@@ -18,7 +18,7 @@ TagManager:
   - Node
   - Turret
   - Enemy
-  - 
+  - EnemyBullet
   - 
   - 
   - 

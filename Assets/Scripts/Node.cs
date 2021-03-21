@@ -60,6 +60,10 @@ public class Node : MonoBehaviour
 					return true;
 				}
 			}
+			GameObject defencePoint = GameObject.Find("DefencePoint");
+			if ((transform.position - defencePoint.transform.position).magnitude < 5) {
+				return true;
+			}
 		}
 		return false;
 	}

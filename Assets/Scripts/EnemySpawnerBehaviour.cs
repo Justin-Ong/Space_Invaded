@@ -61,47 +61,42 @@ public class EnemySpawnerBehaviour : MonoBehaviour
             {
                 if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
                 {
-                    Debug.Log("Normal spawn");
                     SpawnEnemy();
                     currEnemyInWave++;
                     spawnTimer = 0;
                 }
                 if (currWave < numWaves && currEnemyInWave > waves[currWave].numEnemiesToSpawn[miniWaveIndex])
                 {
-                    Debug.Log("Increment miniWaveIndex");
                     miniWaveIndex++;
                     currEnemyInWave = 1;
                 }
                 if (currWave < numWaves && miniWaveIndex >= numMiniWaves)
                 {
-                    Debug.Log("New wave");
                     currWave++;
                     miniWaveIndex = 0;
                     if (currWave < numWaves)
                     {
                         numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
-                        Debug.Log("Meow");
                         if (waves[currWave].immediateStart)
                         {
-                            Debug.Log("Immediate start");
                             spawnTimer = waves[currWave].timeBetweenSpawns[miniWaveIndex] + 1;
-                            Debug.Log("A");
                         }
                     }
                 }
                 if (currWave >= numWaves && spawnTimer > 1)
                 {
-                    Debug.Log("No more waves");
                     SpawnRandomEnemy();
                     spawnTimer = 0;
                 }
             }
             else if (spawnTimer > randomSpawnTimer)
             {
-                Debug.Log("No wave set");
                 SpawnRandomEnemy();
                 spawnTimer = 0;
-                randomSpawnTimer -= 0.01f;
+                if (randomSpawnTimer > 0.1)
+                {
+                    randomSpawnTimer -= 0.01f;
+                }
             }
         }
     }
