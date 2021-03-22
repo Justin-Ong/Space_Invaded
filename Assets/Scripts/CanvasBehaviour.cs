@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class CanvasBehaviour : MonoBehaviour
 {
-    public GameObject healthBar;
-
     private Text baseHealthDisplay;
     private Text gameOverDisplay;
 

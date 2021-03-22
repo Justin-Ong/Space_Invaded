@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class BigEnemyBehaviour : EnemyBehaviour
 {
-    private void Awake()
-    {
 
-    }
 }

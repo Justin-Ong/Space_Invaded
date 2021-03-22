@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  healthBarPrefab: {fileID: 5007358763614234541, guid: 9b22de120c8154749b36a87289a37a11, type: 3}
+  healthBarPrefab: {fileID: 1864576005592397735, guid: 9b22de120c8154749b36a87289a37a11, type: 3}
+  currHealth: 0
 --- !u!1001 &1720898424026182527
 PrefabInstance:
   m_ObjectHideFlags: 0

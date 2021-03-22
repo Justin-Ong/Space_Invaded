@@ -6,29 +6,30 @@ public class HealthSystem : MonoBehaviour
 {
     public float maxHealth;
     public GameObject healthBarPrefab;
+    public float currHealth;
 
-    private float currHealth;
+    private Camera mainCamera;
     private GameObject healthBar;
     private HealthBarBehaviour myHealthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        healthBar = Instantiate(healthBarPrefab, References.canvas.transform);
+        healthBar = Instantiate(healthBarPrefab, gameObject.transform);
         myHealthBar = healthBar.GetComponent<HealthBarBehaviour>();
         currHealth = maxHealth;
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        myHealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 2);
+        myHealthBar.transform.position = gameObject.transform.position + Vector3.up * 2;
     }
 
     public void TakeDamage(float value)
     {
         currHealth -= value;
-        myHealthBar.UpdateHealthFraction(currHealth / maxHealth);
         if (currHealth <= 0)
         {
             Die();
