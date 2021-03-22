@@ -11,9 +11,9 @@ public class LevelGenerator : MonoBehaviour
     public int height;
     public GameObject defencePoint;
     public GameObject node;
+    public BaseGrid searchGrid { get; private set; }
 
     JumpPointParam jpParam;
-    BaseGrid searchGrid;
     GridPos startPos;
     GridPos endPos;
 
