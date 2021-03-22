@@ -5076,11 +5076,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedObject: {fileID: 127004525}
-  maxDistance: 5
+  maxDistance: 10
   moveSpeed: 5
   updateSpeed: 10
   currentDistance: 3
-  hideDistance: 100
+  hideDistance: 0
 --- !u!81 &1427109306
 AudioListener:
   m_ObjectHideFlags: 0

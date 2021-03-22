@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerTracker : MonoBehaviour
 {
     public Transform trackedObject;
-    public float maxDistance = 50;
+    public float maxDistance = 5;
     public float moveSpeed = 5;
     public float updateSpeed = 1;
     [Range(0, 10)]
