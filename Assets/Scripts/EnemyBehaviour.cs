@@ -49,7 +49,7 @@ public class EnemyBehaviour : MonoBehaviour
             if (currAttackTimer > attackTimer)
             {
                 ourBody.velocity = Vector3.zero;
-                AttackClosestTower(nearbyTowers);
+                AttackClosestTower(GetClosestTower(nearbyTowers));
                 currAttackTimer = 0;
             }
         }
@@ -85,7 +85,7 @@ public class EnemyBehaviour : MonoBehaviour
         return nearbyTowers;
     }
 
-    private void AttackClosestTower(List<GameObject> nearbyTowers)
+    private GameObject GetClosestTower(List<GameObject> nearbyTowers)
     {
         int nearestTowerIndex = 0;
         float closestDistance = 50;
@@ -97,11 +97,16 @@ public class EnemyBehaviour : MonoBehaviour
                 nearestTowerIndex = i;
             }
         }
-        transform.LookAt(nearbyTowers[nearestTowerIndex].transform.position, Vector3.up);
+        return nearbyTowers[nearestTowerIndex];
+    }
+
+    public virtual void AttackClosestTower(GameObject target)
+    {
+        transform.LookAt(target.transform.position, Vector3.up);
         Shoot();
     }
 
-    private void Shoot()
+    public virtual void Shoot()
     {
         BulletBehaviour newBullet = Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation).GetComponent<BulletBehaviour>();
         newBullet.speed = 10;
