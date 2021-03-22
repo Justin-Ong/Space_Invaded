@@ -24,7 +24,7 @@ public class HealthSystem : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        myHealthBar.transform.position = gameObject.transform.position + Vector3.up * 2;
+        myHealthBar.transform.position = gameObject.transform.position + Vector3.up;
     }
 
     public void TakeDamage(float value)

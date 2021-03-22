@@ -17,7 +17,6 @@ public class HealthBarBehaviour : MonoBehaviour
 
     private void Start()
     {
-        // Cache since Camera.main is super slow
         mainCamera = Camera.main;
     }
 
