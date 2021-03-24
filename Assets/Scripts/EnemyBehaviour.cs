@@ -74,7 +74,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private List<GameObject> GetNearbyTowers()
+    public virtual List<GameObject> GetNearbyTowers()
     {
         List<GameObject> nearbyTowers = new List<GameObject>();
         Collider[] nearbyTowerColliders = Physics.OverlapSphere(transform.position, range, turretMask);
@@ -135,8 +135,8 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 forwardRayPos = transform.position;
         Vector3 leftRayPos = transform.position - transform.right * raycastOffset;
         Vector3 rightRayPos = transform.position + transform.right * raycastOffset;
-        Vector3 upRayPos = transform.position + transform.up * raycastOffset;
-        Vector3 downRayPos = transform.position - transform.up * raycastOffset;
+        Vector3 upRayPos = transform.position + transform.up * Mathf.Min(raycastOffset, 1);
+        Vector3 downRayPos = transform.position - transform.up * Mathf.Min(raycastOffset, 1);
 
         Debug.DrawRay(forwardRayPos, transform.forward * rayDistance * 0.8f, Color.red);
         Debug.DrawRay(leftRayPos, transform.forward * rayDistance, Color.red);
