@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 15
-  speed: 3
+  speed: 2
   bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
   attackTimer: 1
   range: 15

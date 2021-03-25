@@ -69,6 +69,8 @@ MonoBehaviour:
   enemy2: {fileID: 5874696886559616638, guid: bdc7d214d247a6d4eaa92abcded339d3, type: 3}
   enemy3: {fileID: 4810500184070200233, guid: 8d5f24a6078603c4083961efd31868e2, type: 3}
   enemy4: {fileID: 1405294080525131713, guid: b2ca918735657d3469887829cdc42135, type: 3}
+  enemy5: {fileID: 3714865857536780835, guid: d6a8d40353a39a34bb9820295e542d33, type: 3}
+  enemy6: {fileID: 2125828610309251900, guid: 9527af823f947a841bdfeec579701979, type: 3}
 --- !u!114 &2385083241799117713
 MonoBehaviour:
   m_ObjectHideFlags: 0

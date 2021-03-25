@@ -21,6 +21,8 @@ public class References : MonoBehaviour
     public GameObject enemy2;
     public GameObject enemy3;
     public GameObject enemy4;
+    public GameObject enemy5;
+    public GameObject enemy6;
 
     // UI
     public static GameObject canvas;
@@ -31,6 +33,8 @@ public class References : MonoBehaviour
         enemyTypes.Add(enemy2);
         enemyTypes.Add(enemy3);
         enemyTypes.Add(enemy4);
+        enemyTypes.Add(enemy5);
+        enemyTypes.Add(enemy6);
 
         numEnemyTypes = enemyTypes.Count;
     }
