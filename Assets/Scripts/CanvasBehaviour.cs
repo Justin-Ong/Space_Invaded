@@ -7,6 +7,8 @@ public class CanvasBehaviour : MonoBehaviour
 {
     private Text baseHealthDisplay;
     private Text gameOverDisplay;
+    private Text buildModeDisplay;
+    private GameObject pauseDisplay;
 
     void Awake()
     {
@@ -14,6 +16,8 @@ public class CanvasBehaviour : MonoBehaviour
         baseHealthDisplay = gameObject.transform.Find("BaseHealthDisplay").GetComponent<Text>();
         gameOverDisplay = gameObject.transform.Find("GameOverDisplay").GetComponent<Text>();
         gameOverDisplay.enabled = false;
+        buildModeDisplay = gameObject.transform.Find("BuildModeDisplay").GetComponent<Text>();
+        pauseDisplay = gameObject.transform.Find("PauseDisplay").gameObject;
     }
 
     void Update()
@@ -23,5 +27,14 @@ public class CanvasBehaviour : MonoBehaviour
         {
             gameOverDisplay.enabled = true;
         }
+        if (BuildManager.buildModeFlag) { buildModeDisplay.enabled = true; }
+        if (!BuildManager.buildModeFlag) { buildModeDisplay.enabled = false;}
+        if (BuildManager.pauseFlag) { pauseDisplay.SetActive(true); }
+        if (!BuildManager.pauseFlag) { pauseDisplay.SetActive(false);}
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

@@ -41,7 +41,7 @@ public class PlayerMovement3D : MonoBehaviour {
             currNode = null;
         }
 
-        if (Input.GetMouseButtonDown(0) && currNode)
+        if (Input.GetMouseButtonDown(0) && currNode && !BuildManager.pauseFlag)
         {
             currNode.BuildTurret();
         }

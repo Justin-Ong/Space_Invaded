@@ -4,8 +4,10 @@ using UnityEngine.UI;
 
 public class BuildManager : MonoBehaviour
 {
-
+	//private float fixedDeltaTime;
 	public static BuildManager instance;
+	public static bool buildModeFlag = false;
+	public static bool pauseFlag = false;
 
 	void Awake()
 	{
@@ -15,6 +17,7 @@ public class BuildManager : MonoBehaviour
 			return;
 		}
 		instance = this;
+		//fixedDeltaTime = Time.fixedDeltaTime;
 	}
 
 	public GameObject standardTurretPrefab1;
@@ -69,17 +72,55 @@ public class BuildManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Z))
-        {
-			Debug.Log("Keydown Z detected");
-            index = (index + 1) % numTurrets;
-			GameObject.Find("TurretDisplay").GetComponent<Button>().image.sprite = turretImagesArray[index];
-			GameObject.Find("Range").GetComponent<Text>().text = rangeArray[index];
-			GameObject.Find("Fire Rate").GetComponent<Text>().text = fireRateArray[index];
-			GameObject.Find("Damage").GetComponent<Text>().text = damageArray[index];
+		if (!pauseFlag)
+		{
+			if (Input.GetKeyDown(KeyCode.Z))
+			{
+				Debug.Log("Keydown Z detected");
+				index = (index + 1) % numTurrets;
+				GameObject.Find("TurretDisplay").GetComponent<Button>().image.sprite = turretImagesArray[index];
+				GameObject.Find("Range").GetComponent<Text>().text = rangeArray[index];
+				GameObject.Find("Fire Rate").GetComponent<Text>().text = fireRateArray[index];
+				GameObject.Find("Damage").GetComponent<Text>().text = damageArray[index];
 
-			turretToBuild = turretArray[index];
-        }
+				turretToBuild = turretArray[index];
+			}
+
+			if (Input.GetKeyDown(KeyCode.B))
+			{
+				Debug.Log("Keydown B detected");
+				if (Time.timeScale == 1.0f)
+				{
+					Time.timeScale = 0.1f;
+					PlayerMovement3D.instance.speed = 30;
+					buildModeFlag = true;
+
+				}
+				else
+				{
+					Time.timeScale = 1.0f;
+					PlayerMovement3D.instance.speed = 5;
+					buildModeFlag = false;
+				}
+				//Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			Debug.Log("KeyDown Esc detected");
+			if (pauseFlag)
+			{
+				Time.timeScale = 1;
+				pauseFlag = false;
+			}
+			else
+			{
+				Time.timeScale = 0;
+				pauseFlag = true;
+				buildModeFlag = false;
+			}
+			//Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
+		}
 	}
 
 	private GameObject turretToBuild;
