@@ -315,7 +315,7 @@ PrefabInstance:
       objectReference: {fileID: 1611435152}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: timeToFirstSpawn
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: waves.Array.size
@@ -1724,7 +1724,7 @@ PrefabInstance:
       objectReference: {fileID: 1611435152}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: timeToFirstSpawn
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: waves.Array.size
@@ -6909,7 +6909,7 @@ PrefabInstance:
       objectReference: {fileID: 1611435152}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: timeToFirstSpawn
-      value: 60
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: waves.Array.size
