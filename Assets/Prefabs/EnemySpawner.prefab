@@ -47,6 +47,7 @@ MonoBehaviour:
   defencePoint: {fileID: 0}
   waves: []
   timeToFirstSpawn: 0
+  TracerPrefab: {fileID: 3901174830093950414, guid: d9c08950a0ff3bd44abc9a17cbd53a8a, type: 3}
 --- !u!1001 &1727090708511294769
 PrefabInstance:
   m_ObjectHideFlags: 0

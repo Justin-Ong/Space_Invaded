@@ -24,10 +24,12 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     public GameObject defencePoint;
     public List<WaveObject> waves;
     public float timeToFirstSpawn;
+    public GameObject TracerPrefab;
 
     private float firstSpawnTimer;
     private float randomSpawnTimer;
     private float spawnTimer;
+    private float tracerTimer;
     private int numWaves;
     private int currWave;
     private int numMiniWaves;
@@ -54,6 +56,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     void Update()
     {
         firstSpawnTimer += Time.deltaTime;
+        tracerTimer += Time.deltaTime;
         if (firstSpawnTimer > timeToFirstSpawn)
         {
             spawnTimer += Time.deltaTime;
@@ -99,6 +102,11 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                 }
             }
         }
+        if (tracerTimer > 3)
+        {
+            SpawnTracer();
+            tracerTimer = 0;
+        }
     }
 
     void GetWaypoints()
@@ -121,5 +129,12 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         GameObject newEnemy = Instantiate(References.enemyTypes[Random.Range(0, References.numEnemyTypes)], transform.position, transform.rotation);
         EnemyBehaviour newEnemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
         newEnemyBehaviour.waypoints = waypoints;
+    }
+
+    void SpawnTracer()
+    {
+        GameObject newTracer = Instantiate(TracerPrefab, transform.position, transform.rotation);
+        TracerBehaviour newTracerBehaviour = newTracer.GetComponent<TracerBehaviour>();
+        newTracerBehaviour.waypoints = waypoints;
     }
 }
