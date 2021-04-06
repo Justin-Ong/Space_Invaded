@@ -6,11 +6,18 @@ public class TurretLogic : MonoBehaviour
 {
     private Transform target;
 
-    [Header("Attributes")]
+    [Header("General")]
     public float range = 15f;
-    public float fireRate = 1f;
     public float damage = 5f;
+
+    [Header("Use Bullets (default)")]
+    public GameObject bulletPrefab;
+    public float fireRate = 1f;
     private float fireCountdown = 0f;
+
+    [Header("Use Laser")]
+    public bool userLaser = false;
+    public LineRenderer lineRenderer;
 
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
@@ -18,7 +25,6 @@ public class TurretLogic : MonoBehaviour
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
-    public GameObject bulletPrefab;
     public Transform firePoint;
 
     // Start is called before the first frame update
@@ -59,22 +65,48 @@ public class TurretLogic : MonoBehaviour
     {
         if (target == null) 
         {
+            if (userLaser)
+            {
+                if (lineRenderer.enabled)
+                    lineRenderer.enabled = false;
+            }
             return;
         }
 
+        LockOnTarget();
+
+        if (userLaser)
+        {
+            Laser();
+        }
+        else
+        {
+            // control turret shooting interval
+            if (fireCountdown <= 0f)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
+            fireCountdown -= Time.deltaTime;
+        }
+
+    }
+
+    void Laser()
+    {
+        if (!lineRenderer.enabled)
+            lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+    }
+
+    void LockOnTarget()
+    {
         // rotate turret towards enemy
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y, 0f); // rotate only y-axis
-
-        // control turret shooting interval
-        if (fireCountdown <= 0f)
-        {
-            Shoot();
-            fireCountdown = 1f / fireRate;
-        }
-        fireCountdown -= Time.deltaTime;
     }
 
     void Shoot() 
