@@ -17,6 +17,7 @@ public class TurretLogic : MonoBehaviour
 
     [Header("Use Laser")]
     public bool userLaser = false;
+    public int damageOverTime = 10;
     public LineRenderer lineRenderer;
 
     [Header("Unity Setup Fields")]
@@ -98,6 +99,8 @@ public class TurretLogic : MonoBehaviour
             lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position);
+
+        target.GetComponent<HealthSystem>().TakeDamage(damageOverTime * Time.deltaTime);
     }
 
     void LockOnTarget()
