@@ -74,9 +74,8 @@ public class BuildManager : MonoBehaviour
 	{
 		if (!pauseFlag)
 		{
-			if (Input.GetKeyDown(KeyCode.Z))
+			if (Input.GetMouseButtonDown(1))
 			{
-				Debug.Log("Keydown Z detected");
 				index = (index + 1) % numTurrets;
 				GameObject.Find("TurretDisplay").GetComponent<Button>().image.sprite = turretImagesArray[index];
 				GameObject.Find("Range").GetComponent<Text>().text = rangeArray[index];
@@ -85,29 +84,9 @@ public class BuildManager : MonoBehaviour
 
 				turretToBuild = turretArray[index];
 			}
-
-			if (Input.GetKeyDown(KeyCode.B))
-			{
-				Debug.Log("Keydown B detected");
-				if (Time.timeScale == 1.0f)
-				{
-					Time.timeScale = 0.1f;
-					PlayerMovement3D.instance.speed = 30;
-					buildModeFlag = true;
-
-				}
-				else
-				{
-					Time.timeScale = 1.0f;
-					PlayerMovement3D.instance.speed = 5;
-					buildModeFlag = false;
-				}
-				//Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
-			}
 		}
 
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			Debug.Log("KeyDown Esc detected");
 			if (pauseFlag)
 			{
 				Time.timeScale = 1;
@@ -119,7 +98,6 @@ public class BuildManager : MonoBehaviour
 				pauseFlag = true;
 				buildModeFlag = false;
 			}
-			//Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
 		}
 	}
 

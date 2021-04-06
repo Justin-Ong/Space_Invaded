@@ -4,26 +4,55 @@ using UnityEngine;
 
 public class PlayerTracker : MonoBehaviour
 {
-    public Transform trackedObject;
-    public float maxDistance = 5;
-    public float moveSpeed = 5;
-    public float updateSpeed = 1;
-    [Range(0, 10)]
-    public float currentDistance = 3;
-    public float hideDistance = 1.5f;
+    public GameObject ourCamera;
+    public GameObject target;
+    public float rotateSpeed = 8;
+    public Vector3 maxZoom = new Vector3(25, 25, 25);
+    public Vector3 minZoom = new Vector3(5, 5, 5);
 
-    private string moveAxis = "Mouse ScrollWheel";
+    private Transform cameraTransform;
+    private Transform targetTransform;
 
     void Start()
     {
-        
+        cameraTransform = ourCamera.transform;
+        targetTransform = target.transform;
+        cameraTransform.position = targetTransform.position;
     }
 
-    void LateUpdate()
+    void Update()
     {
-        currentDistance += Input.GetAxisRaw(moveAxis) * moveSpeed * Time.deltaTime * 100;
-        currentDistance = Mathf.Clamp(currentDistance, 0, maxDistance);
-        transform.position = Vector3.MoveTowards(transform.position, trackedObject.position + Vector3.up * currentDistance - trackedObject.forward * (currentDistance + maxDistance * 0.5f), updateSpeed * Time.deltaTime);
-        transform.LookAt(trackedObject);
+        if (Input.GetKey(KeyCode.LeftAlt) && Input.GetMouseButton(0))
+        {
+            float h = rotateSpeed * Input.GetAxis("Mouse X");
+            float v = rotateSpeed * Input.GetAxis("Mouse Y");
+
+            if (cameraTransform.eulerAngles.z + v <= 0.1f || cameraTransform.eulerAngles.z + v >= 179.9f)
+                v = 0;
+
+            cameraTransform.eulerAngles = new Vector3(cameraTransform.eulerAngles.x, cameraTransform.eulerAngles.y + h, cameraTransform.eulerAngles.z + v);
+        }
+
+        float scrollFactor = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scrollFactor != 0)
+        {
+            cameraTransform.localScale = cameraTransform.localScale * (1f - scrollFactor);
+            if (cameraTransform.localScale.x > maxZoom.x)
+            {
+                cameraTransform.localScale = maxZoom;
+            }
+            else if (cameraTransform.localScale.x < minZoom.x)
+            {
+                cameraTransform.localScale = minZoom;
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+
+        transform.LookAt(targetTransform.position);
     }
 }

@@ -145,3 +145,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   enemySpawnerTag: EnemySpawner
+  errorMessage: {fileID: 3850494622612838777, guid: 8c72224312d3e40498380848f2519a6c, type: 3}
