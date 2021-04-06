@@ -20,10 +20,13 @@ public class TurretLogic : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public AudioSource fireSound;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        fireSound = GetComponent<AudioSource>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -79,6 +82,7 @@ public class TurretLogic : MonoBehaviour
 
     void Shoot() 
     {
+        fireSound.Play();
         GameObject bulletGO = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.damage = damage;
