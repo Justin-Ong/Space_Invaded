@@ -13,7 +13,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float attackTimer;
     public float range;
     public float damage;
-    public LayerMask turretMask;
+    public string turretTag = "Turret";
 
     [Header("Pathing")]
     public List<Vector3> waypoints;
@@ -25,10 +25,11 @@ public class EnemyBehaviour : MonoBehaviour
     public float rayDistance;
     public float rotationSpeed = 2f;
 
-    private Rigidbody ourBody;
-    private HealthSystem ourHealth;
-    private float currAttackTimer;
-    private float rotationMod;
+    protected Rigidbody ourBody;
+    protected HealthSystem ourHealth;
+    protected float currAttackTimer;
+    protected float rotationMod;
+    protected Transform target;
 
     // Start is called before the first frame update
     void Start()
@@ -36,22 +37,18 @@ public class EnemyBehaviour : MonoBehaviour
         ourBody = GetComponent<Rigidbody>();
         ourHealth = GetComponent<HealthSystem>();
         rotationMod = 0;
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     void FixedUpdate()
     {
         currAttackTimer += Time.deltaTime;
 
-        List<GameObject> nearbyTowers = GetNearbyTowers();
-
-        if (nearbyTowers.Count > 0)
+        if (target && currAttackTimer > attackTimer)
         {
-            if (currAttackTimer > attackTimer)
-            {
-                ourBody.velocity = Vector3.zero;
-                AttackClosestTower(GetClosestTower(nearbyTowers));
-                currAttackTimer = 0;
-            }
+            ourBody.velocity = Vector3.zero;
+            Attack();
+            currAttackTimer = 0;
         }
         else
         {
@@ -74,36 +71,39 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public virtual List<GameObject> GetNearbyTowers()
+    void UpdateTarget()
     {
-        List<GameObject> nearbyTowers = new List<GameObject>();
-        Collider[] nearbyTowerColliders = Physics.OverlapSphere(transform.position, range, turretMask);
-        for (int i = 0; i < nearbyTowerColliders.Length; i++)
-        {
-            nearbyTowers.Add(nearbyTowerColliders[i].gameObject);
-        }
-        return nearbyTowers;
-    }
+        GameObject[] turrets = GameObject.FindGameObjectsWithTag(turretTag);
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestTurret = null;
 
-    private GameObject GetClosestTower(List<GameObject> nearbyTowers)
-    {
-        int nearestTowerIndex = 0;
-        float closestDistance = 50;
-        for (int i = 0; i < nearbyTowers.Count; i++)
+        foreach (GameObject turret in turrets)
         {
-            float distance = Mathf.Abs((nearbyTowers[i].transform.position - transform.position).magnitude);
-            if (distance < closestDistance)
+            float distanceToEnemy = Vector3.Distance(transform.position, turret.transform.position);
+            if (distanceToEnemy < shortestDistance)
             {
-                nearestTowerIndex = i;
+                shortestDistance = distanceToEnemy;
+                nearestTurret = turret;
             }
         }
-        return nearbyTowers[nearestTowerIndex];
+
+        // update if target is within range
+        if (nearestTurret != null && shortestDistance <= range)
+        {
+            target = nearestTurret.transform;
+        }
+        else
+        {
+            target = null;
+        }
     }
 
-    public virtual void AttackClosestTower(GameObject target)
+    public virtual void Attack()
     {
-        transform.LookAt(target.transform.position, Vector3.up);
+        Quaternion prevRotation = transform.rotation;
+        transform.LookAt(target.position, Vector3.up);
         Shoot();
+        transform.rotation = prevRotation;
     }
 
     public virtual void Shoot()
@@ -114,23 +114,23 @@ public class EnemyBehaviour : MonoBehaviour
         newBullet.timeToLive = 5;
     }
 
-    private void LookAtNextWaypoint()
+    protected void LookAtNextWaypoint()
     {
         Quaternion rotation = Quaternion.LookRotation(waypoints[currWaypointIndex] - transform.position, transform.up);
         Turn(rotation);
     }
 
-    private void Move()
+    protected void Move()
     {
         ourBody.velocity = transform.forward.normalized * speed;
     }
 
-    private void Turn(Quaternion rotation)
+    protected void Turn(Quaternion rotation)
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, (rotationSpeed + rotationMod) * Time.deltaTime);
     }
 
-    private bool DetectObstacles(out Vector3 newDirection)
+    protected bool DetectObstacles(out Vector3 newDirection)
     {
         Vector3 forwardRayPos = transform.position;
         Vector3 leftRayPos = transform.position - transform.right * raycastOffset;
@@ -176,7 +176,7 @@ public class EnemyBehaviour : MonoBehaviour
         return obstacleDetected;
     }
 
-    private void AvoidObstacles(Vector3 newDirection)
+    protected void AvoidObstacles(Vector3 newDirection)
     {
         Quaternion rotation;
         if (newDirection != Vector3.zero)
@@ -192,7 +192,7 @@ public class EnemyBehaviour : MonoBehaviour
         Turn(rotation);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<WaypointBehaviour>() != null)
         {
@@ -200,7 +200,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<DefencePointBehaviour>() != null)
         {

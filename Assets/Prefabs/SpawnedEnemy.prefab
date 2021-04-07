@@ -79,12 +79,10 @@ MonoBehaviour:
   maxHealth: 3
   speed: 8
   bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
-  attackTimer: 1
-  range: 3
-  damage: 1
-  turretMask:
-    serializedVersion: 2
-    m_Bits: 128
+  attackTimer: 0
+  range: 0
+  damage: 0
+  turretTag: Turret
   waypoints: []
   currWaypointIndex: 0
   raycastOffset: 1

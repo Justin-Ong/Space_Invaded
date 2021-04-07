@@ -82,9 +82,7 @@ MonoBehaviour:
   attackTimer: 2
   range: 5
   damage: 3
-  turretMask:
-    serializedVersion: 2
-    m_Bits: 128
+  turretTag: Turret
   waypoints: []
   currWaypointIndex: 0
   raycastOffset: 1

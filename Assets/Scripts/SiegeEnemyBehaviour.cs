@@ -8,19 +8,39 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
     private GameObject prevTarget;
     private float damageMod;
 
-    public override void AttackClosestTower(GameObject target)
+    void FixedUpdate()
     {
-        currTarget = target;
-        if (currTarget != prevTarget)
+        currAttackTimer += Time.deltaTime;
+
+        if (target)
         {
-            damageMod = 0;
+            ourBody.velocity = Vector3.zero;
+            transform.LookAt(target.position, Vector3.up);
+            if (currAttackTimer > attackTimer)
+            {
+                Attack();
+                currAttackTimer = 0;
+            }
         }
         else
         {
-            damageMod += 1;
+            Vector3 newDirection;
+            if (DetectObstacles(out newDirection))
+            {
+                AvoidObstacles(newDirection);
+            }
+            else
+            {
+                LookAtNextWaypoint();
+            }
+            Move();
+            rotationMod += 0.01f;
+            if (currWaypointIndex < waypoints.Count - 1 && (waypoints[currWaypointIndex] - transform.position).magnitude < 5)
+            {
+                currWaypointIndex++;
+                rotationMod = 0;
+            }
         }
-        prevTarget = currTarget;
-        base.AttackClosestTower(target);
     }
 
     public override void Shoot()

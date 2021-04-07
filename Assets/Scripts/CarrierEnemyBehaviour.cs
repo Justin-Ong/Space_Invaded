@@ -22,10 +22,4 @@ public class CarrierEnemyBehaviour : EnemyBehaviour
             currSpawnTime = 0;
         }
     }
-
-    // Override target finding so carrier never attacks
-    public override List<GameObject> GetNearbyTowers()
-    {
-        return emptyList;
-    }
 }

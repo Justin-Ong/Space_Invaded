@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  fireRate: 2
   damage: 5
+  bulletPrefab: {fileID: 8149847200965376386, guid: 15f5ec0c17ef448aa9b2dd8f9bc13800, type: 3}
+  fireRate: 2
+  userLaser: 0
+  damageOverTime: 10
+  lineRenderer: {fileID: 0}
   enemyTag: Enemy
   partToRotate: {fileID: 5133976542081550546}
   turnSpeed: 5
-  bulletPrefab: {fileID: 8149847200965376386, guid: 15f5ec0c17ef448aa9b2dd8f9bc13800, type: 3}
   firePoint: {fileID: 4431505987955515091}
 --- !u!1 &1206918553148693708
 GameObject:
@@ -176,7 +179,7 @@ GameObject:
   - component: {fileID: -4691820718701306148}
   m_Layer: 7
   m_Name: TurretLongFastStrong
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
