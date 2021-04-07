@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -211,6 +212,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public virtual void Die()
     {
+        ResourceSystem.money += 10;
+        GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }
 }

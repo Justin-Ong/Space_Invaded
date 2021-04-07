@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SplitEnemyBehaviour : EnemyBehaviour
 {
@@ -15,6 +16,8 @@ public class SplitEnemyBehaviour : EnemyBehaviour
             SpawnedEnemyBehaviour newEnemy = temp.GetComponent<SpawnedEnemyBehaviour>();
             newEnemy.waypoints = waypoints;
             newEnemy.currWaypointIndex = currWaypointIndex;
+            ResourceSystem.money += 10;
+            GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         }
         Destroy(gameObject);
     }

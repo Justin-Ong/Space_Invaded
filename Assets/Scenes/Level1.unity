@@ -2921,6 +2921,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 105780229, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 105780229, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 898818126, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 898818126, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 898818126, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -350
+      objectReference: {fileID: 0}
+    - target: {fileID: 898818126, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246068713, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264105470522873673, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3026201770835777555, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4068,6 +4100,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040439197}
   m_CullTransparentMesh: 1
+--- !u!1 &1053442274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2385083241799117725, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
+  m_PrefabInstance: {fileID: 997139700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1053442280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053442274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6790e6f672439644f8a7674879d10a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startmoney: 1000
 --- !u!1 &1080571096
 GameObject:
   m_ObjectHideFlags: 0

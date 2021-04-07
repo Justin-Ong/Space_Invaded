@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SiegeEnemyBehaviour : EnemyBehaviour
 {
@@ -29,5 +30,12 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
         newBullet.speed = 10;
         newBullet.damage = damage + damageMod;
         newBullet.timeToLive = 5;
+    }
+
+    public override void Die()
+    {
+        ResourceSystem.money += 30;
+        GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
+        Destroy(gameObject);
     }
 }
