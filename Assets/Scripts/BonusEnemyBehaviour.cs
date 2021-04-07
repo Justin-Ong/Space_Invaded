@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BonusEnemyBehaviour : EnemyBehaviour
 {
-    public virtual void Die()
+    public override void Die()
     {
         ResourceSystem.money += 50;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;

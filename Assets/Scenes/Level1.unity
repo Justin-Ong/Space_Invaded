@@ -810,7 +810,35 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: defencePoint
+      value: 
+      objectReference: {fileID: 1611435152}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: OnScreenBaseSprite
+      value: 
+      objectReference: {fileID: 8131660501921951844, guid: 9cffd4f62db40674abd517c7a2466d17, type: 3}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: OffScreenBaseSprite
+      value: 
+      objectReference: {fileID: 656648655845650292, guid: 10c64d4092679e240ad6a8ece44c44c1, type: 3}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: OnScreenEnemySprite
+      value: 
+      objectReference: {fileID: 2812376884852990019, guid: 86a7469cee104eb47af4ac8129a5e2c3, type: 3}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: OffScreenEnemySprite
+      value: 
+      objectReference: {fileID: 1224941614186013406, guid: 5d2c3a20bbcb0204b98f868bda0c90ee, type: 3}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
       propertyPath: objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1889898158}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: enemySpawners.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: enemySpawners.Array.data[0]
       value: 
       objectReference: {fileID: 1889898158}
     - target: {fileID: 3026201770835777555, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}

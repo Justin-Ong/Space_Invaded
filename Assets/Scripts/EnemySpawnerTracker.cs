@@ -5,26 +5,35 @@ using UnityEngine.UI;
 
 public class EnemySpawnerTracker : MonoBehaviour
 {
-    public Image OnScreenSprite;
-    public Image OffScreenSprite;
-    public List<GameObject> objects;
+    public Image OnScreenEnemySprite;
+    public Image OffScreenEnemySprite;
+    public Image OnScreenBaseSprite;
+    public Image OffScreenBaseSprite;
+    public List<GameObject> enemySpawners;
+    public GameObject defencePoint;
 
-    Image[] onScreenSprites;
-    Image[] offScreenSprites;
+    Image[] onScreenEnemySprites;
+    Image[] offScreenEnemySprites;
+    Image onScreenBaseSprite;
+    Image offScreenBaseSprite;
 
     void Start()
     {
-        onScreenSprites = new Image[objects.Count];
-        offScreenSprites = new Image[objects.Count];
-        for (int i = 0; i < objects.Count; i++)
+        onScreenEnemySprites = new Image[enemySpawners.Count];
+        offScreenEnemySprites = new Image[enemySpawners.Count];
+        for (int i = 0; i < enemySpawners.Count; i++)
         {
-            Image newOnScreenSprite = Instantiate(OnScreenSprite, transform.position, transform.rotation);
-            Image newOffScreenSprite = Instantiate(OffScreenSprite, transform.position, transform.rotation);
+            Image newOnScreenSprite = Instantiate(OnScreenEnemySprite, transform.position, transform.rotation);
+            Image newOffScreenSprite = Instantiate(OffScreenEnemySprite, transform.position, transform.rotation);
             newOnScreenSprite.transform.SetParent(gameObject.transform);
             newOffScreenSprite.transform.SetParent(gameObject.transform);
-            onScreenSprites[i] = newOnScreenSprite;
-            offScreenSprites[i] = newOffScreenSprite;
+            onScreenEnemySprites[i] = newOnScreenSprite;
+            offScreenEnemySprites[i] = newOffScreenSprite;
         }
+        onScreenBaseSprite = Instantiate(OnScreenBaseSprite, transform.position, transform.rotation);
+        offScreenBaseSprite = Instantiate(OffScreenBaseSprite, transform.position, transform.rotation);
+        onScreenBaseSprite.transform.SetParent(gameObject.transform);
+        offScreenBaseSprite.transform.SetParent(gameObject.transform);
     }
 
     void LateUpdate()
@@ -34,27 +43,40 @@ public class EnemySpawnerTracker : MonoBehaviour
 
     void PlaceIndicators()
     {
-        foreach (GameObject obj in objects)
+        Vector3 screenpos;
+        foreach (GameObject obj in enemySpawners)
         {
-            Vector3 screenpos = Camera.main.WorldToScreenPoint(obj.transform.position);
-            int index = objects.IndexOf(obj);
+            screenpos = Camera.main.WorldToScreenPoint(obj.transform.position);
+            int index = enemySpawners.IndexOf(obj);
             if (screenpos.z > 0 && screenpos.x < Screen.width && screenpos.x > 0 && screenpos.y < Screen.height && screenpos.y > 0)
             {
-                onScreenSprites[index].rectTransform.position = screenpos;
-                onScreenSprites[index].enabled = true;
-                offScreenSprites[index].enabled = false;
+                onScreenEnemySprites[index].rectTransform.position = screenpos;
+                onScreenEnemySprites[index].enabled = true;
+                offScreenEnemySprites[index].enabled = false;
             }
             else
             {
-                PlaceOffscreen(screenpos, offScreenSprites[index], obj);
-                onScreenSprites[index].enabled = false;
-                offScreenSprites[index].enabled = true;
+                PlaceOffscreen(screenpos, offScreenEnemySprites[index]);
+                onScreenEnemySprites[index].enabled = false;
+                offScreenEnemySprites[index].enabled = true;
             }
         }
-
+        screenpos = Camera.main.WorldToScreenPoint(defencePoint.transform.position);
+        if (screenpos.z > 0 && screenpos.x < Screen.width && screenpos.x > 0 && screenpos.y < Screen.height && screenpos.y > 0)
+        {
+            onScreenBaseSprite.rectTransform.position = screenpos;
+            onScreenBaseSprite.enabled = true;
+            offScreenBaseSprite.enabled = false;
+        }
+        else
+        {
+            PlaceOffscreen(screenpos, offScreenBaseSprite);
+            onScreenBaseSprite.enabled = false;
+            offScreenBaseSprite.enabled = true;
+        }
     }
 
-    void PlaceOffscreen(Vector3 screenpos, Image sprite, GameObject obj)
+    void PlaceOffscreen(Vector3 screenpos, Image sprite)
     {
         float x = screenpos.x;
         float y = screenpos.y;

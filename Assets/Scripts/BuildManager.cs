@@ -33,6 +33,8 @@ public class BuildManager : MonoBehaviour
 	private string[] rangeArray;
 	private string[] fireRateArray;
 	private string[] damageArray;
+	private string[] costArray;
+	private int[] moneyArray;
 
 	public Sprite TurretImage1;
 	public Sprite TurretImage2;
@@ -46,6 +48,8 @@ public class BuildManager : MonoBehaviour
 		rangeArray = new string[numStatTypes];
 		fireRateArray = new string[numStatTypes];
 		damageArray = new string[numStatTypes];
+		costArray = new string[numStatTypes];
+		moneyArray = new int[numStatTypes];
 
 		rangeArray[0] = "Range: 9";
 		rangeArray[1] = "Range: 15";
@@ -59,6 +63,14 @@ public class BuildManager : MonoBehaviour
 		damageArray[1] = "Damage: 1";
 		damageArray[2] = "Damage: 5";
 
+		costArray[0] = "Cost: 50";
+		costArray[1] = "Cost: 100";
+		costArray[2] = "Cost: 200";
+
+		moneyArray[0] = 50;
+		moneyArray[1] = 100;
+		moneyArray[2] = 200;
+
 		turretArray[0] = standardTurretPrefab1;
 		turretArray[1] = standardTurretPrefab2;
 		turretArray[2] = standardTurretPrefab3;
@@ -68,6 +80,7 @@ public class BuildManager : MonoBehaviour
 		turretImagesArray[2] = TurretImage3;
 
 		turretToBuild = standardTurretPrefab1;
+		moneyToBuild = 50;
 	}
 
 	void Update()
@@ -81,12 +94,15 @@ public class BuildManager : MonoBehaviour
 				GameObject.Find("Range").GetComponent<Text>().text = rangeArray[index];
 				GameObject.Find("Fire Rate").GetComponent<Text>().text = fireRateArray[index];
 				GameObject.Find("Damage").GetComponent<Text>().text = damageArray[index];
+				GameObject.Find("Cost").GetComponent<Text>().text = costArray[index];
 
 				turretToBuild = turretArray[index];
+				moneyToBuild = moneyArray[index];
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.Escape)) {
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
 			if (pauseFlag)
 			{
 				Time.timeScale = 1;
@@ -102,10 +118,10 @@ public class BuildManager : MonoBehaviour
 	}
 
 	private GameObject turretToBuild;
+	public static int moneyToBuild;
 
 	public GameObject GetTurretToBuild()
 	{
 		return turretToBuild;
 	}
-
 }
