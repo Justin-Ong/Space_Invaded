@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CanvasBehaviour : MonoBehaviour
 {
     private Text baseHealthDisplay;
+    private HealthBar baseHealthBar;
     private Text gameOverDisplay;
     private Text buildModeDisplay;
     private GameObject pauseDisplay;
@@ -14,6 +15,7 @@ public class CanvasBehaviour : MonoBehaviour
     {
         References.canvas = gameObject;
         baseHealthDisplay = gameObject.transform.Find("BaseHealthDisplay").GetComponent<Text>();
+        baseHealthBar = gameObject.transform.Find("BaseHealthBar").GetComponent<HealthBar>();
         gameOverDisplay = gameObject.transform.Find("GameOverDisplay").GetComponent<Text>();
         gameOverDisplay.enabled = false;
         buildModeDisplay = gameObject.transform.Find("BuildModeDisplay").GetComponent<Text>();
@@ -23,6 +25,7 @@ public class CanvasBehaviour : MonoBehaviour
     void Update()
     {
         baseHealthDisplay.text = References.defencePointObject.currBaseHealth + "/" + References.defencePointObject.maxBaseHealth;
+        baseHealthBar.ShowHealthFraction(References.defencePointObject.currBaseHealth / References.defencePointObject.maxBaseHealth);
         if (References.defencePointObject.currBaseHealth <= 0)
         {
             gameOverDisplay.enabled = true;

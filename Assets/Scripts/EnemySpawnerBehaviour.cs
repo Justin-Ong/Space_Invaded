@@ -111,10 +111,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
 
     void GetWaypoints()
     {
-        Debug.Log(gameObject.name);
-        Debug.Log(Time.realtimeSinceStartupAsDouble);
         waypoints = References.levelGrid.GetPath(transform.position);
-        Debug.Log(Time.realtimeSinceStartupAsDouble);
     }
 
     void SpawnEnemy()

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DefencePointBehaviour : MonoBehaviour
 {
-    public int maxBaseHealth = 10;
-    public int currBaseHealth;
+    public float maxBaseHealth = 100;
+    public float currBaseHealth;
 
     void Awake()
     {
