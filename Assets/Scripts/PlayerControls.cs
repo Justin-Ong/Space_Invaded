@@ -31,7 +31,7 @@ public class PlayerControls : MonoBehaviour {
             currNode = null;
         }
 
-        if (Input.GetMouseButtonDown(0) && currNode && !BuildManager.pauseFlag)
+        if (!Input.GetKey(KeyCode.LeftAlt) && Input.GetMouseButtonDown(0) && currNode && !BuildManager.pauseFlag)
         {
             currNode.BuildTurret();
         }
