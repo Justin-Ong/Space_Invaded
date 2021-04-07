@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
@@ -33,16 +34,27 @@ public class Node : MonoBehaviour
 			return;
 		}
 
+		if (ResourceSystem.money < BuildManager.moneyToBuild)
+		{
+			ShowErrorMessage();
+			return;
+		}
+
+		ResourceSystem.money -= BuildManager.moneyToBuild;
+
 		GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
 		turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
 		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), false);
+
+		GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
 	}
 
 	private void ShowErrorMessage()
 	{
 		GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up, transform.rotation);
 		ErrorMessage err = newErr.GetComponent<ErrorMessage>();
-		err.text = "Can't build here!";
+		if (ResourceSystem.money < BuildManager.moneyToBuild) err.text = "No enough money!";
+		else err.text = "Can't build here!";
 		err.timeToLive = 2;
 	}
 
@@ -54,16 +66,19 @@ public class Node : MonoBehaviour
 		{
 			return true;
 		}
-		else {
+		else
+		{
 			GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag(enemySpawnerTag);
 			foreach (GameObject enemySpawner in enemySpawners)
 			{
-				if ((transform.position - enemySpawner.transform.position).magnitude < 10) {
+				if ((transform.position - enemySpawner.transform.position).magnitude < 10)
+				{
 					return true;
 				}
 			}
 			GameObject defencePoint = GameObject.Find("DefencePoint");
-			if ((transform.position - defencePoint.transform.position).magnitude < 5) {
+			if ((transform.position - defencePoint.transform.position).magnitude < 5)
+			{
 				return true;
 			}
 		}
@@ -71,7 +86,7 @@ public class Node : MonoBehaviour
 	}
 
 	private void OnTriggerEnter(Collider other)
-    {
+	{
 		if (other.gameObject.CompareTag("Player"))
 		{
 			meshRend.enabled = true;
@@ -79,8 +94,8 @@ public class Node : MonoBehaviour
 		}
 	}
 
-    private void OnTriggerExit(Collider other)
-    {
+	private void OnTriggerExit(Collider other)
+	{
 		if (other.gameObject.CompareTag("Player"))
 		{
 			meshRend.enabled = false;
