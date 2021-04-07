@@ -11,6 +11,7 @@ public class HealthSystem : MonoBehaviour
     private Camera mainCamera;
     private GameObject healthBar;
     private HealthBarBehaviour myHealthBar;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class HealthSystem : MonoBehaviour
         myHealthBar = healthBar.GetComponent<HealthBarBehaviour>();
         currHealth = maxHealth;
         mainCamera = Camera.main;
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -30,9 +32,10 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(float value)
     {
         currHealth -= value;
-        if (currHealth <= 0)
+        if (currHealth <= 0 && !isDead)
         {
             Die();
+            isDead = true;
         }
     }
 
