@@ -3,7 +3,32 @@ guid: d27a1048f16c17f4b82947dfbd50d751
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GoldenRod
+    second: {fileID: 2100000, guid: ac5f28bbb16253b42a4f59ba94fa237c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey
+    second: {fileID: 2100000, guid: d844d755247cbf14fb33ec6c53cc6eab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Silver
+    second: {fileID: 2100000, guid: 1ca1ec277556fd145a1d05e757d3efb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TransperantWhite
+    second: {fileID: 2100000, guid: 4a5497f7691430e46b4ef0d0741fee46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White
+    second: {fileID: 2100000, guid: 34dd1692dc89e3a4fb123ceded75398b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

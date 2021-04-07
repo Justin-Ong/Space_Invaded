@@ -9,10 +9,8 @@ public class EnemySpawnerTracker : MonoBehaviour
     public Image OffScreenSprite;
     public List<GameObject> objects;
 
-    //public Vector3 objectPoolPos;
     Image[] onScreenSprites;
     Image[] offScreenSprites;
-    //Vector3 screenCenter = new Vector3(Screen.width, Screen.height, 0) * .5f;
 
     void Start()
     {
@@ -48,7 +46,7 @@ public class EnemySpawnerTracker : MonoBehaviour
             }
             else
             {
-                PlaceOffscreen(screenpos, offScreenSprites[index]);
+                PlaceOffscreen(screenpos, offScreenSprites[index], obj);
                 onScreenSprites[index].enabled = false;
                 offScreenSprites[index].enabled = true;
             }
@@ -56,7 +54,7 @@ public class EnemySpawnerTracker : MonoBehaviour
 
     }
 
-    void PlaceOffscreen(Vector3 screenpos, Image sprite)
+    void PlaceOffscreen(Vector3 screenpos, Image sprite, GameObject obj)
     {
         float x = screenpos.x;
         float y = screenpos.y;
