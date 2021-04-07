@@ -31,28 +31,6 @@ Transform:
   m_Father: {fileID: 4431505989055727923}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5858611594461523063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3978745768262179321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a55560aa6b9d84886bef7aa335a1146f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 9
-  damage: 10
-  bulletPrefab: {fileID: 8149847200965376386, guid: 15f5ec0c17ef448aa9b2dd8f9bc13800, type: 3}
-  fireRate: 0.5
-  userLaser: 1
-  lineRenderer: {fileID: 3333412767837654555}
-  enemyTag: Enemy
-  partToRotate: {fileID: 7345530083978610325}
-  turnSpeed: 5
-  firePoint: {fileID: 4431505987955515091}
 --- !u!120 &3333412767837654555
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -151,6 +129,29 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &5858611594461523063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3978745768262179321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55560aa6b9d84886bef7aa335a1146f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 9
+  damage: 10
+  bulletPrefab: {fileID: 8149847200965376386, guid: 15f5ec0c17ef448aa9b2dd8f9bc13800, type: 3}
+  fireRate: 0.5
+  userLaser: 1
+  damageOverTime: 10
+  lineRenderer: {fileID: 3333412767837654555}
+  enemyTag: Enemy
+  partToRotate: {fileID: 7345530083978610325}
+  turnSpeed: 5
+  firePoint: {fileID: 4431505987955515091}
 --- !u!1 &4431505987955515090
 GameObject:
   m_ObjectHideFlags: 0
