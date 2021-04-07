@@ -13,11 +13,11 @@ public class PlayerControls : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.E))
         {
             transform.Translate(transform.up * speed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Q))
         {
             transform.Translate(-1 * transform.up * speed * Time.deltaTime);
         }
