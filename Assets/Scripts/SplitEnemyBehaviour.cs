@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SplitEnemyBehaviour : EnemyBehaviour
 {
@@ -16,6 +17,8 @@ public class SplitEnemyBehaviour : EnemyBehaviour
             newEnemy.waypoints = waypoints;
             newEnemy.currWaypointIndex = currWaypointIndex;
         }
+        ResourceSystem.money += 20;
+        GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }
 }

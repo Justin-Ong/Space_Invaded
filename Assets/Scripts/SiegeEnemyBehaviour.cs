@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SiegeEnemyBehaviour : EnemyBehaviour
 {
@@ -43,11 +44,33 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
         }
     }
 
+    public override void UpdateTarget()
+    {
+        prevTarget = currTarget;
+        base.UpdateTarget();
+        currTarget = target.gameObject;
+        if (currTarget != prevTarget || currTarget == null)
+        {
+            damageMod = 0;
+        }
+        else
+        {
+            damageMod += 2.5f;
+        }
+    }
+
     public override void Shoot()
     {
         BulletBehaviour newBullet = Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation).GetComponent<BulletBehaviour>();
         newBullet.speed = 10;
         newBullet.damage = damage + damageMod;
         newBullet.timeToLive = 5;
+    }
+
+    public override void Die()
+    {
+        ResourceSystem.money += 30;
+        GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
+        Destroy(gameObject);
     }
 }

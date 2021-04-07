@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         currAttackTimer += Time.deltaTime;
 
-        if (target && currAttackTimer > attackTimer)
+        if (range > 0 && target && currAttackTimer > attackTimer)
         {
             ourBody.velocity = Vector3.zero;
             Attack();
@@ -71,7 +72,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    void UpdateTarget()
+    public virtual void UpdateTarget()
     {
         GameObject[] turrets = GameObject.FindGameObjectsWithTag(turretTag);
         float shortestDistance = Mathf.Infinity;
@@ -142,14 +143,6 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 upRayPos = transform.position + transform.up * Mathf.Min(raycastOffset, 1);
         Vector3 downRayPos = transform.position - transform.up * Mathf.Min(raycastOffset, 1);
 
-        /*
-        Debug.DrawRay(forwardRayPos, transform.forward * rayDistance * 0.8f, Color.red);
-        Debug.DrawRay(leftRayPos, transform.forward * rayDistance, Color.red);
-        Debug.DrawRay(rightRayPos, transform.forward * rayDistance, Color.red);
-        Debug.DrawRay(upRayPos, transform.forward * rayDistance, Color.red);
-        Debug.DrawRay(downRayPos, transform.forward * rayDistance, Color.red);
-        */
-
         RaycastHit hit;
         bool obstacleDetected = false;
         newDirection = Vector3.zero;
@@ -215,6 +208,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public virtual void Die()
     {
+        ResourceSystem.money += 10;
+        GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }
 }

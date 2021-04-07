@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarrierEnemyBehaviour : EnemyBehaviour
 {
@@ -21,5 +22,12 @@ public class CarrierEnemyBehaviour : EnemyBehaviour
             newEnemy.currWaypointIndex = currWaypointIndex;
             currSpawnTime = 0;
         }
+    }
+
+    public override void Die()
+    {
+        ResourceSystem.money += 50;
+        GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
+        Destroy(gameObject);
     }
 }

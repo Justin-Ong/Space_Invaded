@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BigEnemyBehaviour : EnemyBehaviour
+public class BonusEnemyBehaviour : EnemyBehaviour
 {
-    public override void Die()
+    public virtual void Die()
     {
-        ResourceSystem.money += 100;
+        ResourceSystem.money += 50;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }

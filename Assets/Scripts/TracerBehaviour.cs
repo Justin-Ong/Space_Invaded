@@ -76,12 +76,6 @@ public class TracerBehaviour : MonoBehaviour
         Vector3 upRayPos = transform.position + transform.up * Mathf.Min(raycastOffset, 1);
         Vector3 downRayPos = transform.position - transform.up * Mathf.Min(raycastOffset, 1);
 
-        Debug.DrawRay(forwardRayPos, transform.forward * rayDistance * 0.8f, Color.red);
-        Debug.DrawRay(leftRayPos, transform.forward * rayDistance, Color.red);
-        Debug.DrawRay(rightRayPos, transform.forward * rayDistance, Color.red);
-        Debug.DrawRay(upRayPos, transform.forward * rayDistance, Color.red);
-        Debug.DrawRay(downRayPos, transform.forward * rayDistance, Color.red);
-
         RaycastHit hit;
         bool obstacleDetected = false;
         newDirection = Vector3.zero;
