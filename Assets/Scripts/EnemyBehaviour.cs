@@ -116,8 +116,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     protected void LookAtNextWaypoint()
     {
-        Quaternion rotation = Quaternion.LookRotation(waypoints[currWaypointIndex] - transform.position, transform.up);
-        Turn(rotation);
+        Vector3 waypointPosition = waypoints[currWaypointIndex] - transform.position;
+        if (waypointPosition != Vector3.zero)
+        {
+            Quaternion rotation = Quaternion.LookRotation(waypoints[currWaypointIndex] - transform.position, transform.up);
+            Turn(rotation);
+        }
     }
 
     protected void Move()

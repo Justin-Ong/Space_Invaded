@@ -50,8 +50,12 @@ public class TracerBehaviour : MonoBehaviour
 
     private void LookAtNextWaypoint()
     {
-        Quaternion rotation = Quaternion.LookRotation(waypoints[currWaypointIndex] - transform.position, transform.up);
-        Turn(rotation);
+        Vector3 waypointPosition = waypoints[currWaypointIndex] - transform.position;
+        if (waypointPosition != Vector3.zero)
+        {
+            Quaternion rotation = Quaternion.LookRotation(waypoints[currWaypointIndex] - transform.position, transform.up);
+            Turn(rotation);
+        }
     }
 
     private void Move()
