@@ -22,7 +22,7 @@ public class TurretLogic : MonoBehaviour
 
     [Header("Use Laser Slow (No Damager)")]
     public bool useSlowLaser = false;
-    public float slowPercentage = 0.5f;
+    public float slowPercentage = 0.8f;
 
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
@@ -72,7 +72,7 @@ public class TurretLogic : MonoBehaviour
     {
         if (target == null) 
         {
-            if (userLaser)
+            if (userLaser || useSlowLaser)
             {
                 if (lineRenderer.enabled)
                     lineRenderer.enabled = false;
@@ -106,6 +106,7 @@ public class TurretLogic : MonoBehaviour
     {
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
+
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position);
 
