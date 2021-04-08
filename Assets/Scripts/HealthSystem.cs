@@ -17,6 +17,7 @@ public class HealthSystem : MonoBehaviour
     void Start()
     {
         healthBar = Instantiate(healthBarPrefab, gameObject.transform);
+        healthBar.transform.parent = gameObject.transform;
         myHealthBar = healthBar.GetComponent<HealthBarBehaviour>();
         currHealth = maxHealth;
         mainCamera = Camera.main;
@@ -41,15 +42,15 @@ public class HealthSystem : MonoBehaviour
 
     private void Die()
     {
-        Destroy(healthBar);
         EnemyBehaviour temp = gameObject.GetComponent<EnemyBehaviour>();
+        TurretLogic turret = gameObject.GetComponentInChildren<TurretLogic>();
         if (temp)
         {
             temp.Die();
         }
-        else
+        else if (turret)
         {
-            Destroy(gameObject);
+            turret.Die();
         }
     }
 }

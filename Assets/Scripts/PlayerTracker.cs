@@ -12,16 +12,22 @@ public class PlayerTracker : MonoBehaviour
 
     private Transform cameraTransform;
     private Transform targetTransform;
+    private Quaternion originalCameraPos;
 
     void Start()
     {
         cameraTransform = ourCamera.transform;
         targetTransform = target.transform;
         cameraTransform.position = targetTransform.position;
+        originalCameraPos = cameraTransform.transform.rotation;
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            cameraTransform.rotation = originalCameraPos;
+        }
+
         if (Input.GetKey(KeyCode.LeftAlt) && Input.GetMouseButton(0))
         {
             float h = rotateSpeed * Input.GetAxis("Mouse X");

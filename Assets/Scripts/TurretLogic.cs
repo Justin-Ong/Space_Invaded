@@ -28,6 +28,8 @@ public class TurretLogic : MonoBehaviour
 
     public Transform firePoint;
 
+    public Node node;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,5 +129,11 @@ public class TurretLogic : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    public void Die()
+    {
+        node.RemoveTurret();
+        Destroy(gameObject.transform.root.gameObject);
     }
 }

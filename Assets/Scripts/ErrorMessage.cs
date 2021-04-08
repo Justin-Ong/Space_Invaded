@@ -9,11 +9,13 @@ public class ErrorMessage : MonoBehaviour
 
     private TextMesh textComponent;
     private float timer;
+    private Camera mainCam;
 
     private void Start()
     {
         textComponent = gameObject.GetComponent<TextMesh>();
         textComponent.text = text;
+        mainCam = Camera.main;
     }
 
     void Update()
@@ -23,5 +25,10 @@ public class ErrorMessage : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void LateUpdate()
+    {
+        transform.LookAt(2 * transform.position - mainCam.transform.position);
     }
 }

@@ -44,14 +44,22 @@ public class Node : MonoBehaviour
 
 		GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
 		turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+		turret.GetComponentInChildren<TurretLogic>().node = this;
 		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), false);
 
 		GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
 	}
 
+	public void RemoveTurret()
+	{
+		Debug.Log("Goodbye");
+		turret = null;
+		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), true);
+	}
+
 	private void ShowErrorMessage()
 	{
-		GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up, transform.rotation);
+		GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
 		ErrorMessage err = newErr.GetComponent<ErrorMessage>();
 		if (ResourceSystem.money < BuildManager.moneyToBuild) err.text = "No enough money!";
 		else err.text = "Can't build here!";
