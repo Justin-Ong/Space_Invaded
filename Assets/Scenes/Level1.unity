@@ -1047,11 +1047,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1611435152}
     - target: {fileID: 2385083241799117714, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
+      propertyPath: numTurrets
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385083241799117714, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
       propertyPath: TurretImage1
       value: 
       objectReference: {fileID: 21300000, guid: a23060846ad3941c6a591822fc9052b2, type: 3}
     - target: {fileID: 2385083241799117714, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
+      propertyPath: TurretImage4
+      value: 
+      objectReference: {fileID: 21300000, guid: cdc6f9879b92941ad8a6d04c3667fc1b, type: 3}
+    - target: {fileID: 2385083241799117714, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
       propertyPath: standardTurretPrefab1
+      value: 
+      objectReference: {fileID: 939335178, guid: 29f393efdc386ee41aee6077912722cf, type: 3}
+    - target: {fileID: 2385083241799117714, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
+      propertyPath: standardTurretPrefab4
       value: 
       objectReference: {fileID: 939335178, guid: 70cb402cfc38843efb80cb29d9772266, type: 3}
     - target: {fileID: 2385083241799117715, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
