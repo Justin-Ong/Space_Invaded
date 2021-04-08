@@ -61,7 +61,7 @@ public class Node : MonoBehaviour
 	{
 		GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
 		ErrorMessage err = newErr.GetComponent<ErrorMessage>();
-		if (ResourceSystem.money < BuildManager.moneyToBuild) err.text = "No enough money!";
+		if (ResourceSystem.money < BuildManager.moneyToBuild) err.text = "Not enough money!";
 		else err.text = "Can't build here!";
 		err.timeToLive = 2;
 	}
