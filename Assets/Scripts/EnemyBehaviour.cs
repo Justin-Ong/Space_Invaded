@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Attributes")]
     public float maxHealth;
     public float speed;
+    public float startSpeed;
 
     [Header("Attacking")]
     public GameObject bulletPrefab;
@@ -35,6 +36,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startSpeed = speed;
         ourBody = GetComponent<Rigidbody>();
         ourHealth = GetComponent<HealthSystem>();
         rotationMod = 0;
@@ -43,6 +45,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+
         currAttackTimer += Time.deltaTime;
 
         if (range > 0 && target && currAttackTimer > attackTimer)
@@ -70,6 +73,9 @@ public class EnemyBehaviour : MonoBehaviour
                 rotationMod = 0;
             }
         }
+        
+        // always reset enemy speed
+        speed = startSpeed;
     }
 
     public virtual void UpdateTarget()
@@ -211,5 +217,15 @@ public class EnemyBehaviour : MonoBehaviour
         ResourceSystem.money += 10;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
+    }
+
+    public void Slow(float pct)
+    {
+        speed = startSpeed * (1f - pct);
+    }
+
+    public void ResetSpeed()
+    {
+        speed = startSpeed;
     }
 }
