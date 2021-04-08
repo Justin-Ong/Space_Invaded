@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceSystem : MonoBehaviour
 {
@@ -10,5 +11,6 @@ public class ResourceSystem : MonoBehaviour
     void Start()
     {
         money = startmoney;
+        GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
     }
 }

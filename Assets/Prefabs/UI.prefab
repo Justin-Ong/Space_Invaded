@@ -869,10 +869,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a30a89566e94b44acb2695e78673a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnScreenSprite: {fileID: 2812376884852990019, guid: 86a7469cee104eb47af4ac8129a5e2c3, type: 3}
-  OffScreenSprite: {fileID: 1224941614186013406, guid: 5d2c3a20bbcb0204b98f868bda0c90ee, type: 3}
-  objects:
-  - {fileID: 0}
+  OnScreenEnemySprite: {fileID: 0}
+  OffScreenEnemySprite: {fileID: 0}
+  OnScreenBaseSprite: {fileID: 0}
+  OffScreenBaseSprite: {fileID: 0}
+  enemySpawners: []
+  defencePoint: {fileID: 0}
 --- !u!1 &3026201771756149318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,7 +1111,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Money: 1000'
+  m_Text: Money:1000
 --- !u!1 &4997317646400711578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,17 +1429,20 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'WASD - Move in horizontal plane
 
-    Q/E - Rotate camera left/right
+    Q/E - Move down/up
 
-    R/F
-    - Move up/down
+    Left Click
+    - Build selected tower
 
-    Z - Change selected tower
+    Right Click - Change selected tower
 
-    Left Click - Build selected
-    tower
+    LeftAlt
+    + Mouse Drag - Rotate camera
 
-    B - Toggle building mode
+    Mouse wheel - Adjust camera zoom
+
+    Spacebar
+    - End building phase
 
     Esc - Pause/Unpause'
 --- !u!1 &8062024801151472108

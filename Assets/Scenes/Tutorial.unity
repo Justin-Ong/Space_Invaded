@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6790e6f672439644f8a7674879d10a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startmoney: 1000
+  startmoney: 100
 --- !u!1001 &1450049179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2278,6 +2278,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2918827966272736997, guid: c05632f01243a494598e9258267ff836, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113094505942042262, guid: c05632f01243a494598e9258267ff836, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113094505942042262, guid: c05632f01243a494598e9258267ff836, type: 3}
+      propertyPath: waypoints.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113094505942042262, guid: c05632f01243a494598e9258267ff836, type: 3}
+      propertyPath: waypoints.Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113094505942042262, guid: c05632f01243a494598e9258267ff836, type: 3}
+      propertyPath: waypoints.Array.data[1].z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7961068510704606589, guid: c05632f01243a494598e9258267ff836, type: 3}
