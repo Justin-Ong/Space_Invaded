@@ -1672,7 +1672,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Creative Commons and Licensed Assets:\r\nturbosquid.com\r\n\r\nTurret
-    assets:\r\niamcyberalex\tMace24de\tsender pinarci\r\n\r\nAlien ship assets:\r\nyoong5853\r\n\r\nAsteroids:\r\n3d-asteroids.space\r\n"
+    assets:\r\niamcyberalex\tMace24de\tsender pinarci\r\n\r\nPlayer base, alien ship
+    assets:\r\nyoong5853\r\n\r\nAsteroids:\r\n3d-asteroids.space\r\n"
 --- !u!222 &1859952642
 CanvasRenderer:
   m_ObjectHideFlags: 0
