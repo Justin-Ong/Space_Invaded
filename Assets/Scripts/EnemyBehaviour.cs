@@ -7,6 +7,8 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [Header("Attributes")]
     public float maxHealth;
+    public float startSpeed;
+    [HideInInspector]
     public float speed;
 
     [Header("Attacking")]
@@ -35,6 +37,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = startSpeed;
         ourBody = GetComponent<Rigidbody>();
         ourHealth = GetComponent<HealthSystem>();
         rotationMod = 0;
@@ -211,5 +214,10 @@ public class EnemyBehaviour : MonoBehaviour
         ResourceSystem.money += 10;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
+    }
+
+    public void Slow(float pct)
+    {
+        speed = speed * (1f - pct);
     }
 }

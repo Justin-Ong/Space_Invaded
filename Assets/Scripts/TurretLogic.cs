@@ -20,6 +20,10 @@ public class TurretLogic : MonoBehaviour
     public int damageOverTime = 10;
     public LineRenderer lineRenderer;
 
+    [Header("Use Laser Slow (No Damager)")]
+    public bool useSlowLaser = false;
+    public float slowPercentage = 0.5f;
+
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
 
@@ -82,6 +86,9 @@ public class TurretLogic : MonoBehaviour
         {
             Laser();
         }
+        else if (useSlowLaser){
+            SlowLaser();
+        }
         else
         {
             // control turret shooting interval
@@ -93,6 +100,16 @@ public class TurretLogic : MonoBehaviour
             fireCountdown -= Time.deltaTime;
         }
 
+    }
+
+    void SlowLaser()
+    {
+        if (!lineRenderer.enabled)
+            lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+
+        target.GetComponent<EnemyBehaviour>().Slow(slowPercentage);
     }
 
     void Laser()
