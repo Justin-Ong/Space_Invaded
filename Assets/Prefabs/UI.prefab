@@ -301,7 +301,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4fa624264461543d2a2dd4a9c91259be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a23060846ad3941c6a591822fc9052b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -869,11 +869,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a30a89566e94b44acb2695e78673a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnScreenEnemySprite: {fileID: 0}
-  OffScreenEnemySprite: {fileID: 0}
-  OnScreenBaseSprite: {fileID: 0}
-  OffScreenBaseSprite: {fileID: 0}
-  enemySpawners: []
+  OnScreenEnemySprite: {fileID: 2812376884852990019, guid: 86a7469cee104eb47af4ac8129a5e2c3, type: 3}
+  OffScreenEnemySprite: {fileID: 1224941614186013406, guid: 5d2c3a20bbcb0204b98f868bda0c90ee, type: 3}
+  OnScreenBaseSprite: {fileID: 8131660501921951844, guid: 9cffd4f62db40674abd517c7a2466d17, type: 3}
+  OffScreenBaseSprite: {fileID: 656648655845650292, guid: 10c64d4092679e240ad6a8ece44c44c1, type: 3}
+  enemySpawners:
+  - {fileID: 0}
   defencePoint: {fileID: 0}
 --- !u!1 &3026201771756149318
 GameObject:

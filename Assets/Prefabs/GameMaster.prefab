@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2385083241799117712}
   - component: {fileID: 2385083241799117713}
   - component: {fileID: 2385083241799117718}
+  - component: {fileID: 1258819184}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -46,13 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5de01a965036f6419c0a88d39064cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefab1: {fileID: 4431505989055727922, guid: 0658f628fe7320f4d97fa16657324e2b, type: 3}
+  standardTurretPrefab1: {fileID: 939335178, guid: 29f393efdc386ee41aee6077912722cf, type: 3}
   standardTurretPrefab2: {fileID: 4431505989055727922, guid: 7622888fbe23642ac9e38c61b4e3a6d1, type: 3}
   standardTurretPrefab3: {fileID: 4431505989055727922, guid: f7ac36fd8a8f24c208b25c0bbec90fea, type: 3}
-  numTurrets: 3
-  TurretImage1: {fileID: 21300000, guid: 4fa624264461543d2a2dd4a9c91259be, type: 3}
+  standardTurretPrefab4: {fileID: 939335178, guid: 70cb402cfc38843efb80cb29d9772266, type: 3}
+  numTurrets: 4
+  TurretImage1: {fileID: 21300000, guid: a23060846ad3941c6a591822fc9052b2, type: 3}
   TurretImage2: {fileID: 21300000, guid: 0eb6b59d34d8b42bb9f54e8da4a52854, type: 3}
   TurretImage3: {fileID: 21300000, guid: c962e55b3b6ef460a80d845d4f67bfa4, type: 3}
+  TurretImage4: {fileID: 21300000, guid: cdc6f9879b92941ad8a6d04c3667fc1b, type: 3}
 --- !u!114 &2385083241799117712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,3 +103,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4338bd240bd575c43bc0c001c803eac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1258819184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385083241799117725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6790e6f672439644f8a7674879d10a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startmoney: 1000

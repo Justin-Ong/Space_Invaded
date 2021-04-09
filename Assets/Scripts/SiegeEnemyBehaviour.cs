@@ -48,7 +48,10 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
     {
         prevTarget = currTarget;
         base.UpdateTarget();
-        currTarget = target.gameObject;
+        if (target)
+        {
+            currTarget = target.gameObject;
+        }
         if (currTarget != prevTarget || currTarget == null)
         {
             damageMod = 0;

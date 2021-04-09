@@ -1227,6 +1227,11 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &145595861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3255291772845511134, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+  m_PrefabInstance: {fileID: 14146084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &152522351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7007,6 +7012,11 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1514928308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3255291772845511134, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+  m_PrefabInstance: {fileID: 1476669364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1517345949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2f157ec5adf3ca4b9792ce597ad90e1, type: 3}
@@ -7964,6 +7974,11 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1850631862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3255291772845511134, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+  m_PrefabInstance: {fileID: 194483721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1854729928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9091,6 +9106,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: defencePoint
+      value: 
+      objectReference: {fileID: 1611435152}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: enemySpawners.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: enemySpawners.Array.data[0]
+      value: 
+      objectReference: {fileID: 145595861}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: enemySpawners.Array.data[1]
+      value: 
+      objectReference: {fileID: 1850631862}
+    - target: {fileID: 672004368, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+      propertyPath: enemySpawners.Array.data[2]
+      value: 
+      objectReference: {fileID: 1514928308}
     - target: {fileID: 3026201770835777555, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
