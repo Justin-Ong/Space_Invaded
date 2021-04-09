@@ -9,14 +9,10 @@ public class References : MonoBehaviour
     public static GameObject player;
 
     // Defence Point stuff
-    public static GameObject defencePointObject;
+    public static DefencePointBehaviour defencePointObject;
 
     // Pathfinding Stuff
-    public static Grid grid;
-
-    // Turret stuff
-    public static string[] turretTypes = new string[] { "basic", "fast", "slow" };
-    public static int numTurrets = turretTypes.Length - 1;
+    public static LevelGenerator levelGrid;
 
     // Enemy stuff
     public static List<GameObject> enemyTypes = new List<GameObject>();
@@ -25,6 +21,8 @@ public class References : MonoBehaviour
     public GameObject enemy2;
     public GameObject enemy3;
     public GameObject enemy4;
+    public GameObject enemy5;
+    public GameObject enemy6;
 
     // UI
     public static GameObject canvas;
@@ -35,6 +33,8 @@ public class References : MonoBehaviour
         enemyTypes.Add(enemy2);
         enemyTypes.Add(enemy3);
         enemyTypes.Add(enemy4);
+        enemyTypes.Add(enemy5);
+        enemyTypes.Add(enemy6);
 
         numEnemyTypes = enemyTypes.Count;
     }

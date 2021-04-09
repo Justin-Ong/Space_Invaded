@@ -1,26 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HealthBarBehaviour : MonoBehaviour
 {
-    public Image filledPart;
 
-    // Start is called before the first frame update
-    void Start()
+    MaterialPropertyBlock matBlock;
+    MeshRenderer meshRenderer;
+    Camera mainCamera;
+    HealthSystem healthSystem;
+
+    private void Awake()
     {
-        
+        meshRenderer = GetComponent<MeshRenderer>();
+        matBlock = new MaterialPropertyBlock();
+        healthSystem = GetComponentInParent<HealthSystem>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        mainCamera = Camera.main;
     }
 
-    public void UpdateHealthFraction(float fraction)
+    private void LateUpdate()
     {
-        filledPart.rectTransform.localScale = new Vector3(fraction, 1, 1);
+        meshRenderer.enabled = true;
+        AlignCamera();
+        UpdateParams();
     }
+
+    private void UpdateParams()
+    {
+        meshRenderer.GetPropertyBlock(matBlock);
+        matBlock.SetFloat("_Fill", healthSystem.currHealth / healthSystem.maxHealth);
+        meshRenderer.SetPropertyBlock(matBlock);
+    }
+
+    private void AlignCamera()
+    {
+        if (mainCamera != null)
+        {
+            var camXform = mainCamera.transform;
+            var forward = transform.position - camXform.position;
+            forward.Normalize();
+            var up = Vector3.Cross(forward, camXform.right);
+            transform.rotation = Quaternion.LookRotation(forward, up);
+        }
+    }
+
 }

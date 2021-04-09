@@ -6,38 +6,51 @@ public class HealthSystem : MonoBehaviour
 {
     public float maxHealth;
     public GameObject healthBarPrefab;
+    public float currHealth;
 
-    private float currHealth;
+    private Camera mainCamera;
     private GameObject healthBar;
     private HealthBarBehaviour myHealthBar;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
-        healthBar = Instantiate(healthBarPrefab, References.canvas.transform);
+        healthBar = Instantiate(healthBarPrefab, gameObject.transform);
+        healthBar.transform.parent = gameObject.transform;
         myHealthBar = healthBar.GetComponent<HealthBarBehaviour>();
         currHealth = maxHealth;
+        mainCamera = Camera.main;
+        isDead = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        myHealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 2);
+        myHealthBar.transform.position = gameObject.transform.position + Vector3.up;
     }
 
     public void TakeDamage(float value)
     {
         currHealth -= value;
-        myHealthBar.UpdateHealthFraction(currHealth / maxHealth);
-        if (currHealth <= 0)
+        if (currHealth <= 0 && !isDead)
         {
             Die();
+            isDead = true;
         }
     }
 
     private void Die()
     {
-        Destroy(healthBar);
-        Destroy(gameObject);
+        EnemyBehaviour temp = gameObject.GetComponent<EnemyBehaviour>();
+        TurretLogic turret = gameObject.GetComponentInChildren<TurretLogic>();
+        if (temp)
+        {
+            temp.Die();
+        }
+        else if (turret)
+        {
+            turret.Die();
+        }
     }
 }

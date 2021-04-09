@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class DefencePointBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float maxBaseHealth = 100;
+    public float currBaseHealth;
+
     void Awake()
     {
-        References.defencePointObject = gameObject;
+        References.defencePointObject = this;
+        currBaseHealth = maxBaseHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        CheckStatus();
+    }
+
+    private void CheckStatus()
+    {
+        if (currBaseHealth <= 0) {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

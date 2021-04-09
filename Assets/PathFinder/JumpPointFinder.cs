@@ -2060,7 +2060,7 @@ namespace EpPathFinding3D.cs
 
                         if (iParam.SearchGrid.IsWalkableAt(tX - tDx, tY + tDy, tZ - tDz) && !iParam.SearchGrid.IsWalkableAt(tX - tDx, tY, tZ - tDz) && !iParam.SearchGrid.IsWalkableAt(tX, tY, tZ - tDz) && !iParam.SearchGrid.IsWalkableAt(tX - tDx, tY, tZ))
                         {
-                            if ((iParam.SearchGrid.IsWalkableAt(tX - tDx, tY + tDy, tZ) &&iParam.SearchGrid.IsWalkableAt(tX, tY + tDy, tZ)) ||
+                            if ((iParam.SearchGrid.IsWalkableAt(tX - tDx, tY + tDy, tZ) && iParam.SearchGrid.IsWalkableAt(tX, tY + tDy, tZ)) ||
                                 (iParam.SearchGrid.IsWalkableAt(tX, tY + tDy, tZ) && iParam.SearchGrid.IsWalkableAt(tX, tY + tDy, tZ - tDz)) )
                             {
                                 tNeighbors.Add(new GridPos(tX - tDx, tY + tDy, tZ - tDz));

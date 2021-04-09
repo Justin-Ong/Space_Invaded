@@ -7,7 +7,7 @@ public class BulletBehaviour : MonoBehaviour
     public float damage;
     public float speed;
     public float timeToLive;
-    public bool isFriendly;
+    public LayerMask turretLayer;
 
     private float timer;
 
@@ -31,14 +31,7 @@ public class BulletBehaviour : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject objectCollidedWith = collision.gameObject;
-        EnemyBehaviour enemy = objectCollidedWith.GetComponent<EnemyBehaviour>();
-        TurretBehaviour turret = objectCollidedWith.GetComponent<TurretBehaviour>();
-        if (isFriendly && enemy != null)
-        {
-            objectCollidedWith.GetComponent<HealthSystem>().TakeDamage(damage);
-            Destroy(gameObject);
-        }
-        else if (!isFriendly && turret != null)
+        if (1 << objectCollidedWith.layer == turretLayer)
         {
             objectCollidedWith.GetComponent<HealthSystem>().TakeDamage(damage);
             Destroy(gameObject);

@@ -4,32 +4,61 @@ using UnityEngine;
 
 public class PlayerTracker : MonoBehaviour
 {
-    public Transform trackedObject;
-    public float maxDistance = 50;
-    public float moveSpeed = 5;
-    public float updateSpeed = 10;
-    [Range(0, 10)]
-    public float currentDistance = 3;
-    private string moveAxis = "Mouse ScrollWheel";
-    private GameObject ahead;
-    private MeshRenderer _renderer;
-    public float hideDistance = 1.5f;
-    // Start is called before the first frame update
+    public GameObject ourCamera;
+    public GameObject target;
+    public float rotateSpeed = 8;
+    public Vector3 maxZoom = new Vector3(25, 25, 25);
+    public Vector3 minZoom = new Vector3(5, 5, 5);
+
+    private Transform cameraTransform;
+    private Transform targetTransform;
+    private Quaternion originalCameraPos;
+
     void Start()
     {
-        ahead = new GameObject("ahead");
-        _renderer = trackedObject.gameObject.GetComponent<MeshRenderer>();
+        cameraTransform = ourCamera.transform;
+        targetTransform = target.transform;
+        cameraTransform.position = targetTransform.position;
+        originalCameraPos = cameraTransform.transform.rotation;
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        ahead.transform.position = trackedObject.position + trackedObject.forward * (maxDistance * 0.25f);
-        currentDistance += Input.GetAxisRaw(moveAxis) * moveSpeed * Time.deltaTime * 100;
-        currentDistance = Mathf.Clamp(currentDistance, 0, maxDistance);
-        
-        transform.position = Vector3.MoveTowards(transform.position, trackedObject.position + Vector3.up * currentDistance - trackedObject.forward * (currentDistance + maxDistance * 0.5f), updateSpeed * Time.deltaTime);
-        transform.LookAt(ahead.transform);
-        _renderer.enabled = (currentDistance > hideDistance);
+        if (Input.GetKeyDown(KeyCode.R)) {
+            cameraTransform.rotation = originalCameraPos;
+        }
+
+        if (Input.GetKey(KeyCode.LeftAlt) && Input.GetMouseButton(0))
+        {
+            float h = rotateSpeed * Input.GetAxis("Mouse X");
+            float v = rotateSpeed * Input.GetAxis("Mouse Y");
+
+            if (cameraTransform.eulerAngles.z + v <= 0.1f || cameraTransform.eulerAngles.z + v >= 179.9f)
+                v = 0;
+
+            cameraTransform.eulerAngles = new Vector3(cameraTransform.eulerAngles.x, cameraTransform.eulerAngles.y + h, cameraTransform.eulerAngles.z + v);
+        }
+
+        float scrollFactor = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scrollFactor != 0)
+        {
+            cameraTransform.localScale = cameraTransform.localScale * (1f - scrollFactor);
+            if (cameraTransform.localScale.x > maxZoom.x)
+            {
+                cameraTransform.localScale = maxZoom;
+            }
+            else if (cameraTransform.localScale.x < minZoom.x)
+            {
+                cameraTransform.localScale = minZoom;
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+
+        transform.LookAt(targetTransform.position);
     }
 }

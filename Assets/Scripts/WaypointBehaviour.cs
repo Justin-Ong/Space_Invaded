@@ -9,10 +9,4 @@ public class WaypointBehaviour : MonoBehaviour
     {
         gameObject.GetComponent<Renderer>().enabled = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -1,42 +1,112 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
-
 	public Color hoverColor;
 	public Vector3 positionOffset;
+	public LayerMask obstacleMask;
+	public string enemySpawnerTag = "EnemySpawner";
+	public GameObject errorMessage;
 
 	private GameObject turret;
-
 	private Renderer rend;
-	private Color startColor;
+	private MeshRenderer meshRend;
+	private bool isBlocked;
 
 	void Start()
 	{
 		rend = GetComponent<Renderer>();
-		startColor = rend.material.color;
+		meshRend = gameObject.GetComponent<MeshRenderer>();
+		meshRend.enabled = false;
+		isBlocked = CheckIfBlocked();
+		if (isBlocked)
+		{
+			rend.material.color = hoverColor;
+		}
 	}
 
-	void OnMouseDown()
+	public void BuildTurret()
 	{
-		if (turret != null)
+		if (turret != null || !meshRend.enabled || isBlocked)
 		{
-			Debug.Log("Can't build there! - TODO: Display on screen.");
+			ShowErrorMessage();
 			return;
 		}
 
+		if (ResourceSystem.money < BuildManager.moneyToBuild)
+		{
+			ShowErrorMessage();
+			return;
+		}
+
+		ResourceSystem.money -= BuildManager.moneyToBuild;
+
 		GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
 		turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+		turret.GetComponentInChildren<TurretLogic>().node = this;
+		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), false);
+
+		GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
 	}
 
-	void OnMouseEnter()
+	public void RemoveTurret()
 	{
-		rend.material.color = hoverColor;
+		Debug.Log("Goodbye");
+		turret = null;
+		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), true);
 	}
 
-	void OnMouseExit()
+	private void ShowErrorMessage()
 	{
-		rend.material.color = startColor;
+		GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
+		ErrorMessage err = newErr.GetComponent<ErrorMessage>();
+		if (ResourceSystem.money < BuildManager.moneyToBuild) err.text = "Not enough money!";
+		else err.text = "Can't build here!";
+		err.timeToLive = 2;
 	}
 
+	private bool CheckIfBlocked()
+	{
+		Collider[] hit;
+		hit = Physics.OverlapBox(transform.position, Vector3.one * 0.5f, Quaternion.identity, obstacleMask, QueryTriggerInteraction.Ignore);
+		if (hit.Length > 0)
+		{
+			return true;
+		}
+		else
+		{
+			GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag(enemySpawnerTag);
+			foreach (GameObject enemySpawner in enemySpawners)
+			{
+				if ((transform.position - enemySpawner.transform.position).magnitude < 10)
+				{
+					return true;
+				}
+			}
+			GameObject defencePoint = GameObject.Find("DefencePoint");
+			if ((transform.position - defencePoint.transform.position).magnitude < 5)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			meshRend.enabled = true;
+			other.gameObject.GetComponent<PlayerControls>().SetCurrNode(this);
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			meshRend.enabled = false;
+		}
+	}
 }

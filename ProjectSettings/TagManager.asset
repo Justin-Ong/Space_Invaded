@@ -4,19 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Endpoint
   - Enemy
+  - Obstacle
+  - EnemySpawner
+  - DefencePoint
+  - Turret
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstacles
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Node
+  - Turret
+  - Enemy
+  - EnemyBullet
   - 
   - 
   - 
