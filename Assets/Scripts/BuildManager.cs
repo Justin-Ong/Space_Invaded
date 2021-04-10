@@ -141,7 +141,7 @@ public class BuildManager : MonoBehaviour
 				remainingTime = 1f;
 				EnemySpawnerBehaviour.TriggerBuildMode = false;
 			}
-			if (Input.GetKeyDown("space"))
+			if (Input.GetKeyDown(KeyCode.Space))
 			{
 				Debug.Log("You have exited Building mode.");
 				count = 30;
@@ -149,23 +149,6 @@ public class BuildManager : MonoBehaviour
 				remainingTime = 1f;
 				EnemySpawnerBehaviour.TriggerBuildMode = false;
 			}
-
-			/*			if (buildModeFlag)
-						{
-							Time.timeScale = 1;
-							Time.fixedDeltaTime *= 1000;
-							buildModeFlag = false;
-							PlayerControls.instance.speed = 5;
-							PlayerTracker.instance.rotateSpeed = 8;
-						}
-						else
-						{
-							Time.timeScale = 0.001f;
-							Time.fixedDeltaTime /= 1000;
-							buildModeFlag = true;
-							PlayerControls.instance.speed = 5000;
-							PlayerTracker.instance.rotateSpeed = 8000;
-						}*/
 		}
 		if (buildModeFlag) 
 		{

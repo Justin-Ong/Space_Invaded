@@ -44,21 +44,26 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
         }
     }
 
-    public override void UpdateTarget()
+    public override IEnumerator UpdateTarget()
     {
-        prevTarget = currTarget;
-        base.UpdateTarget();
-        if (target)
+        while (true)
         {
-            currTarget = target.gameObject;
-        }
-        if (currTarget != prevTarget || currTarget == null)
-        {
-            damageMod = 0;
-        }
-        else
-        {
-            damageMod += 2.5f;
+            prevTarget = currTarget;
+            base.UpdateTarget();
+            if (target)
+            {
+                currTarget = target.gameObject;
+            }
+            if (currTarget != prevTarget || currTarget == null)
+            {
+                damageMod = 0;
+            }
+            else
+            {
+                damageMod += 2.5f;
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 

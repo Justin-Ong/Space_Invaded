@@ -37,33 +37,39 @@ public class TurretLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        StartCoroutine("UpdateTarget");
     }
 
-    void UpdateTarget()
+    IEnumerator UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
-
-        foreach(GameObject enemy in enemies)
+        while (true)
         {
-            // update which is the nearest enemy
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+            float shortestDistance = Mathf.Infinity;
+            GameObject nearestEnemy = null;
+
+            foreach (GameObject enemy in enemies)
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                // update which is the nearest enemy
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy < shortestDistance)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
             }
-        }
 
-        // update if target is within range
-        if (nearestEnemy != null && shortestDistance <= range) 
-        {
-            target = nearestEnemy.transform;
-        } else 
-        {
-            target = null;
+            // update if target is within range
+            if (nearestEnemy != null && shortestDistance <= range)
+            {
+                target = nearestEnemy.transform;
+            }
+            else
+            {
+                target = null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 

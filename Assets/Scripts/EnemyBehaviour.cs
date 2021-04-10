@@ -40,7 +40,7 @@ public class EnemyBehaviour : MonoBehaviour
         ourBody = GetComponent<Rigidbody>();
         ourHealth = GetComponent<HealthSystem>();
         rotationMod = 0;
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        StartCoroutine("UpdateTarget");
     }
 
     void FixedUpdate()
@@ -78,30 +78,35 @@ public class EnemyBehaviour : MonoBehaviour
         speed = startSpeed;
     }
 
-    public virtual void UpdateTarget()
+    public virtual IEnumerator UpdateTarget()
     {
-        GameObject[] turrets = GameObject.FindGameObjectsWithTag(turretTag);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestTurret = null;
-
-        foreach (GameObject turret in turrets)
+        while (true)
         {
-            float distanceToEnemy = Vector3.Distance(transform.position, turret.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            GameObject[] turrets = GameObject.FindGameObjectsWithTag(turretTag);
+            float shortestDistance = Mathf.Infinity;
+            GameObject nearestTurret = null;
+
+            foreach (GameObject turret in turrets)
             {
-                shortestDistance = distanceToEnemy;
-                nearestTurret = turret;
+                float distanceToEnemy = Vector3.Distance(transform.position, turret.transform.position);
+                if (distanceToEnemy < shortestDistance)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestTurret = turret;
+                }
             }
-        }
 
-        // update if target is within range
-        if (nearestTurret != null && shortestDistance <= range)
-        {
-            target = nearestTurret.transform;
-        }
-        else
-        {
-            target = null;
+            // update if target is within range
+            if (nearestTurret != null && shortestDistance <= range)
+            {
+                target = nearestTurret.transform;
+            }
+            else
+            {
+                target = null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
