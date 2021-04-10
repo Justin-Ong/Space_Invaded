@@ -31,6 +31,8 @@ public class TurretLogic : MonoBehaviour
     public float turnSpeed = 10f;
 
     public Transform firePoint;
+    public AudioSource fireSound;
+
 
     public Node node;
 
@@ -38,6 +40,7 @@ public class TurretLogic : MonoBehaviour
     void Start()
     {
         StartCoroutine("UpdateTarget");
+        fireSound = GetComponent<AudioSource>();
     }
 
     IEnumerator UpdateTarget()
@@ -140,6 +143,7 @@ public class TurretLogic : MonoBehaviour
 
     void Shoot() 
     {
+        fireSound.Play();
         GameObject bulletGO = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.damage = damage;
