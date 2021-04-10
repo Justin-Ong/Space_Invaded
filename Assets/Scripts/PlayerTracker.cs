@@ -6,6 +6,7 @@ public class PlayerTracker : MonoBehaviour
 {
     public GameObject ourCamera;
     public GameObject target;
+    public static PlayerTracker instance;
     public float rotateSpeed = 8;
     public Vector3 maxZoom = new Vector3(25, 25, 25);
     public Vector3 minZoom = new Vector3(5, 5, 5);

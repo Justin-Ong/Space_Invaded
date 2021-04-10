@@ -43,6 +43,9 @@ public class BuildManager : MonoBehaviour
 	public Sprite TurretImage3;
 	public Sprite TurretImage4;
 
+	private float remainingTime;
+	private int count;
+
 	void Start()
 	{
 		turretArray = new GameObject[numTurrets];
@@ -91,6 +94,9 @@ public class BuildManager : MonoBehaviour
 
 		turretToBuild = standardTurretPrefab1;
 		moneyToBuild = 50;
+
+		remainingTime = 1f;
+		count = 30;
 	}
 
 	void Update()
@@ -122,7 +128,53 @@ public class BuildManager : MonoBehaviour
 			{
 				Time.timeScale = 0;
 				pauseFlag = true;
+			}
+		}
+		if (EnemySpawnerBehaviour.TriggerBuildMode)
+		{
+			buildModeFlag = true;
+			if (count == 0)
+			{
+				Debug.Log("You have no time left.");
+				count = 30;
 				buildModeFlag = false;
+				remainingTime = 1f;
+				EnemySpawnerBehaviour.TriggerBuildMode = false;
+			}
+			if (Input.GetKeyDown("space"))
+			{
+				Debug.Log("You have exited Building mode.");
+				count = 30;
+				buildModeFlag = false;
+				remainingTime = 1f;
+				EnemySpawnerBehaviour.TriggerBuildMode = false;
+			}
+
+			/*			if (buildModeFlag)
+						{
+							Time.timeScale = 1;
+							Time.fixedDeltaTime *= 1000;
+							buildModeFlag = false;
+							PlayerControls.instance.speed = 5;
+							PlayerTracker.instance.rotateSpeed = 8;
+						}
+						else
+						{
+							Time.timeScale = 0.001f;
+							Time.fixedDeltaTime /= 1000;
+							buildModeFlag = true;
+							PlayerControls.instance.speed = 5000;
+							PlayerTracker.instance.rotateSpeed = 8000;
+						}*/
+		}
+		if (buildModeFlag) 
+		{
+			remainingTime -= Time.deltaTime;
+			if (remainingTime < 0)
+                {
+				Debug.Log(count);
+				count -= 1;
+				remainingTime = 1f;
 			}
 		}
 	}

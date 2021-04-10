@@ -25,6 +25,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     public List<WaveObject> waves;
     public float timeToFirstSpawn;
     public GameObject TracerPrefab;
+    public static bool TriggerBuildMode;
 
     private float firstSpawnTimer;
     private float randomSpawnTimer;
@@ -36,6 +37,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     private int miniWaveIndex;
     private int currEnemyInWave;
     private List<Vector3> waypoints = new List<Vector3>();
+    
 
     void Start()
     {
@@ -51,61 +53,80 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         {
             numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
         }
+        TriggerBuildMode = true;
+        Debug.Log("A large wave of enemies approaching.");
     }
 
     void Update()
     {
-        firstSpawnTimer += Time.deltaTime;
-        tracerTimer += Time.deltaTime;
-        if (firstSpawnTimer > timeToFirstSpawn)
+        if (!BuildManager.buildModeFlag)
         {
-            spawnTimer += Time.deltaTime;
-            if (numWaves > 0)
+            firstSpawnTimer += Time.deltaTime;
+            tracerTimer += Time.deltaTime;
+            if (firstSpawnTimer > timeToFirstSpawn)
             {
-                if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
+
+                spawnTimer += Time.deltaTime;
+                if (numWaves > 0)
                 {
-                    SpawnEnemy();
-                    currEnemyInWave++;
-                    spawnTimer = 0;
-                }
-                if (currWave < numWaves && currEnemyInWave > waves[currWave].numEnemiesToSpawn[miniWaveIndex])
-                {
-                    miniWaveIndex++;
-                    currEnemyInWave = 1;
-                }
-                if (currWave < numWaves && miniWaveIndex >= numMiniWaves)
-                {
-                    currWave++;
-                    miniWaveIndex = 0;
-                    if (currWave < numWaves)
+                    if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
                     {
-                        numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
-                        if (waves[currWave].immediateStart)
+                        SpawnEnemy();
+                        currEnemyInWave++;
+                        spawnTimer = 0;
+                    }
+                    if (currWave < numWaves && currEnemyInWave > waves[currWave].numEnemiesToSpawn[miniWaveIndex])
+                    {
+                        miniWaveIndex++;
+                        currEnemyInWave = 1;
+                    }
+                    if (currWave < numWaves && miniWaveIndex >= numMiniWaves)
+                    {
+                        currWave++;
+                        miniWaveIndex = 0;
+                        TriggerBuildMode = true;
+                        Debug.Log("A large wave of enemies approaching.");
+                        if (currWave < numWaves)
                         {
-                            spawnTimer = waves[currWave].timeBetweenSpawns[miniWaveIndex] + 1;
+                            numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
+                            if (waves[currWave].immediateStart)
+                            {
+                                spawnTimer = waves[currWave].timeBetweenSpawns[miniWaveIndex] + 1;
+                            }
                         }
                     }
+                    if (currWave >= numWaves && spawnTimer > 1)
+                    {
+                        SpawnRandomEnemy();
+                        spawnTimer = 0;
+                    }
                 }
-                if (currWave >= numWaves && spawnTimer > 1)
+                else if (spawnTimer > randomSpawnTimer)
                 {
                     SpawnRandomEnemy();
                     spawnTimer = 0;
+                    if (randomSpawnTimer > 0.1)
+                    {
+                        randomSpawnTimer -= 0.01f;
+                    }
                 }
             }
-            else if (spawnTimer > randomSpawnTimer)
+            if (tracerTimer > 3)
             {
-                SpawnRandomEnemy();
-                spawnTimer = 0;
-                if (randomSpawnTimer > 0.1)
-                {
-                    randomSpawnTimer -= 0.01f;
-                }
+                SpawnTracer();
+                tracerTimer = 0;
             }
         }
-        if (tracerTimer > 3)
+
+        else
         {
-            SpawnTracer();
-            tracerTimer = 0;
+            tracerTimer += Time.deltaTime;
+            if (tracerTimer > 3)
+            {
+                SpawnTracer();
+                tracerTimer = 0;
+            }
+
         }
     }
 
