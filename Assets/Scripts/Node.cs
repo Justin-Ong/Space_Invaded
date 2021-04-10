@@ -35,7 +35,12 @@ public class Node : MonoBehaviour
 			return;
 		}
 
-		if (ResourceSystem.money < BuildManager.moneyToBuild)
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        if (ResourceSystem.money < BuildManager.moneyToBuild)
 		{
 			ShowErrorMessage();
 			return;
