@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class Node : MonoBehaviour
 
 	public void BuildTurret()
 	{
+		if (EventSystem.current.IsPointerOverGameObject())
+		{
+			return;
+		}
 		if (turret != null || !meshRend.enabled || isBlocked)
 		{
 			ShowErrorMessage("Can't build here");
@@ -41,7 +46,7 @@ public class Node : MonoBehaviour
 			ShowErrorMessage("Can't build right now");
 			return;
 		}
-		if (ResourceSystem.money < BuildManager.moneyToBuild)
+        if (ResourceSystem.money < BuildManager.moneyToBuild)
 		{
 			ShowErrorMessage("Not enough money");
 			return;
@@ -71,7 +76,11 @@ public class Node : MonoBehaviour
 
 	private void ShowErrorMessage(string errMessage)
 	{
-		GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
 		ErrorMessage err = newErr.GetComponent<ErrorMessage>();
 		err.text = errMessage;
 		err.timeToLive = 2;
@@ -106,6 +115,11 @@ public class Node : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
 		if (other.gameObject.CompareTag("Player"))
 		{
 			meshRend.enabled = true;
