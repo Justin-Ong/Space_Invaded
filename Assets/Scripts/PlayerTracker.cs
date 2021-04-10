@@ -11,7 +11,7 @@ public class PlayerTracker : MonoBehaviour
     public Vector3 maxZoom = new Vector3(25, 25, 25);
     public Vector3 minZoom = new Vector3(5, 5, 5);
 
-    private Transform cameraTransform;
+    public Transform cameraTransform;
     private Transform targetTransform;
     private Quaternion originalCameraPos;
 

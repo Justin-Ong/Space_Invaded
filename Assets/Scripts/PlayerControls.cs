@@ -4,12 +4,15 @@ public class PlayerControls : MonoBehaviour {
     public float speed = 5;
     public static PlayerControls instance;
     public LayerMask grabMask;
+    public float rotateSpeed = 8;
 
     private Node currNode;
+    private Quaternion originalPos;
 
     void Start()
     {
         instance = this;
+        originalPos = transform.rotation;
     }
 
     void Update() {
@@ -29,6 +32,17 @@ public class PlayerControls : MonoBehaviour {
         if (hits.Length == 0)
         {
             currNode = null;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            transform.rotation = originalPos;
+        }
+
+        if (Input.GetKey(KeyCode.LeftAlt) && Input.GetMouseButton(0))
+        {
+            float h = rotateSpeed * Input.GetAxis("Mouse X");
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + h, transform.eulerAngles.z);
         }
 
         if (!Input.GetKey(KeyCode.LeftAlt) && Input.GetMouseButtonDown(0) && currNode && !BuildManager.pauseFlag)

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
@@ -59,7 +60,11 @@ public class Node : MonoBehaviour
 
 	private void ShowErrorMessage()
 	{
-		GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
 		ErrorMessage err = newErr.GetComponent<ErrorMessage>();
 		if (ResourceSystem.money < BuildManager.moneyToBuild) err.text = "Not enough money!";
 		else err.text = "Can't build here!";
@@ -95,6 +100,11 @@ public class Node : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
 		if (other.gameObject.CompareTag("Player"))
 		{
 			meshRend.enabled = true;
