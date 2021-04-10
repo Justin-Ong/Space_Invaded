@@ -46,6 +46,10 @@ public class BuildManager : MonoBehaviour
 	private float remainingTime;
 	private int count;
 
+	// Audio Prefabs
+	public GameObject audioEnterBuildingPhase;
+	public GameObject audioEnterGamePhase;
+
 	void Start()
 	{
 		turretArray = new GameObject[numTurrets];
@@ -135,6 +139,7 @@ public class BuildManager : MonoBehaviour
 			buildModeFlag = true;
 			if (count == 0)
 			{
+				Instantiate(audioEnterBuildingPhase);
 				Debug.Log("You have no time left.");
 				count = 30;
 				buildModeFlag = false;
@@ -143,6 +148,7 @@ public class BuildManager : MonoBehaviour
 			}
 			if (Input.GetKeyDown("space"))
 			{
+				Instantiate(audioEnterGamePhase);
 				Debug.Log("You have exited Building mode.");
 				count = 30;
 				buildModeFlag = false;
