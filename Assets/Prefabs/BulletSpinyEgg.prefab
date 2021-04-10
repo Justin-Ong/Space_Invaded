@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3175765523737154596}
   - component: {fileID: 861984831282209006}
   m_Layer: 0
-  m_Name: SpinyEggBullet
+  m_Name: BulletSpinyEgg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
