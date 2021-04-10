@@ -46,6 +46,10 @@ public class BuildManager : MonoBehaviour
 	private int buildModeCount;
 	private Text buildModeCounter;
 
+	// Audio Prefabs
+	public GameObject audioEnterBuildingPhase;
+	public GameObject audioEnterGamePhase;
+
 	void Start()
 	{
 		turretArray = new GameObject[numTurrets];
@@ -139,6 +143,7 @@ public class BuildManager : MonoBehaviour
 			{
 				buildModeCounter.text = "";
 				buildModeCount = maxBuildModeCount;
+				Instantiate(audioEnterBuildingPhase);
 				buildModeFlag = false;
 				remainingTime = 1f;
 				EnemySpawnerBehaviour.TriggerBuildMode = false;
@@ -148,6 +153,7 @@ public class BuildManager : MonoBehaviour
 			{
 				buildModeCounter.text = "";
 				buildModeCount = maxBuildModeCount;
+				Instantiate(audioEnterGamePhase);
 				buildModeFlag = false;
 				remainingTime = 1f;
 				EnemySpawnerBehaviour.TriggerBuildMode = false;
