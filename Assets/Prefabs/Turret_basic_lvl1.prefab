@@ -179,6 +179,8 @@ MonoBehaviour:
   userLaser: 1
   damageOverTime: 10
   lineRenderer: {fileID: 4992847561295035436}
+  useSlowLaser: 0
+  slowPercentage: 0.8
   enemyTag: Enemy
   partToRotate: {fileID: 952783353}
   turnSpeed: 10
