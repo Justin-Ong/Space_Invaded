@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   speed: 1
+  startSpeed: 0
   bulletPrefab: {fileID: 0}
   attackTimer: 0
   range: 0
@@ -187,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b5be7d87075d75049892452798853991, type: 3}
       propertyPath: m_Name
-      value: 03BattleShip
+      value: Model
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b5be7d87075d75049892452798853991, type: 3}
       propertyPath: m_Layer

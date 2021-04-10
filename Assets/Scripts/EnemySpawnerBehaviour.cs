@@ -8,14 +8,14 @@ public class WaveObject
     public List<int> enemyType;
     public List<int> numEnemiesToSpawn;
     public List<float> timeBetweenSpawns;
-    public bool immediateStart;
+    public List<bool> isElite;
 
-    public WaveObject(List<int> enemy, List<int> numEnemies, List<float> spawntime, bool start)
+    public WaveObject(List<int> enemy, List<int> numEnemies, List<float> spawntime, List<bool> elite)
     {
         enemyType = enemy;
         numEnemiesToSpawn = numEnemies;
         timeBetweenSpawns = spawntime;
-        immediateStart = start;
+        isElite = elite;
     }
 }
 
@@ -23,11 +23,10 @@ public class EnemySpawnerBehaviour : MonoBehaviour
 {
     public GameObject defencePoint;
     public List<WaveObject> waves;
-    public float timeToFirstSpawn;
     public GameObject TracerPrefab;
     public static bool TriggerBuildMode;
+    public static bool waveOver;
 
-    private float firstSpawnTimer;
     private float randomSpawnTimer;
     private float spawnTimer;
     private float tracerTimer;
@@ -37,7 +36,9 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     private int miniWaveIndex;
     private int currEnemyInWave;
     private List<Vector3> waypoints = new List<Vector3>();
-    
+    private GameObject lastEnemy;
+
+    public static EnemySpawnerBehaviour self;
 
     void Start()
     {
@@ -48,30 +49,34 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         numWaves = waves.Count;
         numMiniWaves = 0;
         randomSpawnTimer = 2;
-        firstSpawnTimer = 0;
+        waveOver = false;
         if (numWaves > 0)
         {
             numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
         }
         TriggerBuildMode = true;
-        Debug.Log("A large wave of enemies approaching.");
     }
 
     void Update()
     {
         if (!BuildManager.buildModeFlag)
         {
-            firstSpawnTimer += Time.deltaTime;
-            tracerTimer += Time.deltaTime;
-            if (firstSpawnTimer > timeToFirstSpawn)
+            spawnTimer += Time.deltaTime;
+            if (waveOver)
             {
-
-                spawnTimer += Time.deltaTime;
+                if (lastEnemy == null)
+                {
+                    TriggerBuildMode = true;
+                }
+            }
+            else
+            {
+                TriggerBuildMode = false;
                 if (numWaves > 0)
                 {
                     if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
                     {
-                        SpawnEnemy();
+                        lastEnemy = SpawnEnemy();
                         currEnemyInWave++;
                         spawnTimer = 0;
                     }
@@ -82,17 +87,12 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                     }
                     if (currWave < numWaves && miniWaveIndex >= numMiniWaves)
                     {
+                        waveOver = true;
                         currWave++;
                         miniWaveIndex = 0;
-                        TriggerBuildMode = true;
-                        Debug.Log("A large wave of enemies approaching.");
                         if (currWave < numWaves)
                         {
                             numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
-                            if (waves[currWave].immediateStart)
-                            {
-                                spawnTimer = waves[currWave].timeBetweenSpawns[miniWaveIndex] + 1;
-                            }
                         }
                     }
                     if (currWave >= numWaves && spawnTimer > 1)
@@ -111,11 +111,6 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                     }
                 }
             }
-            if (tracerTimer > 3)
-            {
-                SpawnTracer();
-                tracerTimer = 0;
-            }
         }
 
         else
@@ -130,16 +125,30 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         }
     }
 
-    void GetWaypoints()
+    public void GetWaypoints()
     {
         waypoints = References.levelGrid.GetPath(transform.position);
     }
 
-    void SpawnEnemy()
+    GameObject SpawnEnemy()
     {
         GameObject newEnemy = Instantiate(References.enemyTypes[waves[currWave].enemyType[miniWaveIndex]], transform.position, transform.rotation);
         EnemyBehaviour newEnemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
         newEnemyBehaviour.waypoints = waypoints;
+        if (waves[currWave].isElite[miniWaveIndex])
+        {
+            newEnemyBehaviour.damage *= 1.5f;
+            newEnemyBehaviour.maxHealth *= 1.5f;
+            newEnemy.GetComponent<HealthSystem>().maxHealth *= 1.5f;
+            newEnemy.GetComponent<HealthSystem>().currHealth = newEnemy.GetComponent<HealthSystem>().maxHealth;
+            Material[] mats = newEnemy.transform.Find("Model").GetComponent<Renderer>().materials;
+            foreach (Material mat in mats)
+            {
+                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", Color.red);
+            }
+        }
+        return newEnemy;
     }
     
     void SpawnRandomEnemy()

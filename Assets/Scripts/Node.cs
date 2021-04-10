@@ -13,6 +13,7 @@ public class Node : MonoBehaviour
 	private Renderer rend;
 	private MeshRenderer meshRend;
 	private bool isBlocked;
+	GameObject[] enemySpawners;
 
 	void Start()
 	{
@@ -24,19 +25,25 @@ public class Node : MonoBehaviour
 		{
 			rend.material.color = hoverColor;
 		}
+		enemySpawners = GameObject.FindGameObjectsWithTag("EnemySpawner");
+
 	}
 
 	public void BuildTurret()
 	{
 		if (turret != null || !meshRend.enabled || isBlocked)
 		{
-			ShowErrorMessage();
+			ShowErrorMessage("Can't build here");
 			return;
 		}
-
+		if (!BuildManager.buildModeFlag)
+		{
+			ShowErrorMessage("Can't build right now");
+			return;
+		}
 		if (ResourceSystem.money < BuildManager.moneyToBuild)
 		{
-			ShowErrorMessage();
+			ShowErrorMessage("Not enough money");
 			return;
 		}
 
@@ -48,21 +55,25 @@ public class Node : MonoBehaviour
 		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), false);
 
 		GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
+
+		
+		foreach (GameObject spawner in enemySpawners)
+		{
+			spawner.GetComponent<EnemySpawnerBehaviour>().GetWaypoints();
+		}
 	}
 
 	public void RemoveTurret()
 	{
-		Debug.Log("Goodbye");
 		turret = null;
 		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), true);
 	}
 
-	private void ShowErrorMessage()
+	private void ShowErrorMessage(string errMessage)
 	{
 		GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
 		ErrorMessage err = newErr.GetComponent<ErrorMessage>();
-		if (ResourceSystem.money < BuildManager.moneyToBuild) err.text = "Not enough money!";
-		else err.text = "Can't build here!";
+		err.text = errMessage;
 		err.timeToLive = 2;
 	}
 

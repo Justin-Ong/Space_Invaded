@@ -13,15 +13,12 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
     {
         currAttackTimer += Time.deltaTime;
 
-        if (target)
+        if (range > 0 && target && currAttackTimer > attackTimer)
         {
             ourBody.velocity = Vector3.zero;
-            transform.LookAt(target.position, Vector3.up);
-            if (currAttackTimer > attackTimer)
-            {
-                Attack();
-                currAttackTimer = 0;
-            }
+            Attack();
+            speed = 1;
+            currAttackTimer = 0;
         }
         else
         {
@@ -33,6 +30,10 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
             else
             {
                 LookAtNextWaypoint();
+            }
+            if (!target)
+            {
+                speed = startSpeed;
             }
             Move();
             rotationMod += 0.01f;
@@ -49,7 +50,30 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
         while (true)
         {
             prevTarget = currTarget;
-            base.UpdateTarget();
+            GameObject[] turrets = GameObject.FindGameObjectsWithTag(turretTag);
+            float shortestDistance = Mathf.Infinity;
+            GameObject nearestTurret = null;
+
+            foreach (GameObject turret in turrets)
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, turret.transform.position);
+                if (distanceToEnemy < shortestDistance)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestTurret = turret;
+                }
+            }
+
+            // update if target is within range
+            if (nearestTurret != null && shortestDistance <= range)
+            {
+                target = nearestTurret.transform;
+            }
+            else
+            {
+                target = null;
+            }
+
             if (target)
             {
                 currTarget = target.gameObject;
@@ -60,7 +84,7 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
             }
             else
             {
-                damageMod += 2.5f;
+                damageMod += 1f;
             }
 
             yield return new WaitForSeconds(0.5f);

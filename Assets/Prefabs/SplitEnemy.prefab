@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   speed: 6
+  startSpeed: 0
   bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
   attackTimer: 2
   range: 5
@@ -177,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 67097707d1052e149b0bf31db007ca03, type: 3}
       propertyPath: m_Name
-      value: 08Monitor
+      value: Model
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 67097707d1052e149b0bf31db007ca03, type: 3}
       propertyPath: m_Layer

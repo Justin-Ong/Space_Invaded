@@ -1,12 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class BuildManager : MonoBehaviour
 {
-	//private float fixedDeltaTime;
 	public static BuildManager instance;
-	public static bool buildModeFlag = false;
+	public static bool buildModeFlag = true;
 	public static bool pauseFlag = false;
 
 	void Awake()
@@ -17,7 +15,6 @@ public class BuildManager : MonoBehaviour
 			return;
 		}
 		instance = this;
-		//fixedDeltaTime = Time.fixedDeltaTime;
 	}
 
 	public GameObject standardTurretPrefab1;
@@ -43,8 +40,11 @@ public class BuildManager : MonoBehaviour
 	public Sprite TurretImage3;
 	public Sprite TurretImage4;
 
+	public GameObject UI;
+	public int maxBuildModeCount = 60;
 	private float remainingTime;
-	private int count;
+	private int buildModeCount;
+	private Text buildModeCounter;
 
 	void Start()
 	{
@@ -96,7 +96,9 @@ public class BuildManager : MonoBehaviour
 		moneyToBuild = 50;
 
 		remainingTime = 1f;
-		count = 30;
+		buildModeCount = maxBuildModeCount;
+
+		buildModeCounter = UI.transform.Find("BuildModeTimer").GetComponent<Text>();
 	}
 
 	void Update()
@@ -133,30 +135,32 @@ public class BuildManager : MonoBehaviour
 		if (EnemySpawnerBehaviour.TriggerBuildMode)
 		{
 			buildModeFlag = true;
-			if (count == 0)
+			if (buildModeCount <= 0)
 			{
-				Debug.Log("You have no time left.");
-				count = 30;
+				buildModeCounter.text = "";
+				buildModeCount = maxBuildModeCount;
 				buildModeFlag = false;
 				remainingTime = 1f;
 				EnemySpawnerBehaviour.TriggerBuildMode = false;
+				EnemySpawnerBehaviour.waveOver = false;
 			}
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
-				Debug.Log("You have exited Building mode.");
-				count = 30;
+				buildModeCounter.text = "";
+				buildModeCount = maxBuildModeCount;
 				buildModeFlag = false;
 				remainingTime = 1f;
 				EnemySpawnerBehaviour.TriggerBuildMode = false;
+				EnemySpawnerBehaviour.waveOver = false;
 			}
 		}
 		if (buildModeFlag) 
 		{
+			buildModeCounter.text = buildModeCount.ToString();
 			remainingTime -= Time.deltaTime;
 			if (remainingTime < 0)
                 {
-				Debug.Log(count);
-				count -= 1;
+				buildModeCount -= 1;
 				remainingTime = 1f;
 			}
 		}
