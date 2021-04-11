@@ -42,7 +42,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
 
     void Start()
     {
-        GetWaypoints();
+        GetWaypoints(transform.position);
         currWave = 0;
         currEnemyInWave = 1;
         miniWaveIndex = 0;
@@ -125,9 +125,9 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         }
     }
 
-    public void GetWaypoints()
+    public void GetWaypoints(Vector3 pos)
     {
-        waypoints = References.levelGrid.GetPath(transform.position);
+        waypoints = References.levelGrid.GetPath(pos);
     }
 
     GameObject SpawnEnemy()

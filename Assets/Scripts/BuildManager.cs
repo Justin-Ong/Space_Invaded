@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
 
 public class BuildManager : MonoBehaviour
 {
@@ -49,6 +52,12 @@ public class BuildManager : MonoBehaviour
 	// Audio Prefabs
 	public GameObject audioEnterBuildingPhase;
 	public GameObject audioEnterGamePhase;
+
+	// Pathing updates
+	List<EnemySpawnerBehaviour> spawners = new List<EnemySpawnerBehaviour>();
+	List<Vector3> pos = new List<Vector3>();
+	Thread thread;
+	bool threadRunning;
 
 	void Start()
 	{
@@ -103,6 +112,16 @@ public class BuildManager : MonoBehaviour
 		buildModeCount = maxBuildModeCount;
 
 		buildModeCounter = UI.transform.Find("BuildModeTimer").GetComponent<Text>();
+
+		GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag("EnemySpawner");
+		foreach (GameObject enemySpawner in enemySpawners)
+		{
+			spawners.Add(enemySpawner.GetComponent<EnemySpawnerBehaviour>());
+			pos.Add(enemySpawner.transform.position);
+		}
+		threadRunning = true;
+		thread = new Thread(() => PathingRefresh(spawners, pos));
+		thread.Start();
 	}
 
 	void Update()
@@ -179,4 +198,22 @@ public class BuildManager : MonoBehaviour
 	{
 		return turretToBuild;
 	}
+
+	private void PathingRefresh(List<EnemySpawnerBehaviour> spawners, List<Vector3> pos)
+	{
+		while (threadRunning)
+		{
+			for (int i = 0; i < spawners.Count; i++)
+			{
+				spawners[i].GetWaypoints(pos[i]);
+			}
+			Thread.Sleep(500);
+		}
+	}
+
+    private void OnDisable()
+    {
+		threadRunning = false;
+		thread.Join();
+    }
 }

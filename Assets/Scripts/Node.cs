@@ -10,11 +10,11 @@ public class Node : MonoBehaviour
 	public string enemySpawnerTag = "EnemySpawner";
 	public GameObject errorMessage;
 
+	private Color originalColor;
 	private GameObject turret;
 	private Renderer rend;
 	private MeshRenderer meshRend;
 	private bool isBlocked;
-	GameObject[] enemySpawners;
 
 	void Start()
 	{
@@ -22,12 +22,11 @@ public class Node : MonoBehaviour
 		meshRend = gameObject.GetComponent<MeshRenderer>();
 		meshRend.enabled = false;
 		isBlocked = CheckIfBlocked();
+		originalColor = rend.material.color;
 		if (isBlocked)
 		{
 			rend.material.color = hoverColor;
 		}
-		enemySpawners = GameObject.FindGameObjectsWithTag("EnemySpawner");
-
 	}
 
 	public void BuildTurret()
@@ -60,18 +59,14 @@ public class Node : MonoBehaviour
 		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), false);
 
 		GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
-
-		
-		foreach (GameObject spawner in enemySpawners)
-		{
-			spawner.GetComponent<EnemySpawnerBehaviour>().GetWaypoints();
-		}
+		rend.material.color = hoverColor;
 	}
 
 	public void RemoveTurret()
 	{
 		turret = null;
 		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), true);
+		rend.material.color = originalColor;
 	}
 
 	private void ShowErrorMessage(string errMessage)
