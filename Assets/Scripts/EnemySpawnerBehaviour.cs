@@ -36,7 +36,6 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     private int miniWaveIndex;
     private int currEnemyInWave;
     private List<Vector3> waypoints = new List<Vector3>();
-    private GameObject lastEnemy;
 
     public static EnemySpawnerBehaviour self;
 
@@ -64,7 +63,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
             spawnTimer += Time.deltaTime;
             if (waveOver)
             {
-                if (lastEnemy == null)
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
                 {
                     TriggerBuildMode = true;
                 }
@@ -76,7 +75,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                 {
                     if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
                     {
-                        lastEnemy = SpawnEnemy();
+                        SpawnEnemy();
                         currEnemyInWave++;
                         spawnTimer = 0;
                     }
@@ -130,7 +129,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         waypoints = References.levelGrid.GetPath(pos);
     }
 
-    GameObject SpawnEnemy()
+    void SpawnEnemy()
     {
         GameObject newEnemy = Instantiate(References.enemyTypes[waves[currWave].enemyType[miniWaveIndex]], transform.position, transform.rotation);
         EnemyBehaviour newEnemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
@@ -148,7 +147,6 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                 mat.SetColor("_EmissionColor", Color.red);
             }
         }
-        return newEnemy;
     }
     
     void SpawnRandomEnemy()
