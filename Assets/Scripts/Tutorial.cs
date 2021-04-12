@@ -16,7 +16,7 @@ public class Tutorial : MonoBehaviour
         textArray[1] = "This stargate is where enemies spawn from. There can be more than one per level, but in the tutorial there's only one.";
         textArray[2] = "This is your space station. Its health bar is shown at the top left of the screen. Your money is displayed at the top right of the screen.";
         textArray[3] = "The game is divided into two phases, a building phase and a defending phase.";
-        textArray[4] = "The building phase lasts for 60 seconds between waves. If you have confidence, you can press the Spacebar to skip this phase.";
+        textArray[4] = "The building phase lasts for 60 seconds between waves. But you have more time to read the tips in this tutorial level. If you have confidence, you can press the Spacebar to skip this phase.";
         textArray[5] = "During the building phase, you will be able to see red tracers that show an estimate of the enemies' path. It's highly recommended to build turrets alongside the tracer.";
         textArray[6] = "Please use WASD to move in horizontal plane. Use Q to move down and E to move up.";
         textArray[7] = "Use Left Click to build a turret and Right Click to change the selected turret. The currently selected turret is shown in the bottom right corner. Different turrets have different abilities and costs.";

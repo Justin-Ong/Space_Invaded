@@ -37,6 +37,7 @@ public class BuildManager : MonoBehaviour
 	private string[] damageArray;
 	private string[] costArray;
 	private int[] moneyArray;
+    private string[] descriptionArray;
 
 	public Sprite TurretImage1;
 	public Sprite TurretImage2;
@@ -69,6 +70,7 @@ public class BuildManager : MonoBehaviour
 		damageArray = new string[numStatTypes];
 		costArray = new string[numStatTypes];
 		moneyArray = new int[numStatTypes];
+        descriptionArray = new string[numStatTypes];
 
 		rangeArray[0] = "Range: 9";
 		rangeArray[1] = "Range: 15";
@@ -95,7 +97,12 @@ public class BuildManager : MonoBehaviour
 		moneyArray[2] = 200;
 		moneyArray[3] = 150;
 
-		turretArray[0] = standardTurretPrefab1;
+        descriptionArray[0] = "A basic lazer turret.";
+        descriptionArray[1] = "A basic gun tower.";
+        descriptionArray[2] = "A more powerful gun tower.";
+        descriptionArray[3] = "A lazer to slow down the enemies.";
+
+        turretArray[0] = standardTurretPrefab1;
 		turretArray[1] = standardTurretPrefab2;
 		turretArray[2] = standardTurretPrefab3;
 		turretArray[3] = standardTurretPrefab4;
@@ -136,8 +143,9 @@ public class BuildManager : MonoBehaviour
 				GameObject.Find("Fire Rate").GetComponent<Text>().text = fireRateArray[index];
 				GameObject.Find("Damage").GetComponent<Text>().text = damageArray[index];
 				GameObject.Find("Cost").GetComponent<Text>().text = costArray[index];
+                GameObject.Find("Description").GetComponent<Text>().text = descriptionArray[index];
 
-				turretToBuild = turretArray[index];
+                turretToBuild = turretArray[index];
 				moneyToBuild = moneyArray[index];
 			}
 		}
