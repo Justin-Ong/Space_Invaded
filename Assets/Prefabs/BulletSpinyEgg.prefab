@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1998840120115338113}
   - component: {fileID: 3175765523737154596}
   - component: {fileID: 861984831282209006}
+  - component: {fileID: 4603842874403162590}
   m_Layer: 0
   m_Name: BulletSpinyEgg
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4603842874403162590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222338978505965883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd0b63e010f94eef9d34cfc4339c020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  damage: 0
