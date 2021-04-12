@@ -381,8 +381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781cabb67a4b9ed4da192cc8bf46aba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 400
   speed: 3
+  startSpeed: 0
+  isElite: 0
   bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
   attackTimer: 0
   range: 0

@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class BonusEnemyBehaviour : EnemyBehaviour
 {
+    void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     void FixedUpdate()
     {
         currAttackTimer += Time.deltaTime;

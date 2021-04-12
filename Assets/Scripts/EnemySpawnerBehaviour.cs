@@ -26,6 +26,8 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     public GameObject TracerPrefab;
     public static bool TriggerBuildMode;
     public static bool waveOver;
+    public List<GameObject> bonusEnemies;
+    public List<int> bonusEnemySpawnWaves;
 
     private float randomSpawnTimer;
     private float spawnTimer;
@@ -36,6 +38,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     private int miniWaveIndex;
     private int currEnemyInWave;
     private List<Vector3> waypoints = new List<Vector3>();
+    private int numBonusEnemiesSpawned;
 
     public static EnemySpawnerBehaviour self;
 
@@ -54,6 +57,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
             numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
         }
         TriggerBuildMode = true;
+        numBonusEnemiesSpawned = 0;
     }
 
     void Update()
@@ -71,6 +75,11 @@ public class EnemySpawnerBehaviour : MonoBehaviour
             else
             {
                 TriggerBuildMode = false;
+                if (numBonusEnemiesSpawned < bonusEnemySpawnWaves.Count && currWave == bonusEnemySpawnWaves[numBonusEnemiesSpawned])
+                {
+                    bonusEnemies[numBonusEnemiesSpawned].SetActive(true);
+                    numBonusEnemiesSpawned++;
+                }
                 if (numWaves > 0)
                 {
                     if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
@@ -111,7 +120,6 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                 }
             }
         }
-
         else
         {
             tracerTimer += Time.deltaTime;
@@ -136,16 +144,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         newEnemyBehaviour.waypoints = waypoints;
         if (waves[currWave].isElite[miniWaveIndex])
         {
-            newEnemyBehaviour.damage *= 1.5f;
-            newEnemyBehaviour.maxHealth *= 1.5f;
-            newEnemy.GetComponent<HealthSystem>().maxHealth *= 1.5f;
-            newEnemy.GetComponent<HealthSystem>().currHealth = newEnemy.GetComponent<HealthSystem>().maxHealth;
-            Material[] mats = newEnemy.transform.Find("Model").GetComponent<Renderer>().materials;
-            foreach (Material mat in mats)
-            {
-                mat.EnableKeyword("_EMISSION");
-                mat.SetColor("_EmissionColor", Color.red);
-            }
+            newEnemyBehaviour.isElite = true;
         }
     }
     
