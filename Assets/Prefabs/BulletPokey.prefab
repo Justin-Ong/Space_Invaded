@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2416542476645474345}
   - component: {fileID: 1596124750572662668}
   - component: {fileID: 3585538517717441350}
+  - component: {fileID: 3190332328160289254}
   m_Layer: 0
   m_Name: BulletPokey
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3190332328160289254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081192465045715603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd0b63e010f94eef9d34cfc4339c020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  damage: 0

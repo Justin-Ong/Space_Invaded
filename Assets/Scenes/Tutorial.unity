@@ -195,6 +195,30 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+      propertyPath: bonusEnemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+      propertyPath: bonusEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1470808647}
+    - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+      propertyPath: bonusEnemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+      propertyPath: bonusEnemySpawnWaves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+      propertyPath: bonusEnemySpawnWaves.Array.data[0]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+      propertyPath: bonusEnemySpawnWaves.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: waves.Array.data[0].immediateStart
       value: 0
       objectReference: {fileID: 0}
@@ -280,11 +304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: waves.Array.data[0].isElite.Array.data[0]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: waves.Array.data[0].enemyType.Array.data[0]
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: waves.Array.data[1].enemyType.Array.data[1]
@@ -1063,6 +1087,7 @@ GameObject:
   - component: {fileID: 586059998}
   - component: {fileID: 586060000}
   - component: {fileID: 586059999}
+  - component: {fileID: 586060001}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -1132,6 +1157,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586059997}
   m_CullTransparentMesh: 1
+--- !u!114 &586060001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586059997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c47a8b525f7224c99e1fa5f3ae7011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &672004366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1366,18 +1403,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3026201770835777558, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
   m_PrefabInstance: {fileID: 672004366}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &904753473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904753472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c47a8b525f7224c99e1fa5f3ae7011, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &904753479 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3026201770835777555, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
@@ -1745,7 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6790e6f672439644f8a7674879d10a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startmoney: 500
+  startmoney: 5000
 --- !u!1001 &1450049179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1858,6 +1883,11 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1470808647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7961068510704606589, guid: c05632f01243a494598e9258267ff836, type: 3}
+  m_PrefabInstance: {fileID: 3679780830051857347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1488874449
 GameObject:
   m_ObjectHideFlags: 0

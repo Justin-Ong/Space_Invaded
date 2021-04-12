@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float maxHealth;
     public float speed;
     public float startSpeed;
+    public bool isElite = false;
 
     [Header("Attacking")]
     public GameObject bulletPrefab;
@@ -41,6 +42,18 @@ public class EnemyBehaviour : MonoBehaviour
         ourHealth = GetComponent<HealthSystem>();
         rotationMod = 0;
         StartCoroutine("UpdateTarget");
+        if (isElite) {
+            damage *= 1.5f;
+            maxHealth *= 1.5f;
+            ourHealth.maxHealth *= 1.5f;
+            ourHealth.currHealth = ourHealth.maxHealth;
+            Material[] mats = gameObject.transform.Find("Model").GetComponent<Renderer>().materials;
+            foreach (Material mat in mats)
+            {
+                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", Color.red);
+            }
+        }
     }
 
     void FixedUpdate()
