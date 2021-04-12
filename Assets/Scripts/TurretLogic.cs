@@ -25,6 +25,9 @@ public class TurretLogic : MonoBehaviour
     public float slowPercentage = 0.8f;
     // public AudioSource slowLaserSound;
 
+    [Header("Use Missile")]
+    public bool isMissile = false;
+
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
 
@@ -141,7 +144,14 @@ public class TurretLogic : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y, 0f); // rotate only y-axis
+        if (isMissile)
+        {
+            partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); // rotate only y-axis
+        }
+        else
+        {
+            partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y, 0f); // rotate around z-axis
+        }
     }
 
     void Shoot() 
