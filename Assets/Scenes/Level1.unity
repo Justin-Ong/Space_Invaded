@@ -322,6 +322,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
+      propertyPath: bonusEnemies.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211679949221781369, guid: 4214c3ccb8bb10240829656c6c263aba, type: 3}
       propertyPath: waves.Array.data[1].enemyType
       value: 1
       objectReference: {fileID: 0}
@@ -4120,6 +4124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a5984cfc0f45b40b8f03d6d2cc0e36, type: 3}
+--- !u!1 &742396925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3026201770835777558, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
+  m_PrefabInstance: {fileID: 3026201771727783980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &758893735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4771,7 +4780,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f049dad4486bc4447850a56a12cb3aab, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.761
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9236,34 +9245,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2385083241799117713, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
       propertyPath: width
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2385083241799117713, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
       propertyPath: height
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2385083241799117713, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
       propertyPath: length
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2385083241799117713, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
       propertyPath: defencePoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1611435152}
     - target: {fileID: 2385083241799117714, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
       propertyPath: UI
       value: 
-      objectReference: {fileID: 3026201771727783981}
+      objectReference: {fileID: 742396925}
     - target: {fileID: 2385083241799117714, guid: e10fddae7d679f942b2c9b05020a0a89, type: 3}
       propertyPath: audioEnterGamePhase
       value: 
@@ -9439,11 +9440,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
---- !u!1 &3026201771727783981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3026201770835777558, guid: 821d535d0204f754c9fa94f144d1ef2b, type: 3}
-  m_PrefabInstance: {fileID: 3026201771727783980}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6759324553344520022
 PrefabInstance:
   m_ObjectHideFlags: 0
