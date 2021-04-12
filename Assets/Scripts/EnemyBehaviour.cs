@@ -28,6 +28,9 @@ public class EnemyBehaviour : MonoBehaviour
     public float rayDistance;
     public float rotationSpeed = 2f;
 
+    [Header("Sounds")]
+    public AudioSource fireSound;
+
     protected Rigidbody ourBody;
     protected HealthSystem ourHealth;
     protected float currAttackTimer;
@@ -54,6 +57,7 @@ public class EnemyBehaviour : MonoBehaviour
                 mat.SetColor("_EmissionColor", Color.red);
             }
         }
+        fireSound = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -133,6 +137,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public virtual void Shoot()
     {
+        fireSound.Play();
         BulletBehaviour newBullet = Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation).GetComponent<BulletBehaviour>();
         newBullet.speed = 10;
         newBullet.damage = damage;

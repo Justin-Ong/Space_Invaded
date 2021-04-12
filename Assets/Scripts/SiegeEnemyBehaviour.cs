@@ -93,6 +93,7 @@ public class SiegeEnemyBehaviour : EnemyBehaviour
 
     public override void Shoot()
     {
+        fireSound.Play();
         BulletBehaviour newBullet = Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation).GetComponent<BulletBehaviour>();
         newBullet.speed = 10;
         newBullet.damage = damage + damageMod;
