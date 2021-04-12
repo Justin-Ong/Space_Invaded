@@ -23,6 +23,7 @@ public class TurretLogic : MonoBehaviour
     [Header("Use Laser Slow (No Damager)")]
     public bool useSlowLaser = false;
     public float slowPercentage = 0.8f;
+    // public AudioSource slowLaserSound;
 
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
@@ -113,6 +114,7 @@ public class TurretLogic : MonoBehaviour
 
     void SlowLaser()
     {
+        fireSound.Play();
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
 
@@ -124,6 +126,7 @@ public class TurretLogic : MonoBehaviour
 
     void Laser()
     {
+        fireSound.Play();
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, firePoint.position);

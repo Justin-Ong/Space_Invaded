@@ -11,7 +11,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5e00c8451ea2f524faf2f8a6aa900971, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -121,6 +121,7 @@ MonoBehaviour:
   partToRotate: {fileID: 5435796665879920422}
   turnSpeed: 5
   firePoint: {fileID: 4431505987955515091}
+  fireSound: {fileID: 0}
   node: {fileID: 0}
 --- !u!1 &4416809107105383476
 GameObject:
