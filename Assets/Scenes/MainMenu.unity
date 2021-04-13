@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1798,9 +1798,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Creative Commons and Licensed Assets:\r\nturbosquid.com\r\n\r\nTurret
-    assets:\r\niamcyberalex\tMace24de\tsender pinarci\r\n\r\nPlayer base, alien ship
-    assets:\r\nyoong5853\r\n\r\nAsteroids:\r\n3d-asteroids.space\r\n"
+  m_Text: "Creative Commons and Licensed Assets from:\r\nturbosquid.com\r\tsketchfab.com\tassetstore.unity.com\nTurret
+    assets:\r\niamcyberalex\tMace24de\tsender pinarci\r\nAnna Vidal (Milaein)\tAnthony
+    Yanez\tRoboCG\nPlayer base, alien ship assets:\r\nyoong5853\r\nAsteroids:\r\n3d-asteroids.space\nSound
+    assets:\nThe Indie Devs Nation\r\tEric Berzins\nEpic Sounds and FX"
 --- !u!222 &1859952642
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1859,7 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

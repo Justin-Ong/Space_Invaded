@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2385083241799117714}
   - component: {fileID: 2385083241799117712}
   - component: {fileID: 2385083241799117713}
-  - component: {fileID: 2385083241799117718}
   - component: {fileID: 1258819184}
   m_Layer: 0
   m_Name: GameMaster
@@ -95,18 +94,6 @@ MonoBehaviour:
   height: 32
   defencePoint: {fileID: 0}
   node: {fileID: 8526407563680793632, guid: cb9a58a535eb4f84896d9066159da741, type: 3}
---- !u!114 &2385083241799117718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2385083241799117725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4338bd240bd575c43bc0c001c803eac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1258819184
 MonoBehaviour:
   m_ObjectHideFlags: 0
