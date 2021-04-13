@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ee5d6a5e40877458143528ed4212bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 75
   healthBarPrefab: {fileID: 1864576005592397735, guid: 9b22de120c8154749b36a87289a37a11, type: 3}
   currHealth: 0
 --- !u!65 &-6896488132644080062
@@ -178,7 +178,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8149847200965376386, guid: 15f5ec0c17ef448aa9b2dd8f9bc13800, type: 3}
   fireRate: 1
   userLaser: 1
-  damageOverTime: 5
+  damageOverTime: 6
   lineRenderer: {fileID: 4992847561295035436}
   useSlowLaser: 0
   slowPercentage: 0.8
@@ -299,7 +299,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4f1ad1a2a4d33484db06895ac4295c80, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -308,7 +308,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 75
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

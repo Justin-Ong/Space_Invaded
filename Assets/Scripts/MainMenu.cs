@@ -45,7 +45,14 @@ public class MainMenu : MonoBehaviour
 
     public void ExitPressed()
     {
-        Application.Quit();
+        if (!Application.isEditor)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
 
     private IEnumerator LoadTutorial()

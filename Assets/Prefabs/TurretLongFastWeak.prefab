@@ -210,7 +210,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5e00c8451ea2f524faf2f8a6aa900971, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -219,7 +219,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 75
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -307,9 +307,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  damage: 1
+  damage: 2
   bulletPrefab: {fileID: 6309877719720681258, guid: f8a1ec1debaef423c9aa47d913ced957, type: 3}
-  fireRate: 6
+  fireRate: 4
   userLaser: 0
   damageOverTime: 10
   lineRenderer: {fileID: 0}

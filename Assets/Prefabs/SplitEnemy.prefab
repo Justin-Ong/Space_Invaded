@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233d328c2b93e9f47bff2534b173598e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 20
   speed: 6
   startSpeed: 0
   isElite: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ee5d6a5e40877458143528ed4212bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 20
   healthBarPrefab: {fileID: 1864576005592397735, guid: 9b22de120c8154749b36a87289a37a11, type: 3}
   currHealth: 0
 --- !u!82 &-4810209539417492668
@@ -134,7 +134,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 75
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

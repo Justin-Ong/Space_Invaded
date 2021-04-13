@@ -10,6 +10,7 @@ public class CarrierEnemyBehaviour : EnemyBehaviour
 
     private float currSpawnTime;
     private List<GameObject> minionsList = new List<GameObject>();
+    private int numMinionsWithvalue = 4;
 
     public void Update()
     {
@@ -21,6 +22,14 @@ public class CarrierEnemyBehaviour : EnemyBehaviour
             newEnemy.waypoints = waypoints;
             newEnemy.currWaypointIndex = currWaypointIndex;
             newEnemy.isElite = isElite;
+            if (numMinionsWithvalue <= 0)
+            {
+                numMinionsWithvalue--;
+            }
+            else
+            {
+                newEnemy.value = 0;
+            }
             currSpawnTime = 0;
             minionsList.Add(temp);
         }

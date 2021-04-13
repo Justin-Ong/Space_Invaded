@@ -19,6 +19,10 @@ public class BuildManager : MonoBehaviour
 			return;
 		}
 		instance = this;
+		buildModeFlag = true;
+		pauseFlag = false;
+		victoryFlag = false;
+		Time.timeScale = 1;
 	}
 
 	public GameObject standardTurretPrefab1;
@@ -79,14 +83,14 @@ public class BuildManager : MonoBehaviour
 		rangeArray[3] = "Range: 10";
 
 		fireRateArray[0] = "Fire Rate: Constant";
-		fireRateArray[1] = "Fire Rate: 6 per sec";
-		fireRateArray[2] = "Fire Rate: 1 per sec";
+		fireRateArray[1] = "Fire Rate: 4/s";
+		fireRateArray[2] = "Fire Rate: 0.75/s";
 		fireRateArray[3] = "Fire Rate: Constant";
 
-		damageArray[0] = "Damage: 5 per second";
-		damageArray[1] = "Damage: 1 per shot";
-		damageArray[2] = "Damage: 10 per shot";
-		damageArray[3] = "Damage: 0";
+		damageArray[0] = "Damage: 6/s";
+		damageArray[1] = "Damage: 2/shot";
+		damageArray[2] = "Damage: 20/shot";
+		damageArray[3] = "Slow: 60%";
 
 		costArray[0] = "Cost: 50";
 		costArray[1] = "Cost: 100";
@@ -98,10 +102,10 @@ public class BuildManager : MonoBehaviour
 		moneyArray[2] = 200;
 		moneyArray[3] = 100;
 
-        descriptionArray[0] = "A short-ranged laser turret.";
-        descriptionArray[1] = "A fast-firing gun tower.";
-        descriptionArray[2] = "A powerful, slow-firing missile tower.";
-        descriptionArray[3] = "A slowing laser.";
+        descriptionArray[0] = "Short-ranged laser beam. 50% tougher.";
+        descriptionArray[1] = "Fast-firing medium-range gun.";
+        descriptionArray[2] = "Powerful, slow-firing missiles.";
+        descriptionArray[3] = "Slowing laser beam.";
 
         turretArray[0] = standardTurretPrefab1;
 		turretArray[1] = standardTurretPrefab2;
@@ -120,6 +124,13 @@ public class BuildManager : MonoBehaviour
 		buildModeCount = maxBuildModeCount;
 
 		buildModeCounter = UI.transform.Find("BuildModeTimer").GetComponent<Text>();
+
+		GameObject.Find("TurretDisplay").GetComponent<Button>().image.sprite = turretImagesArray[index];
+		GameObject.Find("Range").GetComponent<Text>().text = rangeArray[index];
+		GameObject.Find("Fire Rate").GetComponent<Text>().text = fireRateArray[index];
+		GameObject.Find("Damage").GetComponent<Text>().text = damageArray[index];
+		GameObject.Find("Cost").GetComponent<Text>().text = costArray[index];
+		GameObject.Find("Description").GetComponent<Text>().text = descriptionArray[index];
 
 		GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag("EnemySpawner");
 		foreach (GameObject enemySpawner in enemySpawners)
