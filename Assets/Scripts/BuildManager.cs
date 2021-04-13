@@ -102,7 +102,7 @@ public class BuildManager : MonoBehaviour
 		moneyArray[2] = 200;
 		moneyArray[3] = 100;
 
-        descriptionArray[0] = "Short-ranged laser beam. 50% tougher.";
+        descriptionArray[0] = "Short-ranged laser beam. 50% more HP.";
         descriptionArray[1] = "Fast-firing medium-range gun.";
         descriptionArray[2] = "Powerful, slow-firing missiles.";
         descriptionArray[3] = "Slowing laser beam.";
