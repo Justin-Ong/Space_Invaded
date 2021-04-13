@@ -9,6 +9,8 @@ public class EnemyBehaviour : MonoBehaviour
     public float maxHealth;
     public float speed;
     public float startSpeed;
+    public bool isElite = false;
+    public int value;
 
     [Header("Attacking")]
     public GameObject bulletPrefab;
@@ -27,6 +29,9 @@ public class EnemyBehaviour : MonoBehaviour
     public float rayDistance;
     public float rotationSpeed = 2f;
 
+    [Header("Sounds")]
+    public AudioSource fireSound;
+
     protected Rigidbody ourBody;
     protected HealthSystem ourHealth;
     protected float currAttackTimer;
@@ -40,7 +45,20 @@ public class EnemyBehaviour : MonoBehaviour
         ourBody = GetComponent<Rigidbody>();
         ourHealth = GetComponent<HealthSystem>();
         rotationMod = 0;
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        StartCoroutine("UpdateTarget");
+        if (isElite) {
+            damage *= 1.5f;
+            maxHealth *= 1.5f;
+            ourHealth.maxHealth *= 1.5f;
+            ourHealth.currHealth = ourHealth.maxHealth;
+            Material[] mats = gameObject.transform.Find("Model").GetComponent<Renderer>().materials;
+            foreach (Material mat in mats)
+            {
+                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", Color.red);
+            }
+        }
+        fireSound = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -78,30 +96,35 @@ public class EnemyBehaviour : MonoBehaviour
         speed = startSpeed;
     }
 
-    public virtual void UpdateTarget()
+    public virtual IEnumerator UpdateTarget()
     {
-        GameObject[] turrets = GameObject.FindGameObjectsWithTag(turretTag);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestTurret = null;
-
-        foreach (GameObject turret in turrets)
+        while (true)
         {
-            float distanceToEnemy = Vector3.Distance(transform.position, turret.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            GameObject[] turrets = GameObject.FindGameObjectsWithTag(turretTag);
+            float shortestDistance = Mathf.Infinity;
+            GameObject nearestTurret = null;
+
+            foreach (GameObject turret in turrets)
             {
-                shortestDistance = distanceToEnemy;
-                nearestTurret = turret;
+                float distanceToEnemy = Vector3.Distance(transform.position, turret.transform.position);
+                if (distanceToEnemy < shortestDistance)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestTurret = turret;
+                }
             }
-        }
 
-        // update if target is within range
-        if (nearestTurret != null && shortestDistance <= range)
-        {
-            target = nearestTurret.transform;
-        }
-        else
-        {
-            target = null;
+            // update if target is within range
+            if (nearestTurret != null && shortestDistance <= range)
+            {
+                target = nearestTurret.transform;
+            }
+            else
+            {
+                target = null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -115,6 +138,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public virtual void Shoot()
     {
+        fireSound.Play();
         BulletBehaviour newBullet = Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation).GetComponent<BulletBehaviour>();
         newBullet.speed = 10;
         newBullet.damage = damage;
@@ -214,7 +238,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public virtual void Die()
     {
-        ResourceSystem.money += 10;
+        ResourceSystem.money += value;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }

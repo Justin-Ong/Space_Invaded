@@ -9,24 +9,36 @@ public class CarrierEnemyBehaviour : EnemyBehaviour
     public float spawnTimer;
 
     private float currSpawnTime;
-    private List<GameObject> emptyList = new List<GameObject>();
+    private List<GameObject> minionsList = new List<GameObject>();
+    private int numMinionsWithvalue = 4;
 
     public void Update()
     {
         currSpawnTime += Time.deltaTime;
-        if (currSpawnTime > spawnTimer)
+        if (currSpawnTime > spawnTimer && minionsList.Count < 5)
         {
             GameObject temp = Instantiate(spawnedEnemyPrefab, transform.position + new Vector3(Random.Range(0.1f, 1), Random.Range(0.1f, 1), Random.Range(0.1f, 1)), transform.rotation);
             EnemyBehaviour newEnemy = temp.GetComponent<EnemyBehaviour>();
             newEnemy.waypoints = waypoints;
             newEnemy.currWaypointIndex = currWaypointIndex;
+            newEnemy.isElite = isElite;
+            if (numMinionsWithvalue <= 0)
+            {
+                numMinionsWithvalue--;
+            }
+            else
+            {
+                newEnemy.value = 0;
+            }
             currSpawnTime = 0;
+            minionsList.Add(temp);
         }
+        minionsList.RemoveAll(minion => minion == null);
     }
 
     public override void Die()
     {
-        ResourceSystem.money += 50;
+        ResourceSystem.money += value;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Node : MonoBehaviour
 	public string enemySpawnerTag = "EnemySpawner";
 	public GameObject errorMessage;
 
+	private Color originalColor;
 	private GameObject turret;
 	private Renderer rend;
 	private MeshRenderer meshRend;
@@ -20,6 +22,7 @@ public class Node : MonoBehaviour
 		meshRend = gameObject.GetComponent<MeshRenderer>();
 		meshRend.enabled = false;
 		isBlocked = CheckIfBlocked();
+		originalColor = rend.material.color;
 		if (isBlocked)
 		{
 			rend.material.color = hoverColor;
@@ -28,15 +31,23 @@ public class Node : MonoBehaviour
 
 	public void BuildTurret()
 	{
-		if (turret != null || !meshRend.enabled || isBlocked)
+		if (EventSystem.current.IsPointerOverGameObject())
 		{
-			ShowErrorMessage();
 			return;
 		}
-
-		if (ResourceSystem.money < BuildManager.moneyToBuild)
+		if (turret != null || !meshRend.enabled || isBlocked)
 		{
-			ShowErrorMessage();
+			ShowErrorMessage("Can't build here");
+			return;
+		}
+		if (!BuildManager.buildModeFlag)
+		{
+			ShowErrorMessage("Can't build right now");
+			return;
+		}
+        if (ResourceSystem.money < BuildManager.moneyToBuild)
+		{
+			ShowErrorMessage("Not enough money");
 			return;
 		}
 
@@ -48,21 +59,26 @@ public class Node : MonoBehaviour
 		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), false);
 
 		GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
+		rend.material.color = hoverColor;
 	}
 
 	public void RemoveTurret()
 	{
-		Debug.Log("Goodbye");
+		Destroy(turret);
 		turret = null;
 		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), true);
+		rend.material.color = originalColor;
 	}
 
-	private void ShowErrorMessage()
+	private void ShowErrorMessage(string errMessage)
 	{
-		GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        GameObject newErr = Instantiate(errorMessage, transform.position + Vector3.up * 2, transform.rotation);
 		ErrorMessage err = newErr.GetComponent<ErrorMessage>();
-		if (ResourceSystem.money < BuildManager.moneyToBuild) err.text = "Not enough money!";
-		else err.text = "Can't build here!";
+		err.text = errMessage;
 		err.timeToLive = 2;
 	}
 
@@ -95,6 +111,11 @@ public class Node : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
 		if (other.gameObject.CompareTag("Player"))
 		{
 			meshRend.enabled = true;

@@ -298,7 +298,7 @@ MonoBehaviour:
   grabMask:
     serializedVersion: 2
     m_Bits: 64
-  facing: {fileID: 0}
+  rotateSpeed: 8
 --- !u!65 &6759324552264691574
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6759324552264691528
 Rigidbody:

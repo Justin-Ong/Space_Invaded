@@ -88,7 +88,7 @@ public class LevelGenerator : MonoBehaviour
         }
         else
         {
-            jpParam = new JumpPointParam(searchGrid, startPos, endPos, EndNodeUnWalkableTreatment.ALLOW, DiagonalMovement.Always, HeuristicMode.EUCLIDEAN);
+            jpParam = new JumpPointParam(searchGrid, startPos, endPos, EndNodeUnWalkableTreatment.ALLOW, DiagonalMovement.IfAtLeastOneWalkable, HeuristicMode.EUCLIDEAN);
         }
 
         resultPathList = JumpPointFinder.FindPath(jpParam);

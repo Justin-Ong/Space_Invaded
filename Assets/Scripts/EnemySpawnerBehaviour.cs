@@ -8,14 +8,14 @@ public class WaveObject
     public List<int> enemyType;
     public List<int> numEnemiesToSpawn;
     public List<float> timeBetweenSpawns;
-    public bool immediateStart;
+    public List<bool> isElite;
 
-    public WaveObject(List<int> enemy, List<int> numEnemies, List<float> spawntime, bool start)
+    public WaveObject(List<int> enemy, List<int> numEnemies, List<float> spawntime, List<bool> elite)
     {
         enemyType = enemy;
         numEnemiesToSpawn = numEnemies;
         timeBetweenSpawns = spawntime;
-        immediateStart = start;
+        isElite = elite;
     }
 }
 
@@ -23,11 +23,12 @@ public class EnemySpawnerBehaviour : MonoBehaviour
 {
     public GameObject defencePoint;
     public List<WaveObject> waves;
-    public float timeToFirstSpawn;
     public GameObject TracerPrefab;
-    public static bool TriggerBuildMode;
+    public bool TriggerBuildMode;
+    public bool waveOver;
+    public List<GameObject> bonusEnemies;
+    public List<int> bonusEnemySpawnWaves;
 
-    private float firstSpawnTimer;
     private float randomSpawnTimer;
     private float spawnTimer;
     private float tracerTimer;
@@ -37,68 +38,87 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     private int miniWaveIndex;
     private int currEnemyInWave;
     private List<Vector3> waypoints = new List<Vector3>();
-    
+    private int numBonusEnemiesSpawned;
+
+    public static EnemySpawnerBehaviour self;
 
     void Start()
     {
-        GetWaypoints();
+        GetWaypoints(transform.position);
         currWave = 0;
-        currEnemyInWave = 1;
+        currEnemyInWave = 0;
         miniWaveIndex = 0;
         numWaves = waves.Count;
         numMiniWaves = 0;
         randomSpawnTimer = 2;
-        firstSpawnTimer = 0;
+        waveOver = false;
         if (numWaves > 0)
         {
             numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
         }
         TriggerBuildMode = true;
-        Debug.Log("A large wave of enemies approaching.");
+        numBonusEnemiesSpawned = 0;
+        tracerTimer = 999;
     }
 
     void Update()
     {
         if (!BuildManager.buildModeFlag)
         {
-            firstSpawnTimer += Time.deltaTime;
-            tracerTimer += Time.deltaTime;
-            if (firstSpawnTimer > timeToFirstSpawn)
+            spawnTimer += Time.deltaTime;
+            if (waveOver)
             {
-
-                spawnTimer += Time.deltaTime;
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+                {
+                    TriggerBuildMode = true;
+                    if (currWave == numWaves) {
+                        BuildManager.victoryFlag = true;
+                    }
+                }
+            }
+            else
+            {
+                TriggerBuildMode = false;
+                tracerTimer = 999;
+                if (numBonusEnemiesSpawned < bonusEnemySpawnWaves.Count && currWave == bonusEnemySpawnWaves[numBonusEnemiesSpawned])
+                {
+                    bonusEnemies[numBonusEnemiesSpawned].SetActive(true);
+                    numBonusEnemiesSpawned++;
+                }
                 if (numWaves > 0)
                 {
                     if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
                     {
-                        SpawnEnemy();
+                        if (currEnemyInWave < waves[currWave].numEnemiesToSpawn[miniWaveIndex])
+                        {
+                            SpawnEnemy();
+                        }
                         currEnemyInWave++;
                         spawnTimer = 0;
                     }
                     if (currWave < numWaves && currEnemyInWave > waves[currWave].numEnemiesToSpawn[miniWaveIndex])
                     {
                         miniWaveIndex++;
-                        currEnemyInWave = 1;
+                        currEnemyInWave = 0;
                     }
                     if (currWave < numWaves && miniWaveIndex >= numMiniWaves)
                     {
+                        waveOver = true;
                         currWave++;
                         miniWaveIndex = 0;
-                        TriggerBuildMode = true;
-                        Debug.Log("A large wave of enemies approaching.");
                         if (currWave < numWaves)
                         {
                             numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
-                            if (waves[currWave].immediateStart)
-                            {
-                                spawnTimer = waves[currWave].timeBetweenSpawns[miniWaveIndex] + 1;
-                            }
                         }
                     }
-                    if (currWave >= numWaves && spawnTimer > 1)
+                    if (currWave >= numWaves && spawnTimer > randomSpawnTimer)
                     {
                         SpawnRandomEnemy();
                         spawnTimer = 0;
+                        if (randomSpawnTimer > 0.1)
+                        {
+                            randomSpawnTimer -= 0.01f;
+                        }
                     }
                 }
                 else if (spawnTimer > randomSpawnTimer)
@@ -111,13 +131,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                     }
                 }
             }
-            if (tracerTimer > 3)
-            {
-                SpawnTracer();
-                tracerTimer = 0;
-            }
         }
-
         else
         {
             tracerTimer += Time.deltaTime;
@@ -130,9 +144,9 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         }
     }
 
-    void GetWaypoints()
+    public void GetWaypoints(Vector3 pos)
     {
-        waypoints = References.levelGrid.GetPath(transform.position);
+        waypoints = References.levelGrid.GetPath(pos);
     }
 
     void SpawnEnemy()
@@ -140,12 +154,20 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         GameObject newEnemy = Instantiate(References.enemyTypes[waves[currWave].enemyType[miniWaveIndex]], transform.position, transform.rotation);
         EnemyBehaviour newEnemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
         newEnemyBehaviour.waypoints = waypoints;
+        if (waves[currWave].isElite[miniWaveIndex])
+        {
+            newEnemyBehaviour.isElite = true;
+        }
     }
     
     void SpawnRandomEnemy()
     {
         GameObject newEnemy = Instantiate(References.enemyTypes[Random.Range(0, References.numEnemyTypes)], transform.position, transform.rotation);
         EnemyBehaviour newEnemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
+        if (Random.Range(0, 2) == 0)
+        {
+            newEnemyBehaviour.isElite = true;
+        }
         newEnemyBehaviour.waypoints = waypoints;
     }
 

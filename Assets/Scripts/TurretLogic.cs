@@ -23,6 +23,10 @@ public class TurretLogic : MonoBehaviour
     [Header("Use Laser Slow (No Damager)")]
     public bool useSlowLaser = false;
     public float slowPercentage = 0.8f;
+    // public AudioSource slowLaserSound;
+
+    [Header("Use Missile")]
+    public bool isMissile = false;
 
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
@@ -31,39 +35,48 @@ public class TurretLogic : MonoBehaviour
     public float turnSpeed = 10f;
 
     public Transform firePoint;
+    public AudioSource fireSound;
+
 
     public Node node;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        StartCoroutine("UpdateTarget");
+        fireSound = GetComponent<AudioSource>();
     }
 
-    void UpdateTarget()
+    IEnumerator UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
-
-        foreach(GameObject enemy in enemies)
+        while (true)
         {
-            // update which is the nearest enemy
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+            float shortestDistance = Mathf.Infinity;
+            GameObject nearestEnemy = null;
+
+            foreach (GameObject enemy in enemies)
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                // update which is the nearest enemy
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy < shortestDistance)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
             }
-        }
 
-        // update if target is within range
-        if (nearestEnemy != null && shortestDistance <= range) 
-        {
-            target = nearestEnemy.transform;
-        } else 
-        {
-            target = null;
+            // update if target is within range
+            if (nearestEnemy != null && shortestDistance <= range)
+            {
+                target = nearestEnemy.transform;
+            }
+            else
+            {
+                target = null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -104,6 +117,7 @@ public class TurretLogic : MonoBehaviour
 
     void SlowLaser()
     {
+        fireSound.Play();
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
 
@@ -115,6 +129,7 @@ public class TurretLogic : MonoBehaviour
 
     void Laser()
     {
+        fireSound.Play();
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, firePoint.position);
@@ -129,11 +144,19 @@ public class TurretLogic : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y, 0f); // rotate only y-axis
+        if (isMissile)
+        {
+            partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); // rotate only y-axis
+        }
+        else
+        {
+            partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y, 0f); // rotate around z-axis
+        }
     }
 
     void Shoot() 
     {
+        fireSound.Play();
         GameObject bulletGO = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.damage = damage;
@@ -152,6 +175,5 @@ public class TurretLogic : MonoBehaviour
     public void Die()
     {
         node.RemoveTurret();
-        Destroy(gameObject.transform.root.gameObject);
     }
 }

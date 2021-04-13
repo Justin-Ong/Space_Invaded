@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
 
 public class BuildManager : MonoBehaviour
 {
-	//private float fixedDeltaTime;
 	public static BuildManager instance;
-	public static bool buildModeFlag = false;
+	public static bool buildModeFlag = true;
 	public static bool pauseFlag = false;
+	public static bool victoryFlag = false;
 
 	void Awake()
 	{
@@ -17,7 +19,10 @@ public class BuildManager : MonoBehaviour
 			return;
 		}
 		instance = this;
-		//fixedDeltaTime = Time.fixedDeltaTime;
+		buildModeFlag = true;
+		pauseFlag = false;
+		victoryFlag = false;
+		Time.timeScale = 1;
 	}
 
 	public GameObject standardTurretPrefab1;
@@ -37,14 +42,28 @@ public class BuildManager : MonoBehaviour
 	private string[] damageArray;
 	private string[] costArray;
 	private int[] moneyArray;
+    private string[] descriptionArray;
 
 	public Sprite TurretImage1;
 	public Sprite TurretImage2;
 	public Sprite TurretImage3;
 	public Sprite TurretImage4;
 
+	public GameObject UI;
+	public int maxBuildModeCount = 60;
 	private float remainingTime;
-	private int count;
+	private int buildModeCount;
+	private Text buildModeCounter;
+
+	// Audio Prefabs
+	public GameObject audioEnterBuildingPhase;
+	public GameObject audioEnterGamePhase;
+
+	// Pathing updates
+	List<EnemySpawnerBehaviour> spawners = new List<EnemySpawnerBehaviour>();
+	List<Vector3> pos = new List<Vector3>();
+	Thread thread;
+	bool threadRunning;
 
 	void Start()
 	{
@@ -56,33 +75,39 @@ public class BuildManager : MonoBehaviour
 		damageArray = new string[numStatTypes];
 		costArray = new string[numStatTypes];
 		moneyArray = new int[numStatTypes];
+        descriptionArray = new string[numStatTypes];
 
-		rangeArray[0] = "Range: 9";
+		rangeArray[0] = "Range: 8";
 		rangeArray[1] = "Range: 15";
-		rangeArray[2] = "Range: 15";
-		rangeArray[3] = "Range: 8";
+		rangeArray[2] = "Range: 20";
+		rangeArray[3] = "Range: 10";
 
-		fireRateArray[0] = "Fire Rate: 0.5";
-		fireRateArray[1] = "Fire Rate: 2";
-		fireRateArray[2] = "Fire Rate: 2";
-		fireRateArray[3] = "Laser";
+		fireRateArray[0] = "Fire Rate: Constant";
+		fireRateArray[1] = "Fire Rate: 4/s";
+		fireRateArray[2] = "Fire Rate: 0.75/s";
+		fireRateArray[3] = "Fire Rate: Constant";
 
-		damageArray[0] = "Damage: 10";
-		damageArray[1] = "Damage: 1";
-		damageArray[2] = "Damage: 5";
-		damageArray[3] = "Damage: 0";
+		damageArray[0] = "Damage: 6/s";
+		damageArray[1] = "Damage: 2/shot";
+		damageArray[2] = "Damage: 20/shot";
+		damageArray[3] = "Slow: 60%";
 
 		costArray[0] = "Cost: 50";
 		costArray[1] = "Cost: 100";
 		costArray[2] = "Cost: 200";
-		costArray[3] = "Cost: 150";
+		costArray[3] = "Cost: 100";
 
 		moneyArray[0] = 50;
 		moneyArray[1] = 100;
 		moneyArray[2] = 200;
-		moneyArray[3] = 150;
+		moneyArray[3] = 100;
 
-		turretArray[0] = standardTurretPrefab1;
+        descriptionArray[0] = "Short-ranged laser beam. 50% more HP.";
+        descriptionArray[1] = "Fast-firing medium-range gun.";
+        descriptionArray[2] = "Powerful, slow-firing missiles.";
+        descriptionArray[3] = "Slowing laser beam.";
+
+        turretArray[0] = standardTurretPrefab1;
 		turretArray[1] = standardTurretPrefab2;
 		turretArray[2] = standardTurretPrefab3;
 		turretArray[3] = standardTurretPrefab4;
@@ -96,7 +121,26 @@ public class BuildManager : MonoBehaviour
 		moneyToBuild = 50;
 
 		remainingTime = 1f;
-		count = 30;
+		buildModeCount = maxBuildModeCount;
+
+		buildModeCounter = UI.transform.Find("BuildModeTimer").GetComponent<Text>();
+
+		GameObject.Find("TurretDisplay").GetComponent<Button>().image.sprite = turretImagesArray[index];
+		GameObject.Find("Range").GetComponent<Text>().text = rangeArray[index];
+		GameObject.Find("Fire Rate").GetComponent<Text>().text = fireRateArray[index];
+		GameObject.Find("Damage").GetComponent<Text>().text = damageArray[index];
+		GameObject.Find("Cost").GetComponent<Text>().text = costArray[index];
+		GameObject.Find("Description").GetComponent<Text>().text = descriptionArray[index];
+
+		GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag("EnemySpawner");
+		foreach (GameObject enemySpawner in enemySpawners)
+		{
+			spawners.Add(enemySpawner.GetComponent<EnemySpawnerBehaviour>());
+			pos.Add(enemySpawner.transform.position);
+		}
+		threadRunning = true;
+		thread = new Thread(() => PathingRefresh(spawners, pos));
+		thread.Start();
 	}
 
 	void Update()
@@ -111,12 +155,16 @@ public class BuildManager : MonoBehaviour
 				GameObject.Find("Fire Rate").GetComponent<Text>().text = fireRateArray[index];
 				GameObject.Find("Damage").GetComponent<Text>().text = damageArray[index];
 				GameObject.Find("Cost").GetComponent<Text>().text = costArray[index];
+                GameObject.Find("Description").GetComponent<Text>().text = descriptionArray[index];
 
-				turretToBuild = turretArray[index];
+                turretToBuild = turretArray[index];
 				moneyToBuild = moneyArray[index];
 			}
 		}
-
+		if (victoryFlag)
+		{
+			Time.timeScale = 0;
+		}
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			if (pauseFlag)
@@ -130,50 +178,51 @@ public class BuildManager : MonoBehaviour
 				pauseFlag = true;
 			}
 		}
-		if (EnemySpawnerBehaviour.TriggerBuildMode)
+
+		int shouldBuildCount = 0;
+		foreach (EnemySpawnerBehaviour spawner in spawners) {
+			if (spawner.TriggerBuildMode == true)
+			{
+				shouldBuildCount++;
+			}
+		}
+		if (shouldBuildCount == spawners.Count)
 		{
 			buildModeFlag = true;
-			if (count == 0)
+			if (buildModeCount <= 0)
 			{
-				Debug.Log("You have no time left.");
-				count = 30;
+				buildModeCounter.text = "";
+				buildModeCount = maxBuildModeCount;
+				Instantiate(audioEnterBuildingPhase);
 				buildModeFlag = false;
 				remainingTime = 1f;
-				EnemySpawnerBehaviour.TriggerBuildMode = false;
+				foreach (EnemySpawnerBehaviour spawner in spawners)
+				{
+					spawner.TriggerBuildMode = false;
+					spawner.waveOver = false;
+				}
 			}
-			if (Input.GetKeyDown("space"))
+			if (Input.GetKeyDown(KeyCode.Space))
 			{
-				Debug.Log("You have exited Building mode.");
-				count = 30;
+				buildModeCounter.text = "";
+				buildModeCount = maxBuildModeCount;
+				Instantiate(audioEnterGamePhase);
 				buildModeFlag = false;
 				remainingTime = 1f;
-				EnemySpawnerBehaviour.TriggerBuildMode = false;
+				foreach (EnemySpawnerBehaviour spawner in spawners)
+				{
+					spawner.TriggerBuildMode = false;
+					spawner.waveOver = false;
+				}
 			}
-
-			/*			if (buildModeFlag)
-						{
-							Time.timeScale = 1;
-							Time.fixedDeltaTime *= 1000;
-							buildModeFlag = false;
-							PlayerControls.instance.speed = 5;
-							PlayerTracker.instance.rotateSpeed = 8;
-						}
-						else
-						{
-							Time.timeScale = 0.001f;
-							Time.fixedDeltaTime /= 1000;
-							buildModeFlag = true;
-							PlayerControls.instance.speed = 5000;
-							PlayerTracker.instance.rotateSpeed = 8000;
-						}*/
 		}
 		if (buildModeFlag) 
 		{
+			buildModeCounter.text = buildModeCount.ToString();
 			remainingTime -= Time.deltaTime;
 			if (remainingTime < 0)
                 {
-				Debug.Log(count);
-				count -= 1;
+				buildModeCount -= 1;
 				remainingTime = 1f;
 			}
 		}
@@ -186,4 +235,22 @@ public class BuildManager : MonoBehaviour
 	{
 		return turretToBuild;
 	}
+
+	private void PathingRefresh(List<EnemySpawnerBehaviour> spawners, List<Vector3> pos)
+	{
+		while (threadRunning)
+		{
+			for (int i = 0; i < spawners.Count; i++)
+			{
+				spawners[i].GetWaypoints(pos[i]);
+			}
+			Thread.Sleep(500);
+		}
+	}
+
+    private void OnDisable()
+    {
+		threadRunning = false;
+		thread.Join();
+    }
 }

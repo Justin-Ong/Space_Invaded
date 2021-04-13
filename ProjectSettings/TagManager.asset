@@ -9,6 +9,7 @@ TagManager:
   - EnemySpawner
   - DefencePoint
   - Turret
+  - Tracer
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class BonusEnemyBehaviour : EnemyBehaviour
 {
+    void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     void FixedUpdate()
     {
         currAttackTimer += Time.deltaTime;
@@ -32,7 +37,7 @@ public class BonusEnemyBehaviour : EnemyBehaviour
 
     public override void Die()
     {
-        ResourceSystem.money += 50;
+        ResourceSystem.money += value;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }
