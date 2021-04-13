@@ -73,35 +73,35 @@ public class BuildManager : MonoBehaviour
 		moneyArray = new int[numStatTypes];
         descriptionArray = new string[numStatTypes];
 
-		rangeArray[0] = "Range: 9";
+		rangeArray[0] = "Range: 8";
 		rangeArray[1] = "Range: 15";
-		rangeArray[2] = "Range: 15";
-		rangeArray[3] = "Range: 8";
+		rangeArray[2] = "Range: 20";
+		rangeArray[3] = "Range: 10";
 
-		fireRateArray[0] = "Fire Rate: 0.5";
-		fireRateArray[1] = "Fire Rate: 2";
-		fireRateArray[2] = "Fire Rate: 2";
-		fireRateArray[3] = "Laser";
+		fireRateArray[0] = "Fire Rate: Constant";
+		fireRateArray[1] = "Fire Rate: 6 per sec";
+		fireRateArray[2] = "Fire Rate: 1 per sec";
+		fireRateArray[3] = "Fire Rate: Constant";
 
-		damageArray[0] = "Damage: 10";
-		damageArray[1] = "Damage: 1";
-		damageArray[2] = "Damage: 5";
+		damageArray[0] = "Damage: 5 per second";
+		damageArray[1] = "Damage: 1 per shot";
+		damageArray[2] = "Damage: 10 per shot";
 		damageArray[3] = "Damage: 0";
 
 		costArray[0] = "Cost: 50";
 		costArray[1] = "Cost: 100";
 		costArray[2] = "Cost: 200";
-		costArray[3] = "Cost: 150";
+		costArray[3] = "Cost: 100";
 
 		moneyArray[0] = 50;
 		moneyArray[1] = 100;
 		moneyArray[2] = 200;
-		moneyArray[3] = 150;
+		moneyArray[3] = 100;
 
-        descriptionArray[0] = "A basic lazer turret.";
-        descriptionArray[1] = "A basic gun tower.";
-        descriptionArray[2] = "A more powerful gun tower.";
-        descriptionArray[3] = "A lazer to slow down the enemies.";
+        descriptionArray[0] = "A short-ranged laser turret.";
+        descriptionArray[1] = "A fast-firing gun tower.";
+        descriptionArray[2] = "A powerful, slow-firing missile tower.";
+        descriptionArray[3] = "A slowing laser.";
 
         turretArray[0] = standardTurretPrefab1;
 		turretArray[1] = standardTurretPrefab2;
