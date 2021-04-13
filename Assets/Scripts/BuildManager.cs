@@ -9,6 +9,7 @@ public class BuildManager : MonoBehaviour
 	public static BuildManager instance;
 	public static bool buildModeFlag = true;
 	public static bool pauseFlag = false;
+	public static bool victoryFlag = false;
 
 	void Awake()
 	{
@@ -149,7 +150,10 @@ public class BuildManager : MonoBehaviour
 				moneyToBuild = moneyArray[index];
 			}
 		}
-
+		if (victoryFlag)
+		{
+			Time.timeScale = 0;
+		}
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			if (pauseFlag)

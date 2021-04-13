@@ -76,9 +76,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f494da3b37b304fa74e049c96b73e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 10
   speed: 8
   startSpeed: 0
+  isElite: 0
+  value: 5
   bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
   attackTimer: 0
   range: 0
@@ -92,6 +94,7 @@ MonoBehaviour:
     m_Bits: 8
   rayDistance: 8
   rotationSpeed: 3
+  fireSound: {fileID: 0}
 --- !u!114 &5446250793318463347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ee5d6a5e40877458143528ed4212bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 10
   healthBarPrefab: {fileID: 1864576005592397735, guid: 9b22de120c8154749b36a87289a37a11, type: 3}
   currHealth: 0
 --- !u!1001 &6552904870365612407

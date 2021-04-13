@@ -175,6 +175,5 @@ public class TurretLogic : MonoBehaviour
     public void Die()
     {
         node.RemoveTurret();
-        Destroy(gameObject.transform.root.gameObject);
     }
 }

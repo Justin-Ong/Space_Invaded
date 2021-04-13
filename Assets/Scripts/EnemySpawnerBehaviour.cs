@@ -58,6 +58,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         }
         TriggerBuildMode = true;
         numBonusEnemiesSpawned = 0;
+        tracerTimer = 999;
     }
 
     void Update()
@@ -70,11 +71,15 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
                 {
                     TriggerBuildMode = true;
+                    if (currWave == numWaves) {
+                        BuildManager.victoryFlag = true;
+                    }
                 }
             }
             else
             {
                 TriggerBuildMode = false;
+                tracerTimer = 999;
                 if (numBonusEnemiesSpawned < bonusEnemySpawnWaves.Count && currWave == bonusEnemySpawnWaves[numBonusEnemiesSpawned])
                 {
                     bonusEnemies[numBonusEnemiesSpawned].SetActive(true);
@@ -103,10 +108,14 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                             numMiniWaves = waves[currWave].numEnemiesToSpawn.Count;
                         }
                     }
-                    if (currWave >= numWaves && spawnTimer > 1)
+                    if (currWave >= numWaves && spawnTimer > randomSpawnTimer)
                     {
                         SpawnRandomEnemy();
                         spawnTimer = 0;
+                        if (randomSpawnTimer > 0.1)
+                        {
+                            randomSpawnTimer -= 0.01f;
+                        }
                     }
                 }
                 else if (spawnTimer > randomSpawnTimer)
@@ -152,6 +161,10 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     {
         GameObject newEnemy = Instantiate(References.enemyTypes[Random.Range(0, References.numEnemyTypes)], transform.position, transform.rotation);
         EnemyBehaviour newEnemyBehaviour = newEnemy.GetComponent<EnemyBehaviour>();
+        if (Random.Range(0, 2) == 0)
+        {
+            newEnemyBehaviour.isElite = true;
+        }
         newEnemyBehaviour.waypoints = waypoints;
     }
 

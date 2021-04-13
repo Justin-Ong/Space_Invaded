@@ -385,6 +385,7 @@ MonoBehaviour:
   speed: 3
   startSpeed: 0
   isElite: 0
+  value: 300
   bulletPrefab: {fileID: 220547967940598523, guid: f89f5303e8286264b9f411eac0b9947f, type: 3}
   attackTimer: 0
   range: 0
@@ -399,6 +400,7 @@ MonoBehaviour:
     m_Bits: 8
   rayDistance: 6
   rotationSpeed: 1
+  fireSound: {fileID: 0}
 --- !u!54 &2585323209110351730
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -427,9 +429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ee5d6a5e40877458143528ed4212bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 400
   healthBarPrefab: {fileID: 1864576005592397735, guid: 9b22de120c8154749b36a87289a37a11, type: 3}
-  currHealth: 300
+  currHealth: 400
 --- !u!136 &1907836122184496018
 CapsuleCollider:
   m_ObjectHideFlags: 0

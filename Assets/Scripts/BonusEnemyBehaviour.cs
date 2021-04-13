@@ -37,7 +37,7 @@ public class BonusEnemyBehaviour : EnemyBehaviour
 
     public override void Die()
     {
-        ResourceSystem.money += 50;
+        ResourceSystem.money += value;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }

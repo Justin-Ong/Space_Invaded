@@ -82,6 +82,8 @@ MonoBehaviour:
   maxHealth: 200
   speed: 1
   startSpeed: 0
+  isElite: 0
+  value: 75
   bulletPrefab: {fileID: 0}
   attackTimer: 0
   range: 0
@@ -95,6 +97,7 @@ MonoBehaviour:
     m_Bits: 8
   rayDistance: 8
   rotationSpeed: 1
+  fireSound: {fileID: 0}
   spawnedEnemyPrefab: {fileID: 1720898423756095767, guid: ca1f2ebb4afb28a42b971cc6c670e22a, type: 3}
   spawnTimer: 1
 --- !u!65 &8191598216844425959

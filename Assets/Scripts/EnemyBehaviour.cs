@@ -10,6 +10,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float speed;
     public float startSpeed;
     public bool isElite = false;
+    public int value;
 
     [Header("Attacking")]
     public GameObject bulletPrefab;
@@ -237,7 +238,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public virtual void Die()
     {
-        ResourceSystem.money += 10;
+        ResourceSystem.money += value;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }

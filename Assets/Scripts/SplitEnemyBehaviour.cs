@@ -16,8 +16,9 @@ public class SplitEnemyBehaviour : EnemyBehaviour
             SpawnedEnemyBehaviour newEnemy = temp.GetComponent<SpawnedEnemyBehaviour>();
             newEnemy.waypoints = waypoints;
             newEnemy.currWaypointIndex = currWaypointIndex;
+            newEnemy.isElite = isElite;
         }
-        ResourceSystem.money += 20;
+        ResourceSystem.money += value;
         GameObject.Find("Money").GetComponent<Text>().text = "Money:" + ResourceSystem.money;
         Destroy(gameObject);
     }

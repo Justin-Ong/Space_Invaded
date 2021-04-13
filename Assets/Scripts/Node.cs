@@ -64,6 +64,7 @@ public class Node : MonoBehaviour
 
 	public void RemoveTurret()
 	{
+		Destroy(turret);
 		turret = null;
 		References.levelGrid.searchGrid.SetWalkableAt((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y), (int)Mathf.Floor(transform.position.z), true);
 		rend.material.color = originalColor;
