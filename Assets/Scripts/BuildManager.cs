@@ -167,7 +167,15 @@ public class BuildManager : MonoBehaviour
 				pauseFlag = true;
 			}
 		}
-		if (EnemySpawnerBehaviour.TriggerBuildMode)
+
+		int shouldBuildCount = 0;
+		foreach (EnemySpawnerBehaviour spawner in spawners) {
+			if (spawner.TriggerBuildMode == true)
+			{
+				shouldBuildCount++;
+			}
+		}
+		if (shouldBuildCount == spawners.Count)
 		{
 			buildModeFlag = true;
 			if (buildModeCount <= 0)
@@ -177,8 +185,11 @@ public class BuildManager : MonoBehaviour
 				Instantiate(audioEnterBuildingPhase);
 				buildModeFlag = false;
 				remainingTime = 1f;
-				EnemySpawnerBehaviour.TriggerBuildMode = false;
-				EnemySpawnerBehaviour.waveOver = false;
+				foreach (EnemySpawnerBehaviour spawner in spawners)
+				{
+					spawner.TriggerBuildMode = false;
+					spawner.waveOver = false;
+				}
 			}
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
@@ -187,8 +198,11 @@ public class BuildManager : MonoBehaviour
 				Instantiate(audioEnterGamePhase);
 				buildModeFlag = false;
 				remainingTime = 1f;
-				EnemySpawnerBehaviour.TriggerBuildMode = false;
-				EnemySpawnerBehaviour.waveOver = false;
+				foreach (EnemySpawnerBehaviour spawner in spawners)
+				{
+					spawner.TriggerBuildMode = false;
+					spawner.waveOver = false;
+				}
 			}
 		}
 		if (buildModeFlag) 

@@ -24,8 +24,8 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     public GameObject defencePoint;
     public List<WaveObject> waves;
     public GameObject TracerPrefab;
-    public static bool TriggerBuildMode;
-    public static bool waveOver;
+    public bool TriggerBuildMode;
+    public bool waveOver;
     public List<GameObject> bonusEnemies;
     public List<int> bonusEnemySpawnWaves;
 
@@ -46,7 +46,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
     {
         GetWaypoints(transform.position);
         currWave = 0;
-        currEnemyInWave = 1;
+        currEnemyInWave = 0;
         miniWaveIndex = 0;
         numWaves = waves.Count;
         numMiniWaves = 0;
@@ -89,14 +89,17 @@ public class EnemySpawnerBehaviour : MonoBehaviour
                 {
                     if (currWave < numWaves && spawnTimer > waves[currWave].timeBetweenSpawns[miniWaveIndex])
                     {
-                        SpawnEnemy();
+                        if (currEnemyInWave < waves[currWave].numEnemiesToSpawn[miniWaveIndex])
+                        {
+                            SpawnEnemy();
+                        }
                         currEnemyInWave++;
                         spawnTimer = 0;
                     }
                     if (currWave < numWaves && currEnemyInWave > waves[currWave].numEnemiesToSpawn[miniWaveIndex])
                     {
                         miniWaveIndex++;
-                        currEnemyInWave = 1;
+                        currEnemyInWave = 0;
                     }
                     if (currWave < numWaves && miniWaveIndex >= numMiniWaves)
                     {
